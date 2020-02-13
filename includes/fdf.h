@@ -18,6 +18,7 @@
 */
 
 # define USAGE "usage: ./fdf target_file\n"
+# define LEAK "8===3< < < "
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -29,8 +30,9 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <math.h>
-# include <errno.h>
+# include <errno.h> //man intro(2)
 
 /*
 ** ------------------------- Structures Definition -----------------------------

@@ -21,6 +21,8 @@ static void		ft_usage_argc(int argc)
 {
 	if (argc != 2)
 	{
+		errno = 22;
+		perror("ft_usage_argc()");
 		ft_putstr(USAGE);
 		exit(1);
 	}
@@ -29,5 +31,5 @@ static void		ft_usage_argc(int argc)
 void	ft_check_args(int argc, char **argv)
 {
 	ft_usage_argc(argc);
-	free(argv);
+	argv++;
 }

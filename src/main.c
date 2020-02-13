@@ -15,6 +15,7 @@
 int				main(int argc, char **argv)
 {
 	ft_check_args(argc, argv);
-	ft_putstr("penis");
+	ft_putstr(LEAK);
+	perror("main()");
 	return (0);
 }
