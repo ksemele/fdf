@@ -293,6 +293,9 @@
 		<Unit filename="/Users/cghael/fdf/libft/src/ft_toupper.c">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/cghael/fdf/src/ft_check_args.c">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/cghael/fdf/src/main.c">
 			<Option target="fdf"/>
 		</Unit>

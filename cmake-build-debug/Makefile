@@ -1878,6 +1878,33 @@ libft/src/ft_toupper.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/libft/src/ft_toupper.c.s
 .PHONY : libft/src/ft_toupper.c.s
 
+src/ft_check_args.o: src/ft_check_args.c.o
+
+.PHONY : src/ft_check_args.o
+
+# target to build an object file
+src/ft_check_args.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/ft_check_args.c.o
+.PHONY : src/ft_check_args.c.o
+
+src/ft_check_args.i: src/ft_check_args.c.i
+
+.PHONY : src/ft_check_args.i
+
+# target to preprocess a source file
+src/ft_check_args.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/ft_check_args.c.i
+.PHONY : src/ft_check_args.c.i
+
+src/ft_check_args.s: src/ft_check_args.c.s
+
+.PHONY : src/ft_check_args.s
+
+# target to generate assembly for a file
+src/ft_check_args.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/src/ft_check_args.c.s
+.PHONY : src/ft_check_args.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -2109,6 +2136,9 @@ help:
 	@echo "... libft/src/ft_toupper.o"
 	@echo "... libft/src/ft_toupper.i"
 	@echo "... libft/src/ft_toupper.s"
+	@echo "... src/ft_check_args.o"
+	@echo "... src/ft_check_args.i"
+	@echo "... src/ft_check_args.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

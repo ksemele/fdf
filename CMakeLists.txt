@@ -78,4 +78,5 @@ add_executable(fdf
         libft/src/ft_tolower.c
         libft/src/ft_toupper.c
         includes/fdf.h
-        src/main.c)
+        src/main.c
+        src/ft_check_args.c)

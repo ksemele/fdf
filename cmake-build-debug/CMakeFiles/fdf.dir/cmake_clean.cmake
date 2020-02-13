@@ -64,6 +64,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdf.dir/libft/src/ft_strtrim.c.o"
   "CMakeFiles/fdf.dir/libft/src/ft_tolower.c.o"
   "CMakeFiles/fdf.dir/libft/src/ft_toupper.c.o"
+  "CMakeFiles/fdf.dir/src/ft_check_args.c.o"
   "CMakeFiles/fdf.dir/src/main.c.o"
   "fdf"
   "fdf.pdb"

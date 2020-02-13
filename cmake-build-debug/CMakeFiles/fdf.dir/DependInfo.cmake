@@ -69,6 +69,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/cghael/fdf/libft/src/ft_strtrim.c" "/Users/cghael/fdf/cmake-build-debug/CMakeFiles/fdf.dir/libft/src/ft_strtrim.c.o"
   "/Users/cghael/fdf/libft/src/ft_tolower.c" "/Users/cghael/fdf/cmake-build-debug/CMakeFiles/fdf.dir/libft/src/ft_tolower.c.o"
   "/Users/cghael/fdf/libft/src/ft_toupper.c" "/Users/cghael/fdf/cmake-build-debug/CMakeFiles/fdf.dir/libft/src/ft_toupper.c.o"
+  "/Users/cghael/fdf/src/ft_check_args.c" "/Users/cghael/fdf/cmake-build-debug/CMakeFiles/fdf.dir/src/ft_check_args.c.o"
   "/Users/cghael/fdf/src/main.c" "/Users/cghael/fdf/cmake-build-debug/CMakeFiles/fdf.dir/src/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

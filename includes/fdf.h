@@ -17,11 +17,19 @@
 ** --------------------------- Macros \ Static ---------------------------------
 */
 
+# define USAGE "usage: ./fdf target_file\n"
 
 /*
 ** -------------------------- External Headers ---------------------------------
 */
 
+# include "libft.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <stdlib.h>
+# include <math.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -34,5 +42,6 @@
 ** -----------------------------------------------------------------------------
 */
 
+void				ft_check_args(int argc, char **argv);
 
 #endif //FDF_H
