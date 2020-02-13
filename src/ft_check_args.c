@@ -29,4 +29,5 @@ static void		ft_usage_argc(int argc)
 void	ft_check_args(int argc, char **argv)
 {
 	ft_usage_argc(argc);
+	free(argv);
 }

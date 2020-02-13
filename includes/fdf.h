@@ -30,6 +30,7 @@
 # include <sys/uio.h>
 # include <stdlib.h>
 # include <math.h>
+# include <errno.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------

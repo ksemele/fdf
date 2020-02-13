@@ -20,8 +20,8 @@ LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
 LIBFT_HEADERS = $(LIBFT_DIR)includes/
 
-HEADERS_LIST = fdf.h
-HEADERS_DIR = includes/
+HEADERS_LIST =	fdf.h
+HEADERS_DIR =	includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 SRC_DIR = src/
@@ -46,8 +46,7 @@ END = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	cp $(LIBFT) ./$(NAME)
-	@$(CC) $(CFLAGS) -I $(HEADERS) $(LIBFT_FLAGS) -o $@
+	@$(CC) $(CFLAGS) -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) -o $@ $(SRC) $(LIBFT_FLAGS)
 	@echo "\n$(NAME): $(GRN)*.o files created$(END)"
     @echo "$(NAME): $(GRN)$(NAME) created$(END)"
 
@@ -55,8 +54,8 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(NAME): $(GRN)$(OBJ_DIR) created$(END)"
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
-	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c
+	@$(CC) $(CFLAGS) -c -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) $< -o $@
 	@echo "$(GRN).$(END)\c"
 
 $(LIBFT):

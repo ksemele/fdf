@@ -15,5 +15,6 @@
 int				main(int argc, char **argv)
 {
 	ft_check_args(argc, argv);
+	ft_putstr("penis");
 	return (0);
 }
