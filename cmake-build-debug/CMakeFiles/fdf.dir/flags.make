@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu90
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/cghael/fdf/. -I/Users/cghael/fdf/includes -I/Users/cghael/fdf/libft -I/Users/cghael/fdf/libft/includes -I/Users/cghael/fdf/libft/src -I/Users/cghael/fdf/src 
+C_INCLUDES = -I/Users/cghael/fdf/. -I/Users/cghael/fdf/includes -I/Users/cghael/fdf/libft -I/Users/cghael/fdf/libft/includes -I/Users/cghael/fdf/libft/src -I/Users/cghael/fdf/src -I/Users/cghael/fdf/minilibx_macos 
 

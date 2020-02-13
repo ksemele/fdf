@@ -82,6 +82,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../libft/includes"
   "../libft/src"
   "../src"
+  "../minilibx_macos"
   )
 
 # Targets to which this target links.

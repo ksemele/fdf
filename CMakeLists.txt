@@ -9,6 +9,7 @@ include_directories(libft)
 include_directories(libft/includes)
 include_directories(libft/src)
 include_directories(src)
+include_directories(minilibx_macos)
 
 add_executable(fdf
         libft/includes/libft.h
