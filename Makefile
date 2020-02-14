@@ -48,7 +48,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
 	@$(CC) $(CFLAGS) -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) -o $@ $(SRC) $(LIBFT_FLAGS)
 	@echo "\n$(NAME): $(GRN)*.o files created$(END)"
-    @echo "$(NAME): $(GRN)$(NAME) created$(END)"
+	@echo "\n$(NAME): $(GRN)$(NAME) created$(END)"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)

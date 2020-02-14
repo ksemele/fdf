@@ -17,5 +17,6 @@ int				main(int argc, char **argv)
 	ft_check_args(argc, argv);
 	ft_putstr(LEAK);
 	perror("main()");
+	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is ft_printf! \e[1;36m:3\e[m\n");
 	return (0);
 }
