@@ -3,3 +3,4 @@ fdf
 .idea
 cmake-build-debug/
 *.o
+objects/
