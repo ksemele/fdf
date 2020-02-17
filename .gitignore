@@ -1,9 +1,7 @@
-.DS_Store
-fdf
-.idea
 cmake-build-debug/
-*.o
 objects/
 minilibx_m/
-*.o
+.idea
+.DS_Store
+fdf
 *.o

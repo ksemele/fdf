@@ -13,12 +13,14 @@
 #include "fdf.h"
 #include "mlx.h"
 
-int				ft_deal_key(int key, t_mlx *param)
+int				ft_deal_key(int key, t_mlx *mlx_s)
 {
+#define CYBER 0x9B1F6A
 	if (key != 900)
-		ft_printf("\n", param);
+		ft_printf("\n", mlx_s);
 	ft_printf("key is: int [%1$d]", key);
-	mlx_pixel_put(param->mlx_ptr, param->win_ptr, 50, 50, 255);
+	mlx_s->color = (int)CYBER;
+	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);
 	return (0);
 }
 
