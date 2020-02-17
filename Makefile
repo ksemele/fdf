@@ -44,6 +44,7 @@ OBJ = $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
 GRN = \033[0;32m
 RED = \033[0;31m
+YEL = \033[1;33m
 END = \033[0m
 
 .PHONY: all clean fclean re
