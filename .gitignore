@@ -6,3 +6,4 @@ cmake-build-debug/
 objects/
 minilibx_m/
 *.o
+*.o
