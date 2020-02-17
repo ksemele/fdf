@@ -9,9 +9,11 @@ include_directories(libft)
 include_directories(libft/includes)
 include_directories(libft/src)
 include_directories(src)
+include_directories(minilibx_o)
 
 add_executable(fdf
         includes/fdf.h
+        minilibx_o/mlx.h
         libft/includes/ft_printf.h
         libft/includes/libft.h
         libft/src/ft_abs.c

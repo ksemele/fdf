@@ -13,62 +13,74 @@
 NAME = fdf
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-LIBFT_FLAGS = -L./$(LIBFT_DIR) -lft
+FLAGS = -Wall -Werror -Wextra -O3
+LIBRARIES = -lmlx -lm -lft -L$(LIBFT_DIR) -L$(MINILIBX_DIR) -framework OpenGL -framework AppKit
+INCLUDES = -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) -I$(MINILIBX_HEADERS)
 
-LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
+LIBFT_DIR = ./libft/
 LIBFT_HEADERS = $(LIBFT_DIR)includes/
 
-HEADERS_LIST =	fdf.h
-HEADERS_DIR =	includes/
+MINILIBX = $(MINILIBX_DIR)libmlx.a
+MINILIBX_DIR = ./minilibx_o/
+MINILIBX_HEADERS = $(MINILIBX_DIR)
+
+HEADERS_LIST = fdf.h\
+
+HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
-SRC_DIR = src/
-SRC_LIST = 	main.c \
-			ft_check_args.c \
+SRC_DIR = ./src/
+SRC_LIST = main.c \
+				ft_check_args.c
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
-OBJ_DIR = objects/
+OBJ_DIR= objects/
 OBJ_LIST = $(patsubst %.c, %.o, $(SRC_LIST))
-OBJ	= $(addprefix $(OBJ_DIR), $(OBJ_LIST))
+OBJ = $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
 # COLORS
 
 GRN = \033[0;32m
 RED = \033[0;31m
-YEL = \033[1;33m
 END = \033[0m
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	@$(CC) $(CFLAGS) -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) -o $@ $(SRC) $(LIBFT_FLAGS)
+$(NAME): $(LIBFT) $(MINILIBX) $(OBJ_DIR) $(OBJ)
+	@$(CC) $(FLAGS) $(LIBRARIES) $(INCLUDES) $(OBJ) -o $(NAME)
 	@echo "\n$(NAME): $(GRN)*.o files created$(END)"
-	@echo "\n$(NAME): $(GRN)$(NAME) created$(END)"
+	@echo "$(NAME): $(GRN)$(NAME) created$(END)"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(NAME): $(GRN)$(OBJ_DIR) created$(END)"
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c
-	@$(CC) $(CFLAGS) -c -I$(HEADERS_DIR) -I$(LIBFT_HEADERS) $< -o $@
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
+	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 	@echo "$(GRN).$(END)\c"
 
 $(LIBFT):
 	@echo "$(NAME): $(GRN)Creating $(LIBFT)...$(END)"
-	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -sC $(LIBFT_DIR)
+
+$(MINILIBX):
+	@echo "$(NAME): $(GRN)Creating $(MINILIBX)...$(END)"
+	@$(MAKE) -sC $(MINILIBX_DIR)
 
 clean:
-	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -sC $(LIBFT_DIR) clean
+	@$(MAKE) -sC $(MINILIBX_DIR) clean
 	@rm -rf $(OBJ_DIR)
 	@echo "$(NAME): $(RED)$(OBJ_DIR) deleted$(END)"
 	@echo "$(NAME): $(RED)*.o files deleted$(END)"
 
 fclean: clean
+	@rm -f $(MINILIBX)
+	@echo "$(NAME): $(RED)$(MINILIBX) deleted$(END)"
 	@rm -f $(LIBFT)
 	@echo "$(NAME): $(RED)$(LIBFT) deleted$(END)"
 	@rm -f $(NAME)

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "mlx.h"
 
 int				main(int argc, char **argv)
 {
@@ -18,5 +19,6 @@ int				main(int argc, char **argv)
 	ft_putstr(LEAK);
 	perror("main()");
 	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is ft_printf! \e[1;36m:3\e[m\n");
+//	mlx_init();
 	return (0);
 }
