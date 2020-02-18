@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_args.c                                    :+:      :+:    :+:   */
+/*   ft_error_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 14:03:42 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/13 14:03:45 by cghael           ###   ########.fr       */
+/*   Created: 2020/02/18 16:21:48 by cghael            #+#    #+#             */
+/*   Updated: 2020/02/18 16:21:50 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/*
-** Checking the number of args and the file to valid map.
-** If there are some problems, the program exit(1).
-*/
-
-static void		ft_usage_argc(int argc)
+void	ft_error_print(char *str)
 {
-	if (argc != 2)
-		ft_error_print(USAGE);
-}
-
-void	ft_check_args(int argc, char **argv)
-{
-	errno = 0;
-	ft_usage_argc(argc);
-	argv++;
+	//TODO free mem
+	if (errno)
+		perror(str);
+	else
+		ft_putstr(str);
+	exit(CODE_ERROR);
 }
