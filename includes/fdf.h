@@ -38,6 +38,21 @@
 ** ------------------------- Structures Definition -----------------------------
 */
 
+typedef struct	s_point
+{
+	int			x;
+	int			y;
+	int			z;
+	int			color;
+}				t_point;
+
+typedef struct	s_map
+{
+	t_point		*point;
+	int			length_x;
+	int			length_y;
+}				t_map;
+
 typedef struct	s_mlx
 {
 	void		*mlx_ptr;
@@ -46,6 +61,7 @@ typedef struct	s_mlx
 	char		*data_addr;
 	int			color;
 	int			pressed;
+	t_map		map;
 }				t_mlx;
 
 /*
@@ -55,5 +71,6 @@ typedef struct	s_mlx
 */
 
 void				ft_check_args(int argc, char **argv);
+void				ft_error_print(char *str);
 
 #endif //FDF_H

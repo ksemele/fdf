@@ -32,7 +32,8 @@ HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
 
 SRC_DIR = ./src/
 SRC_LIST = main.c \
-				ft_check_args.c
+				ft_check_args.c \
+				ft_error_print.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
