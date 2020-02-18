@@ -6,3 +6,6 @@ minilibx_m/
 fdf
 *.o
 *.a
+minilibx_o/libmlx.a
+objects/ft_check_args.o
+objects/main.o
