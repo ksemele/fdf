@@ -5,3 +5,4 @@ minilibx_m/
 .DS_Store
 fdf
 *.o
+*.a
