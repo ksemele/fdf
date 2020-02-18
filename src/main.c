@@ -17,12 +17,19 @@
 static int				ft_deal_key(int key, t_mlx *mlx_s)
 {
 	mlx_s->color = (int)CYBER;
+	if (mlx_s->pressed == 1)
+		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
 	mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 1");
-
+	mlx_s->pressed += key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);
 	mlx_s->color <<= 16;
-	mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 2");
+	if (mlx_s->pressed > 100)
+	{
+		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
+		mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 110, 110, mlx_s->color, "EBAT 2");
+		mlx_s->pressed = 1;
+	}
 	if (key == 53)
 	{
 		mlx_destroy_window(mlx_s->mlx_ptr, mlx_s->win_ptr);

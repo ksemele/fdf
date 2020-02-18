@@ -43,6 +43,7 @@ typedef struct	s_mlx
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			color;
+	int			pressed;
 }				t_mlx;
 
 /*
