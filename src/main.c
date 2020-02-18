@@ -29,7 +29,7 @@ static int				ft_deal_key(int key, t_mlx *mlx_s)
 	mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 1");
 	mlx_s->pressed = key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
-	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);
+//	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);
 	mlx_s->color <<= 16;
 	if (mlx_s->pressed > 50)
 	{
@@ -59,6 +59,10 @@ int				main(int argc, char **argv)
 	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is ft_printf! \e[1;36m:3\e[m\n");
 	mlx_s->mlx_ptr = mlx_init();
 	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, 800, 600, "fdf");
+	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, 360, 150);
+	mlx_s->data_addr = malloc(100000);
+//	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &a, &b, 0);
+//	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 50, 50);
 	mlx_key_hook(mlx_s->win_ptr, ft_deal_key, mlx_s);
 	mlx_loop(mlx_s->mlx_ptr);
 	return (0);

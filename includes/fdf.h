@@ -42,6 +42,8 @@ typedef struct	s_mlx
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
+	void		*img_ptr;
+	char		*data_addr;
 	int			color;
 	int			pressed;
 }				t_mlx;
