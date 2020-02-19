@@ -18,5 +18,11 @@ t_mlx		*ft_create_t_mlx(void)
 
 	if (!(mlx_s = malloc(sizeof(t_mlx))))
 		ft_error_print(MALLOC_ERROR);
+	ft_bzero(mlx_s, sizeof(t_mlx));
+	mlx_s->mlx_ptr = NULL;
+	mlx_s->win_ptr = NULL;
+	mlx_s->img_ptr = NULL;
+	mlx_s->data_addr = NULL;
+	mlx_s->map.point = NULL;
 	return (mlx_s);
 }

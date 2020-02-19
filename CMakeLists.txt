@@ -133,4 +133,5 @@ add_executable(fdf
         src/ft_draw_line.c
         src/ft_fisbigger.c
         src/ft_fmod.c
-        src/main.c)
+        src/main.c
+        src/ft_error_print.c src/ft_create_mem_struct.c src/ft_check_line_points.c src/ft_increase_point_size.c)

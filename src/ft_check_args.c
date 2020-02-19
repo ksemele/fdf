@@ -17,15 +17,87 @@
 ** If there are some problems, the program exit(1).
 */
 
-static void		ft_usage_argc(int argc)
+static void		ft_usage_argc(int argc, t_mlx *mlx_s)
 {
 	if (argc != 2)
-		ft_error_print(USAGE);
+		ft_error_print(USAGE, mlx_s);
 }
 
-void	ft_check_args(int argc, char **argv)
+static void		ft_small_line(char *line, t_mlx *mlx_s)
 {
+	if (ft_strlen(line) == 0)
+	{
+		free(line);
+		ft_error_print("No data found.\n", mlx_s);
+	}
+	else
+	{
+		if (line[0] != ' ' && line[0] != '\t' && line[0] != '\n'
+			&& line[0] != '\v' && line[0] != '\f' && line[0] != '\r')
+		{
+			free(line);
+			ft_error_print("No data found.\n", mlx_s);
+		}
+		else
+			mlx_s->map.length_x++;
+	}
+}
+
+static void		ft_write_map_length_x(char *line, t_mlx *mlx_s)
+{
+	int i;
+
+	i = 1;
+	if (ft_strlen(line) < 2)
+		ft_small_line(line, mlx_s);
+	else
+	{
+		while (line[i])
+		{
+			if (line[i] == ' ' && line[i - 1] != ' ')
+				mlx_s->map.length_x++;
+			i++;
+		}
+	}
+}
+
+static void		ft_check_n_write_line(char *line, t_mlx *mlx_s)
+{
+	mlx_s->map.length_y++;
+	if (mlx_s->map.length_x == 0)
+		ft_write_map_length_x(line, mlx_s);
+	else
+		ft_check_line_points(line, mlx_s);
+	if (!ft_increase_point_size(mlx_s))
+	{
+		free(line);
+		ft_error_print("Malloc error in ft_check_n_write_line\n", mlx_s);
+	}
+	ft_write_points(line, mlx_s);
+}
+
+void	ft_check_args(int argc, char **argv, t_mlx *mlx_s)
+{
+	int		fd;
+	char	*line;
+	int		gnl;
+
 	errno = 0;
-	ft_usage_argc(argc);
-	argv++;
+	line = NULL;
+	ft_usage_argc(argc, mlx_s);
+	if ((fd = open(argv[1], O_RDONLY)) < 0)
+		ft_error_print("Error open file\n", mlx_s);
+	while ((gnl = ft_get_next_line(fd, &line)) == 1)
+	{
+		ft_check_n_write_line(line, mlx_s);
+		free(line);
+		line = NULL;
+	}
+	if (gnl == -1)
+	{
+		if (line != NULL)
+			free(line);
+		ft_error_print("Error open file\n", mlx_s);
+	}
+	close(fd);
 }

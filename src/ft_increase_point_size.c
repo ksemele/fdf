@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_print.c                                   :+:      :+:    :+:   */
+/*   ft_increase_point_size.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 16:21:48 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/18 16:21:50 by cghael           ###   ########.fr       */
+/*   Created: 2020/02/19 16:51:51 by cghael            #+#    #+#             */
+/*   Updated: 2020/02/19 16:51:53 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_error_print(char *str, t_mlx *mlx_s)
+int		ft_increase_point_size(t_mlx *mlx_s)
 {
-	//TODO free mem
-	if (mlx_s != NULL)
-	{
-		if (mlx_s->map.point != NULL)
-			free(mlx_s->map.point);
-		free(mlx_s);
-	}
-	if (errno)
-		perror(str);
-	else
-		ft_putstr(str);
-	exit(CODE_ERROR);
+
 }

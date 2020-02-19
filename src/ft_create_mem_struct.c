@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_print.c                                   :+:      :+:    :+:   */
+/*   ft_create_mem_struct.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 16:21:48 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/18 16:21:50 by cghael           ###   ########.fr       */
+/*   Created: 2020/02/19 14:10:48 by cghael            #+#    #+#             */
+/*   Updated: 2020/02/19 14:10:50 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_error_print(char *str, t_mlx *mlx_s)
+t_memory	*ft_create_mem_struct(void)
 {
-	//TODO free mem
-	if (mlx_s != NULL)
-	{
-		if (mlx_s->map.point != NULL)
-			free(mlx_s->map.point);
-		free(mlx_s);
-	}
-	if (errno)
-		perror(str);
-	else
-		ft_putstr(str);
-	exit(CODE_ERROR);
+	t_memory *tmp;
+
+	if (!(tmp = malloc(sizeof(t_memory))))
+		ft_error_print("ft_create_mem_struct", NULL);
+	ft_bzero(tmp, sizeof(t_memory));
+	return (tmp);
 }
