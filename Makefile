@@ -40,6 +40,9 @@ SRC_LIST = main.c \
 				ft_fmod.c \
 				ft_check_line_points.c \
 				ft_draw_wireframe.c \
+				ft_increase_point_size.c \
+				ft_atoi_base.c \
+				ft_write_points.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

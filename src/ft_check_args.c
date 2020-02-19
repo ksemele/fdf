@@ -23,8 +23,11 @@ static void		ft_usage_argc(int argc, t_mlx *mlx_s)
 		ft_error_print(USAGE, mlx_s);
 }
 
-static void		ft_small_line(char *line, t_mlx *mlx_s)
+static void		ft_write_map_length_x(char *line, t_mlx *mlx_s)
 {
+	int i;
+
+	i = 0;
 	if (ft_strlen(line) == 0)
 	{
 		free(line);
@@ -32,30 +35,13 @@ static void		ft_small_line(char *line, t_mlx *mlx_s)
 	}
 	else
 	{
-		if (line[0] != ' ' && line[0] != '\t' && line[0] != '\n'
-			&& line[0] != '\v' && line[0] != '\f' && line[0] != '\r')
-		{
-			free(line);
-			ft_error_print("No data found.\n", mlx_s);
-		}
-		else
-			mlx_s->map.length_x++;
-	}
-}
-
-static void		ft_write_map_length_x(char *line, t_mlx *mlx_s)
-{
-	int i;
-
-	i = 1;
-	if (ft_strlen(line) < 2)
-		ft_small_line(line, mlx_s);
-	else
-	{
 		while (line[i])
 		{
-			if (line[i] == ' ' && line[i - 1] != ' ')
-				mlx_s->map.length_x++;
+			if (line[i] != ' ')
+			{
+				if (i == 0 || line[i - 1] == ' ')
+					mlx_s->map.len_x++;
+			}
 			i++;
 		}
 	}
@@ -63,8 +49,8 @@ static void		ft_write_map_length_x(char *line, t_mlx *mlx_s)
 
 static void		ft_check_n_write_line(char *line, t_mlx *mlx_s)
 {
-	mlx_s->map.length_y++;
-	if (mlx_s->map.length_x == 0)
+	mlx_s->map.len_y++;
+	if (mlx_s->map.len_x == 0)
 		ft_write_map_length_x(line, mlx_s);
 	else
 		ft_check_line_points(line, mlx_s);

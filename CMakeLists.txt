@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(fdf C)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 90)
 
 include_directories(.)
 include_directories(includes)
@@ -134,5 +134,6 @@ add_executable(fdf
         src/ft_draw_wireframe.c
         src/ft_fisbigger.c
         src/ft_fmod.c
+        src/ft_atoi_base.c
         src/main.c
-        src/ft_error_print.c src/ft_create_mem_struct.c src/ft_check_line_points.c src/ft_increase_point_size.c)
+        src/ft_error_print.c src/ft_check_line_points.c src/ft_increase_point_size.c src/ft_write_points.c)

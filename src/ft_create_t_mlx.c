@@ -17,7 +17,7 @@ t_mlx		*ft_create_t_mlx(void)
 	t_mlx	*mlx_s;
 
 	if (!(mlx_s = malloc(sizeof(t_mlx))))
-		ft_error_print(MALLOC_ERROR);
+		ft_error_print(MALLOC_ERROR, NULL);
 	ft_bzero(mlx_s, sizeof(t_mlx));
 	mlx_s->mlx_ptr = NULL;
 	mlx_s->win_ptr = NULL;
