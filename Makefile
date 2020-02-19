@@ -36,6 +36,8 @@ SRC_LIST = main.c \
 				ft_error_print.c \
 				ft_create_t_mlx.c \
 				ft_draw_line.c \
+				ft_fisbigger.c \
+				ft_fmod.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

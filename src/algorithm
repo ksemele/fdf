@@ -12,7 +12,7 @@
 
 1.	error management	+
 		argc != 2
-		
+
 2.	prepare data
 
 	read file

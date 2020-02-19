@@ -46,6 +46,9 @@ typedef struct		s_point
 	int				x;
 	int				y;
 	int				z;
+	float			x_f;
+	float			y_f;
+	float			z_f;
 	int				color;
 }					t_point;
 
@@ -76,5 +79,8 @@ typedef struct		s_mlx
 void				ft_check_args(int argc, char **argv);
 void				ft_error_print(char *str);
 t_mlx				*ft_create_t_mlx(void);
+float				ft_fisbigger(float a, float b);
+float				ft_fmod(float i);
+void				ft_draw_line(t_point *start, t_point *end, t_mlx *mlx_s);
 
 #endif //FDF_H

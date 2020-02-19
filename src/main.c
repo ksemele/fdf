@@ -29,6 +29,8 @@ static int				ft_deal_key(int key, t_mlx *mlx_s)
 	mlx_s->pressed = key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 //	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);//working!
+
+
 	mlx_s->color <<= 16;
 	if (mlx_s->pressed > 50)
 	{
@@ -60,8 +62,23 @@ int				main(int argc, char **argv)
 	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, 800, 600, "fdf");
 	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, 360, 150);
 	mlx_s->data_addr = malloc(100000);
+
 //	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &a, &b, 0);
+	t_point *start = malloc(sizeof(t_point));
+	t_point *end = malloc(sizeof(t_point));
+
+	start->x = 50;
+	start->y = 120;
+	start->x_f = (float)start->x;//todo into foo()
+	start->y_f = (float)start->y;
+	end->x = 160;
+	end->y = 290;
+	end->x_f = (float)end->x;
+	end->y_f = (float)end->y;
+	start->color = CYBER;
+	ft_draw_line(start, end, mlx_s);
 //	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 50, 50);
+
 	mlx_key_hook(mlx_s->win_ptr, ft_deal_key, mlx_s);
 	mlx_loop(mlx_s->mlx_ptr);
 	return (0);
