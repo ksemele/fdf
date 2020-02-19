@@ -12,6 +12,10 @@
 
 #include "fdf.h"
 
+/*
+ *
+*/
+
 void		ft_draw_line(t_point *start, t_point *end, t_mlx *mlx_s)
 {
 	float	x_step;

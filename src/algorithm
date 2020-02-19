@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-1.	error management	+
+1.	error management															+
 		argc != 2
 
 2.	prepare data
@@ -24,11 +24,15 @@
 	read file -> matrix
 		split + atoi + valide non-numbers!
 
-3.	drawing line
+3.	drawing line																+
 	using float's
 
 
 4.	foo draw lines betweewn every dots
+	draw all dots by them x,y
+
+	count lines -- ?
+	count lines |  ?
 	* -- * -- *
 	| 	 | 	  |
 	* -- * -- *
