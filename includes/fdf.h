@@ -71,12 +71,6 @@ typedef struct		s_mlx
 	t_map			map;
 }					t_mlx;
 
-//typedef struct		s_memory
-//{
-//	int				n_mem;
-//	int				mem_ptr[MEM_SIZE];
-//}					t_memory;
-
 /*
 ** -----------------------------------------------------------------------------
 ** -------------------------------- Sources ------------------------------------
@@ -91,5 +85,6 @@ float				ft_fmod(float i);
 void				ft_draw_line(t_point *start, t_point *end, t_mlx *mlx_s);
 //t_memory			*ft_create_mem_struct(void);
 void				ft_check_line_points(char *line, t_mlx *mlx_s);
+void				ft_draw_wireframe(t_mlx *mlx_s);
 
 #endif //FDF_H
