@@ -129,4 +129,6 @@ add_executable(fdf
         libft/src/ft_x.c
         libft/src/g_ft_choose_func.c
         src/ft_check_args.c
+        src/ft_create_t_mlx.c
+        src/ft_draw_line.c
         src/main.c)

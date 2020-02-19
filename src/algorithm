@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    algorithm                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ksemele <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/19 11:18:37 by ksemele           #+#    #+#              #
+#    Updated: 2020/02/19 11:18:38 by ksemele          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+1.	error management	+
+		argc != 2
+		
+2.	prepare data
+
+	read file
+	get height - lines
+	get width - numbers in line (only by a first line?)
+
+	create matrix\array
+	allocate memory for **int matrix (height * width)
+	read file -> matrix
+		split + atoi + valide non-numbers!
+
+3.	drawing line
+	using float's
+
+
+4.	foo draw lines betweewn every dots
+	* -- * -- *
+	| 	 | 	  |
+	* -- * -- *
+
+5.	add 3d
+	change x,y by isomettric formulas
+		x = (x - y) * cos(angle) // default angle = 0.8
+		y = (x + y) * sin(angle) - z
+
+6.	bonuses
+
+7.	tests, leaks, etc

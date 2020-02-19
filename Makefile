@@ -34,6 +34,8 @@ SRC_DIR = ./src/
 SRC_LIST = main.c \
 				ft_check_args.c \
 				ft_error_print.c \
+				ft_create_t_mlx.c \
+				ft_draw_line.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
