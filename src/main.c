@@ -29,10 +29,21 @@ static int				ft_deal_key(int key, t_mlx *mlx_s)
 	mlx_s->pressed = key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 //	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);//working!
-
+	t_point *start = malloc(sizeof(t_point));
+	t_point *end = malloc(sizeof(t_point));
+	start->x = key;
+	start->y += key + 60;
+	start->x_f = (float)start->x;//todo into foo()
+	start->y_f = (float)start->y;
+	end->x = 160;
+	end->y = 290;
+	end->x_f = (float)end->x;
+	end->y_f = (float)end->y;
+	start->color = CYBER;
+	ft_draw_line(start, end, mlx_s);
 
 	mlx_s->color <<= 16;
-	if (mlx_s->pressed > 50)
+	if (mlx_s->pressed > 10)
 	{
 		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
 		mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 110, 110, mlx_s->color, "EBAT 2");
@@ -76,7 +87,7 @@ int				main(int argc, char **argv)
 	end->x_f = (float)end->x;
 	end->y_f = (float)end->y;
 	start->color = CYBER;
-	ft_draw_line(start, end, mlx_s);
+	ft_draw_wireframe(mlx_s);
 //	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 50, 50);
 
 	mlx_key_hook(mlx_s->win_ptr, ft_deal_key, mlx_s);

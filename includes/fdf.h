@@ -82,5 +82,6 @@ t_mlx				*ft_create_t_mlx(void);
 float				ft_fisbigger(float a, float b);
 float				ft_fmod(float i);
 void				ft_draw_line(t_point *start, t_point *end, t_mlx *mlx_s);
+void				ft_draw_wireframe(t_mlx *mlx_s);
 
 #endif //FDF_H

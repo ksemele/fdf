@@ -38,6 +38,7 @@ SRC_LIST = main.c \
 				ft_draw_line.c \
 				ft_fisbigger.c \
 				ft_fmod.c \
+				ft_draw_wireframe.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
