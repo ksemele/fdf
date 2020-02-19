@@ -29,7 +29,7 @@ static int				ft_deal_key(int key, t_mlx *mlx_s)
 	mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 1");
 	mlx_s->pressed = key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
-//	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);
+//	mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 50, 50, mlx_s->color);//working!
 	mlx_s->color <<= 16;
 	if (mlx_s->pressed > 50)
 	{
