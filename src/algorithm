@@ -33,9 +33,11 @@
 
 	count lines -- ?
 	count lines |  ?
-	* -- * -- *
-	| 	 | 	  |
-	* -- * -- *
+	* -- *
+	| 	 |
+	* -- *
+	| 	 |
+	* -- *
 
 5.	add 3d
 	change x,y by isomettric formulas

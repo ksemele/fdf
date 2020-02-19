@@ -66,9 +66,12 @@ void			ft_write_points(const char *line, t_mlx *mlx_s)
 		else
 		{
 			base = ft_check_base(line + i);
-			mlx_s->map.point[j].z = ft_atoi_base(line + i, base);
-			mlx_s->map.point[j].y = mlx_s->map.len_y - 1;
-			mlx_s->map.point[j].x = x;
+			mlx_s->map.point[j].z = ft_atoi_base(line + i, base) * mlx_s->scale;
+			mlx_s->map.point[j].z_f = (float)mlx_s->map.point[j].z;
+			mlx_s->map.point[j].y = (mlx_s->map.len_y - 1) * mlx_s->scale;
+			mlx_s->map.point[j].y_f = (float)mlx_s->map.point[j].y;
+			mlx_s->map.point[j].x = x * mlx_s->scale;
+			mlx_s->map.point[j].x_f = (float)mlx_s->map.point[j].x;
 			i = ft_move_i(line, i, &mlx_s->map.point[j]);
 			j++;
 			x++;
