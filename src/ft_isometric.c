@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_t_mlx.c                                  :+:      :+:    :+:   */
+/*   ft_isometric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 11:02:06 by ksemele           #+#    #+#             */
-/*   Updated: 2020/02/19 11:02:07 by ksemele          ###   ########.fr       */
+/*   Created: 2020/02/20 12:34:14 by ksemele           #+#    #+#             */
+/*   Updated: 2020/02/20 12:34:15 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_mlx		*ft_create_t_mlx(void)
-{
-	t_mlx	*mlx_s;
+/*
+** DESCRIPTION
+** ft_isometric() convert point coordinates into isometric projection
+** default angle = 0.8 for canonic projection
+*/
 
-	if (!(mlx_s = malloc(sizeof(t_mlx))))
-		ft_error_print(MALLOC_ERROR, NULL);
-	ft_bzero(mlx_s, sizeof(t_mlx));
-	mlx_s->mlx_ptr = NULL;
-	mlx_s->win_ptr = NULL;
-	mlx_s->img_ptr = NULL;
-	mlx_s->data_addr = NULL;
-	mlx_s->map.point = NULL;
-	mlx_s->window_x = 800;
-	mlx_s->window_y = 600;
-	mlx_s->angle = 0.8;
-	return (mlx_s);
+void		ft_isometric(t_point *point, t_mlx *mlx_s)
+{
+	point->x_f = (point->x_f - point->y_f) * cosf(mlx_s->angle);
+	point->y_f = (point->x_f + point->y_f) * sinf(mlx_s->angle) - point->z_f;
 }

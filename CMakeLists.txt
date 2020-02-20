@@ -136,4 +136,8 @@ add_executable(fdf
         src/ft_fmod.c
         src/ft_atoi_base.c
         src/main.c
-        src/ft_error_print.c src/ft_check_line_points.c src/ft_increase_point_size.c src/ft_write_points.c)
+        src/ft_error_print.c
+        src/ft_check_line_points.c
+        src/ft_increase_point_size.c
+        src/ft_write_points.c
+        src/ft_isometric.c)

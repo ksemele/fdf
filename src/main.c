@@ -68,7 +68,7 @@ int				main(int argc, char **argv)
 	perror("main()");
 	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is fdf! \e[1;36m:3\e[m\n");
 	mlx_s->mlx_ptr = mlx_init();
-	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, 800, 600, "fdf");
+	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y, "fdf");
 //	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, 360, 150);
 //	mlx_s->data_addr = malloc(100000);
 

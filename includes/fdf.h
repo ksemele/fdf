@@ -36,7 +36,7 @@
 # include <stdio.h>
 # include <math.h>
 # include <errno.h> //man intro(2)
-#include "mlx.h"
+# include "mlx.h"
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -68,7 +68,10 @@ typedef struct		s_mlx
 	char			*data_addr;
 	int				color;
 	int				pressed;
+	float			angle;
 	int				scale;
+	int				window_x;
+	int				window_y;
 	t_map			map;
 }					t_mlx;
 
@@ -89,5 +92,6 @@ int					ft_atoi_base(const char *str, int base);
 void				ft_write_points(const char *line, t_mlx *mlx_s);
 void				ft_draw_line(t_point start, t_point end, t_mlx *mlx_s);
 void				ft_draw_wireframe(t_mlx mlx_s);
+void				ft_isometric(t_point *point, t_mlx *mlx_s);
 
 #endif //FDF_H

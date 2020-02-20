@@ -43,6 +43,7 @@ SRC_LIST = main.c \
 				ft_increase_point_size.c \
 				ft_atoi_base.c \
 				ft_write_points.c \
+				ft_isometric.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
