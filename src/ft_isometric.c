@@ -16,6 +16,7 @@
 ** DESCRIPTION
 ** ft_isometric() convert point coordinates into isometric projection
 ** default angle = 0.8 for canonic projection
+** Formulas received from a random github repo.
 */
 
 void		ft_isometric(t_point *point, t_mlx *mlx_s)

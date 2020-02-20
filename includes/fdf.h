@@ -24,18 +24,33 @@
 # define MEM_SIZE 64
 
 /*
+** --------------------------------- KEYS --------------------------------------
+*/
+
+#define ESC 53
+#define SPACE 49
+#define W 13
+#define A 0
+#define S 1
+#define D 2
+
+/*
 ** -------------------------- External Headers ---------------------------------
 */
 
-# include "libft.h"
+/*
+** for errno.h evaluates man intro(2)
+*/
+
+# include <errno.h>
 # include <fcntl.h>
-# include <unistd.h>
+# include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <math.h>
-# include <errno.h> //man intro(2)
+# include <unistd.h>
+# include "libft.h"
 # include "mlx.h"
 
 /*
@@ -94,4 +109,4 @@ void				ft_draw_line(t_point start, t_point end, t_mlx *mlx_s);
 void				ft_draw_wireframe(t_mlx mlx_s);
 void				ft_isometric(t_point *point, t_mlx *mlx_s);
 
-#endif //FDF_H
+#endif
