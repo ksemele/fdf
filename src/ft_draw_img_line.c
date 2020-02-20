@@ -16,13 +16,13 @@ static void		ft_draw_img_pixel(t_mlx *mlx_s, t_point point)
 {
 	int		i;
 
-	if (point.x < mlx_s->map.len_x && point.y >= 0 && point.y < mlx_s->map.len_y)
+	if (point.x < mlx_s->window_x && point.y >= 0 && point.y < mlx_s->window_y)
 	{
 		i = (point.x * mlx_s->bits_per_pixel / 8) + (point.y * mlx_s->size_line);
 		mlx_s->data_addr[i] = point.color;
 		ft_printf("color=%d\n", point.color);
-//		mlx_s->data_addr[++i] = point.color >> 8;
-//		mlx_s->data_addr[++i] = point.color >> 16;
+		mlx_s->data_addr[++i] = point.color >> 8;
+		mlx_s->data_addr[++i] = point.color >> 16;
 	}
 }
 
@@ -38,12 +38,12 @@ static void	ft_draw_background(t_mlx *mlx_s)
 	{
 		image[i] = BACKGROUND;
 		i++;
-		image[i] = CYBER;
-		i++;
-		image[i] = BLACK;
-		i++;
-		image[i] = WHITE;
-		i++;
+//		image[i] = CYBER;
+//		i++;
+//		image[i] = BLACK;
+//		i++;
+//		image[i] = WHITE;
+//		i++;
 	}
 }
 
