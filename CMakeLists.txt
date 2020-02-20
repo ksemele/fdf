@@ -133,6 +133,8 @@ add_executable(fdf
         src/ft_draw_line.c
         src/ft_draw_img_line.c
         src/ft_draw_wireframe.c
+        src/ft_draw_img_wireframe.c
+        src/ft_draw_img_background.c
         src/ft_fisbigger.c
         src/ft_fmod.c
         src/ft_atoi_base.c

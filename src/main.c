@@ -16,16 +16,15 @@
 
 static int				ft_deal_key(int key, t_mlx *mlx_s)
 {
-	if (mlx_s->pressed == 1)
-		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
-	mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 1");
+	if (mlx_s->pressed < 10)
+		mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 100, 100, mlx_s->color, "EBAT 1");
 	mlx_s->pressed = key;
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 
-	mlx_s->color <<= 16;
+//	mlx_s->color <<= 16;
 	if (mlx_s->pressed > 10)
 	{
-		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
+//		mlx_clear_window(mlx_s->mlx_ptr, mlx_s->win_ptr);
 		mlx_string_put(mlx_s->mlx_ptr, mlx_s->win_ptr, 110, 110, mlx_s->color, "EBAT 2");
 		mlx_s->pressed = 1;
 	}
@@ -53,21 +52,16 @@ int				main(int argc, char **argv)
 	mlx_s->mlx_ptr = mlx_init();
 	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y, "fdf");
 
-
-
-//	mlx_s->bits_per_pixel = malloc(sizeof(int*));
-//	mlx_s->size_line = malloc(sizeof(int*));
-
 	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y);
 	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &mlx_s->bits_per_pixel, &mlx_s->size_line, &mlx_s->endian);
 	ft_printf("x=%d\n", mlx_s->map.len_x);//todo d
 	ft_printf("y=%d\n", mlx_s->map.len_y);//TODO d
 	mlx_s->color = (int)CYBER;//TODO d
-//	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 0, 0);
 //	ft_draw_wireframe(*mlx_s);//for draw wireframe with pixel_puts, working correctly! :)
 //	ft_draw_line(mlx_s->map.point[0], mlx_s->map.point[10], mlx_s);//todo test line
-	ft_draw_img_line(mlx_s->map.point[0], mlx_s->map.point[10], mlx_s);
-//	ft_draw_img_wireframe();//TODO createt it
+//	ft_draw_img_line(mlx_s->map.point[0], mlx_s->map.point[10], mlx_s);
+	ft_draw_img_wireframe(*mlx_s);//TODO createt it
 	mlx_key_hook(mlx_s->win_ptr, ft_deal_key, mlx_s);
 	mlx_loop(mlx_s->mlx_ptr);
 	return (0);
