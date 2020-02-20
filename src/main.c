@@ -12,7 +12,6 @@
 
 #include "fdf.h"
 
-#define CYBER 0x9B1F6A//todo d
 
 
 static int				ft_deal_key(int key, t_mlx *mlx_s)
@@ -45,23 +44,30 @@ int				main(int argc, char **argv)
 {
 	t_mlx		*mlx_s;
 
+//	errno = 0;
 	mlx_s = ft_create_t_mlx();
 	mlx_s->scale = 30;
 	ft_check_args(argc, argv, mlx_s);
 	perror("main()");
-	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is fdf! \e[1;36m:3\e[m\n");
+	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is fdf! \e[1;36m:3\e[m\n");//todo d
 	mlx_s->mlx_ptr = mlx_init();
 	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y, "fdf");
-//	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, 360, 150);
-//	mlx_s->data_addr = malloc(100000);
 
-//	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &a, &b, 0);
-	ft_printf("x=%d\n", mlx_s->map.len_x);
-	ft_printf("y=%d\n", mlx_s->map.len_y);
-	mlx_s->color = (int)CYBER;
-	ft_draw_wireframe(*mlx_s);
-//	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 50, 50);
 
+
+//	mlx_s->bits_per_pixel = malloc(sizeof(int*));
+//	mlx_s->size_line = malloc(sizeof(int*));
+
+	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y);
+	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &mlx_s->bits_per_pixel, &mlx_s->size_line, &mlx_s->endian);
+	ft_printf("x=%d\n", mlx_s->map.len_x);//todo d
+	ft_printf("y=%d\n", mlx_s->map.len_y);//TODO d
+	mlx_s->color = (int)CYBER;//TODO d
+//	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 0, 0);
+//	ft_draw_wireframe(*mlx_s);//for draw wireframe with pixel_puts, working correctly! :)
+//	ft_draw_line(mlx_s->map.point[0], mlx_s->map.point[10], mlx_s);//todo test line
+	ft_draw_img_line(mlx_s->map.point[0], mlx_s->map.point[10], mlx_s);
+//	ft_draw_img_wireframe();//TODO createt it
 	mlx_key_hook(mlx_s->win_ptr, ft_deal_key, mlx_s);
 	mlx_loop(mlx_s->mlx_ptr);
 	return (0);

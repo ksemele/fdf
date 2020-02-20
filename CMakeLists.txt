@@ -131,6 +131,7 @@ add_executable(fdf
         src/ft_check_args.c
         src/ft_create_t_mlx.c
         src/ft_draw_line.c
+        src/ft_draw_img_line.c
         src/ft_draw_wireframe.c
         src/ft_fisbigger.c
         src/ft_fmod.c

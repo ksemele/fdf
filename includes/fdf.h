@@ -35,6 +35,16 @@
 #define D 2
 
 /*
+** -------------------------------- COLORS -------------------------------------
+*/
+
+#define BACKGROUND 0x222222
+#define CYBER 0x9B1F6A
+#define BLACK 0x000000
+#define WHITE 0xFFFFFF
+
+
+/*
 ** -------------------------- External Headers ---------------------------------
 */
 
@@ -87,6 +97,9 @@ typedef struct		s_mlx
 	int				scale;
 	int				window_x;
 	int				window_y;
+	int				bits_per_pixel;
+	int				size_line;
+	int				endian;
 	t_map			map;
 }					t_mlx;
 
@@ -105,6 +118,7 @@ void				ft_check_line_points(char *line, t_mlx *mlx_s);
 int					ft_increase_point_size(t_mlx *mlx_s);
 int					ft_atoi_base(const char *str, int base);
 void				ft_write_points(const char *line, t_mlx *mlx_s);
+void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s);
 void				ft_draw_line(t_point start, t_point end, t_mlx *mlx_s);
 void				ft_draw_wireframe(t_mlx mlx_s);
 void				ft_isometric(t_point *point, t_mlx *mlx_s);
