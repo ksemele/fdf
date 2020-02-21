@@ -19,6 +19,7 @@ void		ft_draw_img_wireframe(t_mlx mlx_s)
 
 	y = 0;
 	x = 0;
+	int i = 0;
 	ft_draw_background(&mlx_s);//TODO  WORKING! %)
 	while (y <= mlx_s.map.len_y)
 	{
@@ -28,15 +29,18 @@ void		ft_draw_img_wireframe(t_mlx mlx_s)
 			{
 				ft_draw_img_line(mlx_s.map.point[x],
 							 mlx_s.map.point[x + 1], &mlx_s);
+				i++;
 			}
 			if (mlx_s.map.point[x].x == mlx_s.map.point[x + mlx_s.map.len_x].x)
 			{
 				ft_draw_img_line(mlx_s.map.point[x], \
 						mlx_s.map.point[x + mlx_s.map.len_x], &mlx_s);
+				i++;
 			}
 			x++;
 		}
 		y++;
 	}
+	ft_printf("draw %d lines\n", i);
 	mlx_put_image_to_window(mlx_s.mlx_ptr, mlx_s.win_ptr, mlx_s.img_ptr, 0, 0);
 }

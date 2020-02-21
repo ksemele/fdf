@@ -50,10 +50,10 @@ int				main(int argc, char **argv)
 	perror("main()");
 	ft_printf("\e[1;36moh, \e[1;31myes! \e[1;32mthis is fdf! \e[1;36m:3\e[m\n");//todo d
 	mlx_s->mlx_ptr = mlx_init();
-	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y, "fdf");
+	mlx_s->win_ptr = mlx_new_window(mlx_s->mlx_ptr, mlx_s->win_x, mlx_s->win_y, "fdf");
 
-	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, mlx_s->window_x, mlx_s->window_y);
-	mlx_s->data_addr = mlx_get_data_addr(mlx_s->img_ptr, &mlx_s->bits_per_pixel, &mlx_s->size_line, &mlx_s->endian);
+	mlx_s->img_ptr = mlx_new_image(mlx_s->mlx_ptr, mlx_s->win_x, mlx_s->win_y);
+	mlx_s->pixels = mlx_get_data_addr(mlx_s->img_ptr, &mlx_s->bpp, &mlx_s->size_line, &mlx_s->endian);
 	ft_printf("x=%d\n", mlx_s->map.len_x);//todo d
 	ft_printf("y=%d\n", mlx_s->map.len_y);//TODO d
 	mlx_s->color = (int)CYBER;//TODO d

@@ -90,14 +90,14 @@ typedef struct		s_mlx
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	char			*data_addr;
+	char			*pixels;
 	int				color;
 	int				pressed;
 	float			angle;
 	int				scale;
-	int				window_x;
-	int				window_y;
-	int				bits_per_pixel;
+	int				win_x;
+	int				win_y;
+	int				bpp;
 	int				size_line;
 	int				endian;
 	t_map			map;
