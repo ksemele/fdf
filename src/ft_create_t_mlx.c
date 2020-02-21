@@ -22,10 +22,10 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx_s->mlx_ptr = NULL;
 	mlx_s->win_ptr = NULL;
 	mlx_s->img_ptr = NULL;
-//	mlx_s->data_addr = NULL;
+//	mlx_s->pixels = NULL;
 	mlx_s->map.point = NULL;
-	mlx_s->window_x = 800;
-	mlx_s->window_y = 600;
+	mlx_s->win_x = 800;
+	mlx_s->win_y = 600;
 	mlx_s->angle = 0.8;
 	return (mlx_s);
 }
