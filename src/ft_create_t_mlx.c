@@ -22,7 +22,6 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx_s->mlx_ptr = NULL;
 	mlx_s->win_ptr = NULL;
 	mlx_s->img_ptr = NULL;
-//	mlx_s->pixels = NULL;
 	mlx_s->pixels = NULL;
 	mlx_s->map.point = NULL;
 	mlx_s->win_x = 800;
