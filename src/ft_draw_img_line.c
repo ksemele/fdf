@@ -12,29 +12,29 @@
 
 #include "fdf.h"
 
-static void		ft_draw_img_pixel(t_mlx *mlx_s, t_point *point)
+static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
 	int			i;
 
-	if ((int)point->x_f < mlx_s->win_x && point->y_f >= 0 && (int)point->y_f < mlx_s->win_y)
+	if ((int)point->x_f < mlx->win_x && point->y_f >= 0 && (int)point->y_f < mlx->win_y)
 	{
-		i = ((int)point->x_f * mlx_s->bpp / 8) + ((int)point->y_f * mlx_s->size_line);
-		mlx_s->pixels[i] = point->color;
-		mlx_s->pixels[++i] = point->color >> 8;
-		mlx_s->pixels[++i] = point->color >> 16;
+		i = ((int)point->x_f * mlx->bpp / 8) + ((int)point->y_f * mlx->size_line);
+		mlx->pixels[i] = point->color;
+		mlx->pixels[++i] = point->color >> 8;
+		mlx->pixels[++i] = point->color >> 16;
 	}
 }
 
 
 
-void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s)
+void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 {
 	float		x_step;
 	float		y_step;
 	float		max;
 
-	ft_isometric(&start, mlx_s);
-	ft_isometric(&end, mlx_s);
+	ft_isometric(&start, mlx);
+	ft_isometric(&end, mlx);
 	x_step = end.x_f - start.x_f;
 	y_step = end.y_f - start.y_f;
 	max = ft_isbigger(ft_abs(x_step), ft_abs(y_step));
@@ -45,7 +45,8 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s)
 		start.color = CYBER + 80000;
 		end.color = CYBER + 80000;
 //		start.color *= (int)(end.color / ft_isbigger(ft_fmod(x_step), ft_fmod(y_step)));//todo how change colors?
-		ft_draw_img_pixel(mlx_s, &start);
+		if((int)start.x_f + 1 >= mlx->map.len_x && (int)start.y_f >= mlx->map.len_y)//todo think about it
+			ft_draw_img_pixel(mlx, &start);
 		start.x_f += x_step;
 		start.y_f += y_step;
 	}
