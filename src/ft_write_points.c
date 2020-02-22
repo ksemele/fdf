@@ -30,7 +30,6 @@ static int		ft_move_i(const char *line, int i, t_point *point)
 	int color_flag;
 
 	color_flag = 0;
-//	point->color = 0xffffff;
 	point->color = CYBER + 80000;
 	while (line[i] && line[i] != ' ')
 	{
@@ -52,26 +51,27 @@ static int		ft_move_i(const char *line, int i, t_point *point)
 
 void			ft_write_points(const char *line, t_mlx *mlx)
 {
-	int i;
-	int j;
-	int x;
-	int base;
+	int			i;
+	int			j;
+	int			x;
+	int			base;
 
 	i = 0;
 	x = 0;
 	j = mlx->map.len_y * mlx->map.len_x - mlx->map.len_x;
 	while (line[i])
 	{
+//		ft_printf("line[i] %c\n", line[i]);//todo
 		if (line[i] == ' ')
 			i++;
 		else
 		{
 			base = ft_check_base(line + i);
 			mlx->map.point[j].z = ft_atoi_base(line + i, base) * mlx->scale;
-			mlx->map.point[j].z_f = (float)mlx->map.point[j].z;
-			mlx->map.point[j].y = (mlx->map.len_y - 1) * mlx->scale;
-			mlx->map.point[j].y_f = (float)mlx->map.point[j].y;
+			mlx->map.point[j].y = (mlx->map.len_y - 1) * mlx->scale;//todo WHY - 1?? how this works?
 			mlx->map.point[j].x = x * mlx->scale;
+			mlx->map.point[j].z_f = (float)mlx->map.point[j].z;
+			mlx->map.point[j].y_f = (float)mlx->map.point[j].y;
 			mlx->map.point[j].x_f = (float)mlx->map.point[j].x;
 			i = ft_move_i(line, i, &mlx->map.point[j]);
 			j++;

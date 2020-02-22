@@ -19,10 +19,10 @@ void				ft_slide_x(t_mlx *mlx_s)
 
 	ptr = mlx_s->map.point;
 	count = mlx_s->map.len_x * mlx_s->map.len_y;
-	while(count)
+	while(count > 0)
 	{
-		ptr->x_f += mlx_s->slide;
-		if (count - 1)
+		ptr->x_f += (float)mlx_s->slide;
+		if (count - 1 > 0)
 			ptr++;
 		count--;
 	}

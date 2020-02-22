@@ -52,7 +52,7 @@ SRC_LIST = main.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
-OBJ_DIR= objects/
+OBJ_DIR = objects/
 OBJ_LIST = $(patsubst %.c, %.o, $(SRC_LIST))
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
