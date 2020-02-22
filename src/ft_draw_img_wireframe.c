@@ -19,7 +19,7 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 
 	y = 0;
 	x = 0;
-	int i = 0;
+	int i = 0;//TODO d
 	ft_draw_background(&mlx);
 	while (y <= mlx.map.len_y)
 	{
@@ -27,20 +27,21 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 		{
 			if (mlx.map.point[x].y == mlx.map.point[x + 1].y)
 			{
-				ft_draw_img_line(mlx.map.point[x],
+				if(mlx.map.point[x + 1].color && mlx.map.point[x].color)
+					ft_draw_img_line(mlx.map.point[x],
 								 mlx.map.point[x + 1], &mlx);
-				i++;
+				i++;//TODO d
 			}
 			if (mlx.map.point[x].x == mlx.map.point[x + mlx.map.len_x].x)
 			{
-				ft_draw_img_line(mlx.map.point[x], \
+				if(mlx.map.point[x + mlx.map.len_x].color && mlx.map.point[x].color)
+					ft_draw_img_line(mlx.map.point[x], \
 						mlx.map.point[x + mlx.map.len_x], &mlx);
-				i++;
+				i++;//TODO d
 			}
 			x++;
 		}
 		y++;
 	}
-	ft_printf("draw %d lines\n", i);
-//	mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img_ptr, 0, 0);
+	ft_printf("draw %d lines\n", i);//TODO d
 }
