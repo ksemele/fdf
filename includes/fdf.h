@@ -39,6 +39,10 @@
 #define N_D 88
 #define NUM_PLUS 69
 #define NUM_MINUS 78
+#define UP 126
+#define DOWN 125
+#define LEFT 123
+#define RIGHT 124
 
 /*
 ** -------------------------------- COLORS -------------------------------------

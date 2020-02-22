@@ -16,68 +16,58 @@ static int				ft_deal_key(int key, t_mlx *mlx)
 {
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 	mlx->pressed = key;
-	if (mlx->pressed == W)
+	if (mlx->pressed == W || mlx->pressed == UP)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
 		ft_slide_x(mlx);
 		ft_slide_y(mlx);
-//		ft_draw_wireframe(*mlx);
-		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
-	if (mlx->pressed == A)
+	if (mlx->pressed == A || mlx->pressed == LEFT)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
 		ft_slide_x(mlx);
-		mlx->slide = 50;//todo lol kek -> not right
-		ft_slide_x(mlx);
+		mlx->slide = 50;
 		ft_slide_y(mlx);
-//		ft_draw_wireframe(*mlx);
-		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
-	if (mlx->pressed == S)
+	if (mlx->pressed == S|| mlx->pressed == DOWN)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
 		ft_slide_x(mlx);
 		ft_slide_y(mlx);
-//		ft_draw_wireframe(*mlx);
-		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
-	if (mlx->pressed == D)//todo test img_mov
+	if (mlx->pressed == D || mlx->pressed == RIGHT)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
 		ft_slide_x(mlx);
 		mlx->slide = -50;
 		ft_slide_y(mlx);
-//		ft_draw_wireframe(*mlx);
-		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
-	if (key == SPACE)
+
+	if (mlx->pressed == NUM_PLUS)//TODO not work (
+	{
+		mlx->scale += 20;
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		ft_draw_wireframe(*mlx);
+	}
+	ft_draw_img_wireframe(*mlx);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
+	if (mlx->pressed == SPACE)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		ft_draw_background(mlx);//TODO  WORKING! %)
+		mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
+		mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
+		ft_draw_background(mlx);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
-	if (key == ESC)
+	if (mlx->pressed == ESC)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 //		ft_free();//todo
 		exit (0);
-	}
-	if (key == NUM_PLUS)//TODO not work (
-	{
-		mlx->scale += 20;
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		ft_draw_wireframe(*mlx);
-		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
 	return (0);
 }
@@ -97,14 +87,19 @@ int				main(int argc, char **argv)
 	mlx->pixels = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->width, &mlx->endian);
 	ft_printf("x=%d\n", mlx->map.len_x);//todo d
 	ft_printf("y=%d\n", mlx->map.len_y);//TODO d
-	mlx->color = (int)CYBER;//TODO d
+//	mlx->color = (int)CYBER;//TODO d
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 100, 0);
-//	ft_draw_wireframe(*mlx);//TODO  WORKING! %)
-//	ft_draw_line(mlx->map.point[0], mlx->map.point[10], mlx);//todo test line
 
-	ft_draw_background(mlx);//TODO  WORKING! %)
-//	ft_draw_img_line(mlx->map.point[0], mlx->map.point[10], mlx);//TODO  WORKING! %)
-	ft_draw_img_wireframe(*mlx);//TODO createt it
+	ft_draw_background(mlx);
+
+//	init start pos
+	mlx->slide = mlx->win_y / 2;
+	ft_slide_x(mlx);
+	mlx->slide = -(mlx->win_y / 2);
+	ft_slide_y(mlx);
+	ft_draw_img_wireframe(*mlx);
+
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);
 	mlx_loop(mlx->mlx_ptr);
