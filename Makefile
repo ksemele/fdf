@@ -47,6 +47,8 @@ SRC_LIST = main.c \
 				ft_write_points.c \
 				ft_isometric.c \
 				ft_draw_img_background.c \
+				ft_slide_x.c \
+				ft_slide_y.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
