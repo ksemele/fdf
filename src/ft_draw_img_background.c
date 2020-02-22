@@ -12,17 +12,17 @@
 
 #include <fdf.h>
 
-void	ft_draw_background(t_mlx *mlx_s)
+void		ft_draw_background(t_mlx *mlx_s)
 {
-	int	*image;
-	int	i;
+	int		*pixel;
+	int		i;
 
 	ft_bzero(mlx_s->pixels, mlx_s->win_x * mlx_s->win_y * (mlx_s->bpp / 8));
-	image = (int *)(mlx_s->pixels);
+	pixel = (int *)(mlx_s->pixels);
 	i = 0;
 	while (i < mlx_s->win_x * mlx_s->win_y)
 	{
-		image[i] = BACKGROUND;
+		pixel[i] = BACKGROUND;
 		i++;
 	}
 }

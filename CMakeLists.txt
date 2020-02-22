@@ -143,4 +143,6 @@ add_executable(fdf
         src/ft_check_line_points.c
         src/ft_increase_point_size.c
         src/ft_write_points.c
-        src/ft_isometric.c)
+        src/ft_isometric.c
+        src/ft_slide_x.c
+        src/ft_slide_y.c)

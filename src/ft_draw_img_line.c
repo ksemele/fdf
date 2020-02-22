@@ -37,7 +37,7 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s)
 	ft_isometric(&end, mlx_s);
 	x_step = end.x_f - start.x_f;
 	y_step = end.y_f - start.y_f;
-	max = ft_fisbigger(ft_fmod(x_step), ft_fmod(y_step));
+	max = ft_isbigger(ft_abs(x_step), ft_abs(y_step));
 	x_step /= max;
 	y_step /= max;
 	while((int)(end.x_f - start.x_f) || (int)(end.y_f - start.y_f))
@@ -48,9 +48,5 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s)
 		ft_draw_img_pixel(mlx_s, &start);
 		start.x_f += x_step;
 		start.y_f += y_step;
-//		ft_draw_img_pixel(mlx_s, &end);
-//		end.x_f -= x_step;
-//		end.y_f -= y_step;
 	}
-	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 0, 0);
 }

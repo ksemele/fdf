@@ -33,6 +33,10 @@
 #define A 0
 #define S 1
 #define D 2
+#define N_W 91
+#define N_A 86
+#define N_S 87
+#define N_D 88
 
 /*
 ** -------------------------------- COLORS -------------------------------------
@@ -91,10 +95,12 @@ typedef struct		s_mlx
 	void			*win_ptr;
 	void			*img_ptr;
 	char			*pixels;
+//	char			*data_addr;
 	int				color;
 	int				pressed;
 	float			angle;
 	int				scale;
+	int				slide;
 	int				win_x;
 	int				win_y;
 	int				bpp;
@@ -124,5 +130,7 @@ void				ft_draw_img_wireframe(t_mlx mlx_s);
 void				ft_draw_line(t_point start, t_point end, t_mlx *mlx_s);
 void				ft_draw_wireframe(t_mlx mlx_s);
 void				ft_isometric(t_point *point, t_mlx *mlx_s);
+void				ft_slide_x(t_mlx *mlx_s);
+void				ft_slide_y(t_mlx *mlx_s);
 
 #endif
