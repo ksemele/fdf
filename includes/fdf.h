@@ -115,22 +115,22 @@ typedef struct		s_mlx
 ** -----------------------------------------------------------------------------
 */
 
-void				ft_check_args(int argc, char **argv, t_mlx *mlx_s);
-void				ft_error_print(char *str, t_mlx *mlx_s);
+void				ft_check_args(int argc, char **argv, t_mlx *mlx);
+void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 float				ft_fisbigger(float a, float b);
 float				ft_fmod(float i);
-void				ft_check_line_points(char *line, t_mlx *mlx_s);
-int					ft_increase_point_size(t_mlx *mlx_s);
+void				ft_check_line_points(char *line, t_mlx *mlx);
+int					ft_increase_point_size(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);
-void				ft_write_points(const char *line, t_mlx *mlx_s);
-void				ft_draw_background(t_mlx *mlx_s);
-void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s);
-void				ft_draw_img_wireframe(t_mlx mlx_s);
-void				ft_draw_line(t_point start, t_point end, t_mlx *mlx_s);
-void				ft_draw_wireframe(t_mlx mlx_s);
-void				ft_isometric(t_point *point, t_mlx *mlx_s);
-void				ft_slide_x(t_mlx *mlx_s);
-void				ft_slide_y(t_mlx *mlx_s);
+void				ft_write_points(const char *line, t_mlx *mlx);
+void				ft_draw_background(t_mlx *mlx);
+void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx);
+void				ft_draw_img_wireframe(t_mlx mlx);
+void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
+void				ft_draw_wireframe(t_mlx mlx);
+void				ft_isometric(t_point *point, t_mlx *mlx);
+void				ft_slide_x(t_mlx *mlx);
+void				ft_slide_y(t_mlx *mlx);
 
 #endif
