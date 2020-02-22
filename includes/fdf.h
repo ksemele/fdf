@@ -37,6 +37,8 @@
 #define N_A 86
 #define N_S 87
 #define N_D 88
+#define NUM_PLUS 69
+#define NUM_MINUS 78
 
 /*
 ** -------------------------------- COLORS -------------------------------------
@@ -95,7 +97,6 @@ typedef struct		s_mlx
 	void			*win_ptr;
 	void			*img_ptr;
 	char			*pixels;
-//	char			*data_addr;
 	int				color;
 	int				pressed;
 	float			angle;
@@ -104,7 +105,7 @@ typedef struct		s_mlx
 	int				win_x;
 	int				win_y;
 	int				bpp;
-	int				size_line;
+	int				width;
 	int				endian;
 	t_map			map;
 }					t_mlx;
@@ -119,7 +120,7 @@ void				ft_check_args(int argc, char **argv, t_mlx *mlx);
 void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 float				ft_fisbigger(float a, float b);
-float				ft_fmod(float i);
+float				ft_fabs(float i);
 void				ft_check_line_points(char *line, t_mlx *mlx);
 int					ft_increase_point_size(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);

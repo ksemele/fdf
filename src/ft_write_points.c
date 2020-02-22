@@ -30,7 +30,8 @@ static int		ft_move_i(const char *line, int i, t_point *point)
 	int color_flag;
 
 	color_flag = 0;
-	point->color = 0xffffff;
+//	point->color = 0xffffff;
+	point->color = CYBER + 80000;
 	while (line[i] && line[i] != ' ')
 	{
 		if (line[i] == ',' && color_flag == 0)
@@ -49,7 +50,7 @@ static int		ft_move_i(const char *line, int i, t_point *point)
 	return (i);
 }
 
-void			ft_write_points(const char *line, t_mlx *mlx_s)
+void			ft_write_points(const char *line, t_mlx *mlx)
 {
 	int i;
 	int j;
@@ -58,7 +59,7 @@ void			ft_write_points(const char *line, t_mlx *mlx_s)
 
 	i = 0;
 	x = 0;
-	j = mlx_s->map.len_y * mlx_s->map.len_x - mlx_s->map.len_x;
+	j = mlx->map.len_y * mlx->map.len_x - mlx->map.len_x;
 	while (line[i])
 	{
 		if (line[i] == ' ')
@@ -66,13 +67,13 @@ void			ft_write_points(const char *line, t_mlx *mlx_s)
 		else
 		{
 			base = ft_check_base(line + i);
-			mlx_s->map.point[j].z = ft_atoi_base(line + i, base) * mlx_s->scale;
-			mlx_s->map.point[j].z_f = (float)mlx_s->map.point[j].z;
-			mlx_s->map.point[j].y = (mlx_s->map.len_y - 1) * mlx_s->scale;
-			mlx_s->map.point[j].y_f = (float)mlx_s->map.point[j].y;
-			mlx_s->map.point[j].x = x * mlx_s->scale;
-			mlx_s->map.point[j].x_f = (float)mlx_s->map.point[j].x;
-			i = ft_move_i(line, i, &mlx_s->map.point[j]);
+			mlx->map.point[j].z = ft_atoi_base(line + i, base) * mlx->scale;
+			mlx->map.point[j].z_f = (float)mlx->map.point[j].z;
+			mlx->map.point[j].y = (mlx->map.len_y - 1) * mlx->scale;
+			mlx->map.point[j].y_f = (float)mlx->map.point[j].y;
+			mlx->map.point[j].x = x * mlx->scale;
+			mlx->map.point[j].x_f = (float)mlx->map.point[j].x;
+			i = ft_move_i(line, i, &mlx->map.point[j]);
 			j++;
 			x++;
 		}

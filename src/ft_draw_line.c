@@ -27,12 +27,12 @@ void		ft_draw_line(t_point start, t_point end, t_mlx *mlx_s)
 	ft_isometric(&end, mlx_s);
 	x_step = end.x_f - start.x_f;
 	y_step = end.y_f - start.y_f;
-	max = ft_fisbigger(ft_fmod(x_step), ft_fmod(y_step));
+	max = ft_fisbigger(ft_fabs(x_step), ft_fabs(y_step));
 	x_step /= max;
 	y_step /= max;
 	while((int)(end.x_f - start.x_f) || (int)(end.y_f - start.y_f))
 	{
-		start.color += end.color / (int)ft_isbigger(ft_fmod(x_step), ft_fmod(y_step));//todo how change colors?
+		start.color += end.color / (int)ft_isbigger(ft_fabs(x_step), ft_fabs(y_step));//todo how change colors?
 		mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, (int)start.x_f, \
 				(int)start.y_f, start.color);
 		start.x_f += x_step;
