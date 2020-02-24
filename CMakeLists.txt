@@ -146,4 +146,5 @@ add_executable(fdf
         src/ft_write_points.c
         src/ft_isometric.c
         src/ft_slide_x.c
-        src/ft_slide_y.c)
+        src/ft_slide_y.c
+        src/ft_deal_key.c)

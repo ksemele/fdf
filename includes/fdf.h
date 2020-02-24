@@ -138,5 +138,6 @@ void				ft_draw_wireframe(t_mlx mlx);
 void				ft_isometric(t_point *point, t_mlx *mlx);
 void				ft_slide_x(t_mlx *mlx);
 void				ft_slide_y(t_mlx *mlx);
+int					ft_deal_key(int key, t_mlx *mlx);
 
 #endif
