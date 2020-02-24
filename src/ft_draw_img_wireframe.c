@@ -23,7 +23,7 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 	ft_draw_background(&mlx);
 	while (y <= mlx.map.len_y)
 	{
-		while (x <= (mlx.map.len_x * mlx.map.len_y))
+		while (x <= mlx.map.total_points)
 		{
 			if (mlx.map.point[x].y == mlx.map.point[x + 1].y)
 			{
