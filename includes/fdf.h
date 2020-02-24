@@ -93,6 +93,7 @@ typedef struct		s_map
 	t_point			*point;
 	int				len_x;
 	int				len_y;
+	int				total_points;
 }					t_map;
 
 typedef struct		s_mlx
