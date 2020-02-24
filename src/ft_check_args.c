@@ -76,6 +76,7 @@ void	ft_check_args(int argc, char **argv, t_mlx *mlx_s)
 	while ((gnl = ft_get_next_line(fd, &line)) == 1)
 	{
 		ft_check_n_write_line(line, mlx_s);
+		ft_printf("line= %s\n", line);//TODO del
 		free(line);
 		line = NULL;
 	}
