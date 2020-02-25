@@ -16,7 +16,7 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
 	int			i;
 
-	if ((int)point->x_f < mlx->win_x && point->y_f > 0 && (int)point->y_f < mlx->win_y)//TODO point->y_f >(>=) 0 ?
+	if ((int)point->x_f <= mlx->win_x && point->y_f >= 0 && (int)point->y_f <= mlx->win_y)//TODO point->y_f >(>=) 0 ?
 	{
 		i = ((int)point->x_f * mlx->bpp / 8) + ((int)point->y_f * mlx->width);
 		mlx->pixels[i] = point->color;
@@ -40,11 +40,14 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	y_step /= max;
 	while((int)(end.x_f - start.x_f) || (int)(end.y_f - start.y_f))
 	{
-//		start.color = CYBER + 80000;
-//		end.color = CYBER + 80000;
-//		start.color *= (int)(end.color / ft_isbigger(ft_fmod(x_step), ft_fmod(y_step)));//todo how change colors?
-		if((int)start.x_f > mlx->map.len_x && (int)start.y_f > mlx->map.len_y)//todo think about it
+		start.color = CYBER ;
+//		end.color = CYBER ;
+		start.color += (int)(end.color / max);//todo how change colors?
+		if((int)start.x_f >= mlx->map.len_x && (int)start.y_f >= mlx->map.len_y)//todo think about it
+		{
 			ft_draw_img_pixel(mlx, &start);
+			ft_draw_img_pixel(mlx, &end);
+		}
 		start.x_f += x_step;
 		start.y_f += y_step;
 	}

@@ -53,7 +53,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 //		ft_draw_wireframe(*mlx);
 	}
-//	ft_draw_img_wireframe(*mlx);
+	ft_draw_img_wireframe(*mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	if (mlx->pressed == SPACE)
 	{
