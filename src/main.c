@@ -61,6 +61,7 @@ void			ft_read_points_to_struct(int argc, char **argv, t_mlx *mlx)
 	{
 		//TODO MVP reading, need integrate ft_atoi_base() and other
 		ft_read_xyz(*line, cur_y, mlx);
+		ft_printf("read %d line\n", cur_y);
 		cur_y++;
 		gnl = ft_get_next_line(fd, line);
 	}
@@ -71,34 +72,40 @@ void			ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 {
 	int			cur_point;
 	int			cur_x;
+	char		*tmp;
 
 	cur_point = mlx->map.total_points;
 	cur_x = 0;
 //ft_printf("read to points: %d!\n", cur_point);
 	while(*line != '\0')
 	{
+		tmp = line;
 		while (*line == ' ')
-			line++;
-		if (*line != ' ')
 		{
-			mlx->map.point[cur_point].z = ft_atoi(line);
-			mlx->map.point[cur_point].y = cur_y * mlx->scale;
-			mlx->map.point[cur_point].x = cur_x * mlx->scale;
-			mlx->map.point[cur_point].color += CYBER + 80000;
-			mlx->map.point[cur_point].z_f = (float)mlx->map.point[cur_point].z;
-			mlx->map.point[cur_point].y_f = (float)mlx->map.point[cur_point].y;
-			mlx->map.point[cur_point].x_f = (float)mlx->map.point[cur_point].x;
-
-//			ft_printf("col %d\t", mlx->map.point[cur_point].color);
-//			ft_printf("x %3d y %3d z %3d\n", mlx->map.point[cur_point].x, mlx->map.point[cur_point].y, mlx->map.point[cur_point].z);
-			cur_x++;
-			while(*line != ' ' || *line != '\0')
-			{
-				if(*line == '\0')
-					break ;
-				line++;
-			}
+			if(*line == '\0')
+				break ;
+			line++;
 		}
+		mlx->map.point[cur_point].z = ft_atoi(tmp) * mlx->scale;
+		mlx->map.point[cur_point].y = cur_y * mlx->scale;
+		mlx->map.point[cur_point].x = cur_x * mlx->scale;
+		mlx->map.point[cur_point].color += CYBER + 80000;
+		mlx->map.point[cur_point].z_f = (float)mlx->map.point[cur_point].z;
+		mlx->map.point[cur_point].y_f = (float)mlx->map.point[cur_point].y;
+		mlx->map.point[cur_point].x_f = (float)mlx->map.point[cur_point].x;
+
+//		ft_printf("col %d\t", mlx->map.point[cur_point].color);
+//		ft_printf("x %3d y %3d z %3d\t", mlx->map.point[cur_point].x, mlx->map.point[cur_point].y, mlx->map.point[cur_point].z);
+		cur_x++;
+//		ft_printf("*l %c\n", *line);
+		while(*line != ' ' || *line != '\0')
+		{
+//			ft_printf("*l_s [%c]\t", *line);
+			if(*line != ' ' || *line != '\0')
+				break ;
+			line++;
+		}
+//		ft_printf("\n");
 		cur_point++;
 		line++;
 	}
@@ -147,6 +154,7 @@ int				main(int argc, char **argv)
 
 	ft_check_test(argc, argv, mlx);
 //	ft_check_args(argc, argv, mlx);
+	ft_printf("__points %d\n", mlx->map.total_points);
 
 //	ft_printf("AFTER TEST!\nml_1 %d %d ml_208 %d %d\n", mlx->map.point[0].x,mlx->map.point[0].y, mlx->map.point[208].x, mlx->map.point[208].y);
 //	ft_printf("___z %d %d\n",mlx->map.point[0].z, mlx->map.point[208].z);
@@ -165,8 +173,13 @@ int				main(int argc, char **argv)
 	mlx->slide = -(mlx->win_y / 2);
 	ft_slide_y(mlx);
 
-	ft_draw_img_wireframe(*mlx);
-//	ft_draw_img_line(mlx->map.point[0], mlx->map.point[12], mlx);
+//	ft_draw_img_wireframe(*mlx);
+
+	ft_draw_img_line(mlx->map.point[0], mlx->map.point[1], mlx);
+	ft_draw_img_line(mlx->map.point[0], mlx->map.point[2], mlx);
+	ft_draw_img_line(mlx->map.point[1], mlx->map.point[3], mlx);
+	ft_draw_img_line(mlx->map.point[2], mlx->map.point[3], mlx);
+
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);
 	mlx_loop(mlx->mlx_ptr);
