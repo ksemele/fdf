@@ -17,7 +17,7 @@ void				ft_slide_x(t_mlx *mlx_s)
 	int					count;
 	t_point				*ptr;
 
-	ptr = mlx_s->map.point;
+	ptr = mlx_s->map.px;
 	count = mlx_s->map.len_x * mlx_s->map.len_y;
 	while(count > 0)
 	{

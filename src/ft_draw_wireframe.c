@@ -23,15 +23,15 @@ void		ft_draw_wireframe(t_mlx mlx_s)
 	{
 		while (x <= (mlx_s.map.len_x * mlx_s.map.len_y))
 		{
-			if (mlx_s.map.point[x].y == mlx_s.map.point[x + 1].y)
+			if (mlx_s.map.px[x].y == mlx_s.map.px[x + 1].y)
 			{
-				ft_draw_line(mlx_s.map.point[x],
-							 mlx_s.map.point[x + 1], &mlx_s);
+				ft_draw_line(mlx_s.map.px[x],
+							 mlx_s.map.px[x + 1], &mlx_s);
 			}
-			if (mlx_s.map.point[x].x == mlx_s.map.point[x + mlx_s.map.len_x].x)
+			if (mlx_s.map.px[x].x == mlx_s.map.px[x + mlx_s.map.len_x].x)
 			{
-				ft_draw_line(mlx_s.map.point[x], \
-						mlx_s.map.point[x + mlx_s.map.len_x], &mlx_s);
+				ft_draw_line(mlx_s.map.px[x], \
+						mlx_s.map.px[x + mlx_s.map.len_x], &mlx_s);
 			}
 			x++;
 		}

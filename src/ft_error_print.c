@@ -17,8 +17,8 @@ void	ft_error_print(char *str, t_mlx *mlx_s)
 	//TODO free mem
 	if (mlx_s != NULL)
 	{
-		if (mlx_s->map.point != NULL)
-			free(mlx_s->map.point);
+		if (mlx_s->map.px != NULL)
+			free(mlx_s->map.px);
 		free(mlx_s);
 	}
 	if (errno)

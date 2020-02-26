@@ -21,10 +21,10 @@ static t_point	*ft_copy_points_arr(t_point *tmp, t_mlx *mlx_s)
 	size = mlx_s->map.len_x * mlx_s->map.len_y;
 	while (i < size)
 	{
-		tmp[i] = mlx_s->map.point[i];
+		tmp[i] = mlx_s->map.px[i];
 		i++;
 	}
-	free(mlx_s->map.point);
+	free(mlx_s->map.px);
 	return (tmp);
 }
 
@@ -32,9 +32,9 @@ int		ft_increase_point_size(t_mlx *mlx_s)
 {
 	t_point *tmp;
 
-	if (mlx_s->map.point == NULL)
+	if (mlx_s->map.px == NULL)
 	{
-		if (!(mlx_s->map.point = malloc(sizeof(t_point) * mlx_s->map.len_x)))
+		if (!(mlx_s->map.px = malloc(sizeof(t_point) * mlx_s->map.len_x)))
 			return (0);
 		return (1);
 	}
@@ -44,7 +44,7 @@ int		ft_increase_point_size(t_mlx *mlx_s)
 				(mlx_s->map.len_x * mlx_s->map.len_y))))
 			return (0);
 		tmp = ft_copy_points_arr(tmp, mlx_s);
-		mlx_s->map.point = tmp;
+		mlx_s->map.px = tmp;
 	}
 	return (1);
 }

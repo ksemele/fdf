@@ -14,7 +14,7 @@
 
 /*
 ** DESCRIPTION
-** ft_isometric() convert point coordinates into isometric projection
+** ft_isometric() convert px coordinates into isometric projection
 ** default angle = 0.8 for canonic projection
 ** Formulas received from a random github repo.
 */

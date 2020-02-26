@@ -90,7 +90,7 @@ typedef struct		s_point
 
 typedef struct		s_map
 {
-	t_point			*point;
+	t_point			*px;
 	int				len_x;
 	int				len_y;
 	int				total_points;
