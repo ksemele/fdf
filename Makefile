@@ -38,7 +38,7 @@ SRC_LIST = main.c \
 				ft_draw_line.c \
 				ft_draw_img_line.c \
 				ft_fisbigger.c \
-				ft_fabs.c \
+				ft_fabsf.c \
 				ft_check_line_points.c \
 				ft_draw_wireframe.c \
 				ft_draw_img_wireframe.c \

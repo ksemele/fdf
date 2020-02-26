@@ -33,10 +33,6 @@
 #define A 0
 #define S 1
 #define D 2
-#define N_W 91
-#define N_A 86
-#define N_S 87
-#define N_D 88
 #define NUM_PLUS 69
 #define NUM_MINUS 78
 #define UP 126
@@ -82,9 +78,9 @@ typedef struct		s_point
 	int				x;
 	int				y;
 	int				z;
-	float			x_f;
-	float			y_f;
-	float			z_f;
+	double			x_d;
+	double			y_d;
+	double			z_d;
 	int				color;
 }					t_point;
 
@@ -104,7 +100,8 @@ typedef struct		s_mlx
 	char			*pixels;
 	int				color;
 	int				pressed;
-	float			angle;
+	double			angle_x;
+	double			angle_y;
 	int				scale;
 	int				slide;
 	int				win_x;
@@ -125,7 +122,7 @@ void				ft_check_args(int argc, char **argv, t_mlx *mlx);
 void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 float				ft_fisbigger(float a, float b);
-float				ft_fabs(float i);
+float				ft_fabsf(float i);
 void				ft_check_line_points(char *line, t_mlx *mlx);
 int					ft_increase_point_size(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);

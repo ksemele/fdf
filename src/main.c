@@ -36,7 +36,6 @@ void			ft_check_test(int argc, char **argv, t_mlx *mlx)
 		if(mlx->map.len_y == 1)
 			mlx->map.len_x = mlx->map.total_points;
 		gnl = ft_get_next_line(fd, line);
-//		gnl = getline(fd, line);
 	}
 	close(fd);
 	//---------allocate memory for map
@@ -59,40 +58,23 @@ void			ft_read_points_to_struct(int argc, char **argv, t_mlx *mlx)
 	ft_printf("total_ %d\n", mlx->map.total_points);
 	mlx->map.total_points = 0;
 	line = (char**)malloc(1);
-//line = NULL;
 	if ((fd = open(argv[1], O_RDONLY)) < 0)
 		ft_error_print("Error open file\n", mlx);
 	gnl = ft_get_next_line(fd, line);
-//	int i = 0;
-//	char **tmp;
-//	tmp = ft_strsplit(*line, ' ');
-//	while (tmp[i] != NULL)
-//		i++;
 	ft_printf("LEN Y %d\n", mlx->map.len_y);
 	while(gnl == 1 && cur_y < mlx->map.len_y)
 	{
-//		if (gnl <= 0)
-//			break;
 		//TODO MVP reading, need integrate ft_atoi_base() and other
 		ft_read_xyz(*line, cur_y, mlx);
-//		ft_printf("read %d line_0\tgnl = %d\n", cur_y, gnl);
 		free(line);
 		line = (char**)malloc(1);
-//		line = NULL;
 		ft_printf("read %d line_1\tgnl = %d\n", cur_y, gnl);
 		gnl = ft_get_next_line(fd, line);
 
 		if (gnl <= 0)
 			break;
-//		ft_printf("read %d line_2\tgnl = %d\n", cur_y, gnl);
-//		tmp = ft_strsplit(*line, ' ');
-//		int j = 0;
-//		while (tmp[j] != NULL)
-//			j++;
-//		i += j;
 		cur_y++;
 	}
-//	ft_printf("III %d\n", i);
 	close(fd);
 }
 
@@ -105,7 +87,6 @@ void			ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 	cur_point = mlx->map.total_points;
 	ft_printf("cur_ %d, total_ %d\n", cur_point, mlx->map.total_points);
 	cur_x = 0;
-//ft_printf("read to points: %d!\n", cur_point);
 	while(*line != '\0' && cur_x <= mlx->map.len_x)
 	{
 		tmp = line;
@@ -118,23 +99,17 @@ void			ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 		mlx->map.px[cur_point].z = ft_atoi(tmp) * mlx->scale;
 		mlx->map.px[cur_point].y = cur_y * mlx->scale;
 		mlx->map.px[cur_point].x = cur_x * mlx->scale;
-		mlx->map.px[cur_point].color = CYBER + 80;
-		mlx->map.px[cur_point].z_f = (float)mlx->map.px[cur_point].z;
-		mlx->map.px[cur_point].y_f = (float)mlx->map.px[cur_point].y;
-		mlx->map.px[cur_point].x_f = (float)mlx->map.px[cur_point].x;
-
-//		ft_printf("col %d\t", mlx->map.px[cur_point].color);
-//		ft_printf("x %3d y %3d z %3d\t", mlx->map.px[cur_point].x, mlx->map.px[cur_point].y, mlx->map.px[cur_point].z);
+		mlx->map.px[cur_point].color = CYBER + 8000;
+		mlx->map.px[cur_point].z_d = (double)mlx->map.px[cur_point].z;
+		mlx->map.px[cur_point].y_d = (double)mlx->map.px[cur_point].y;
+		mlx->map.px[cur_point].x_d = (double)mlx->map.px[cur_point].x;
 		cur_x++;
-//		ft_printf("*l %c\n", *line);
 		while(*line != ' ')
 		{
-//			ft_printf("*l_s [%c]\t", *line);
 			if(*line != '\0')
 				break ;
 			line++;
 		}
-//		ft_printf("\n");
 		cur_point++;
 		line++;
 	}
@@ -185,8 +160,6 @@ int				main(int argc, char **argv)
 //	ft_check_args(argc, argv, mlx);
 	ft_printf("__points %d\n", mlx->map.total_points);
 
-//	ft_printf("AFTER TEST!\nml_1 %d %d ml_208 %d %d\n", mlx->map.px[0].x,mlx->map.px[0].y, mlx->map.px[208].x, mlx->map.px[208].y);
-//	ft_printf("___z %d %d\n",mlx->map.px[0].z, mlx->map.px[208].z);
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_x, mlx->win_y, "fdf");
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
@@ -199,11 +172,24 @@ int				main(int argc, char **argv)
 	//	init start pos
 	mlx->slide = mlx->win_y / 2;
 	ft_slide_x(mlx);
+//	ft_slide_x(mlx);
 	mlx->slide = -(mlx->win_y / 2);
 	ft_slide_y(mlx);
+//	int i = 0;
+//	while(i < 4)
+//	{		mlx->slide = -50;
+//		ft_slide_x(mlx);
+//		mlx->slide = 50;
+//		ft_slide_y(mlx);
+//	i++;
+//	}
+//	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+//	mlx->slide = 50;
+//	ft_slide_x(mlx);
+//	ft_slide_y(mlx);
+
 
 	ft_draw_img_wireframe(*mlx);
-//
 //	ft_draw_img_line(mlx->map.px[0], mlx->map.px[1], mlx);
 //	ft_draw_img_line(mlx->map.px[0], mlx->map.px[2], mlx);
 //	ft_draw_img_line(mlx->map.px[1], mlx->map.px[3], mlx);
