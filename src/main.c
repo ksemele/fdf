@@ -12,142 +12,6 @@
 
 #include "fdf.h"
 
-int						ft_count_words(char *str);
-void					ft_read_points_to_struct(int argc, char **argv, t_mlx *mlx);
-void					ft_read_xyz(char *line, int cur_y, t_mlx *mlx);
-
-void			ft_check_test(int argc, char **argv, t_mlx *mlx)
-{
-	char		**line;
-	int			gnl;
-	int			fd;
-
-	fd = argc;
-	line = (char**)malloc(1);
-	*line = NULL;
-	if ((fd = open(argv[1], O_RDONLY)) < 0)
-		ft_error_print("Error open file\n", mlx);
-	//--------count lines
-	gnl = ft_get_next_line(fd, line);
-	while(gnl == 1)
-	{
-		mlx->map.len_y++;
-		mlx->map.total_points += ft_count_words(*line);
-		if(mlx->map.len_y == 1)
-			mlx->map.len_x = mlx->map.total_points;
-		gnl = ft_get_next_line(fd, line);
-	}
-	close(fd);
-	//---------allocate memory for map
-	ft_printf("total_points %d\n", mlx->map.total_points);
-	mlx->map.px = (t_point*)malloc(sizeof(t_point) * mlx->map.total_points);//TODO leak protection, malloc err
-	//---------fill map
-	ft_printf("start fill\n");
-	ft_read_points_to_struct(argc, argv, mlx);
-}
-
-void			ft_read_points_to_struct(int argc, char **argv, t_mlx *mlx)
-{
-	char		**line;
-	int			gnl;
-	int			fd;
-	int			cur_y;
-
-	fd = argc;
-	cur_y = 0;
-	ft_printf("total_ %d\n", mlx->map.total_points);
-	mlx->map.total_points = 0;
-	line = (char**)malloc(1);
-	if ((fd = open(argv[1], O_RDONLY)) < 0)
-		ft_error_print("Error open file\n", mlx);
-	gnl = ft_get_next_line(fd, line);
-	ft_printf("LEN Y %d\n", mlx->map.len_y);
-	while(gnl == 1 && cur_y < mlx->map.len_y)
-	{
-		//TODO MVP reading, need integrate ft_atoi_base() and other
-		ft_read_xyz(*line, cur_y, mlx);
-		free(line);
-		line = (char**)malloc(1);
-		ft_printf("read %d line_1\tgnl = %d\n", cur_y, gnl);
-		gnl = ft_get_next_line(fd, line);
-
-		if (gnl <= 0)
-			break;
-		cur_y++;
-	}
-	close(fd);
-}
-
-void			ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
-{
-	int			cur_point;
-	int			cur_x;
-	char		*tmp;
-
-	cur_point = mlx->map.total_points;
-	ft_printf("cur_ %d, total_ %d\n", cur_point, mlx->map.total_points);
-	cur_x = 0;
-	while(*line != '\0' && cur_x <= mlx->map.len_x)
-	{
-		tmp = line;
-		while (*line == ' ')
-		{
-			if(*line == '\0')
-				break ;
-			line++;
-		}
-		mlx->map.px[cur_point].z = ft_atoi(tmp) * mlx->scale;
-		mlx->map.px[cur_point].y = cur_y * mlx->scale;
-		mlx->map.px[cur_point].x = cur_x * mlx->scale;
-		mlx->map.px[cur_point].color = CYBER + 8000;
-		mlx->map.px[cur_point].z_d = (double)mlx->map.px[cur_point].z;
-		mlx->map.px[cur_point].y_d = (double)mlx->map.px[cur_point].y;
-		mlx->map.px[cur_point].x_d = (double)mlx->map.px[cur_point].x;
-		cur_x++;
-		while(*line != ' ')
-		{
-			if(*line != '\0')
-				break ;
-			line++;
-		}
-		cur_point++;
-		line++;
-	}
-	mlx->map.total_points = cur_point;
-}
-
-int				ft_count_words(char *str)
-{
-	char		*tmp;
-	int			words;
-
-	words = 0;
-	tmp = str;
-
-	while (*str != '\0')
-		str++;
-	while (tmp && tmp != str)
-	{
-		if (tmp == str)
-			break ;
-		while (*tmp == ' ')
-		{
-			if (tmp == str)
-				break ;
-			tmp++;
-		}
-		if (*tmp != ' ')
-			words++;
-		while (*tmp != ' ')
-		{
-			if (tmp == str)
-				break ;
-			tmp++;
-		}
-	}
-	return (words);
-}
-
 int				main(int argc, char **argv)
 {
 	t_mlx		*mlx;
@@ -156,8 +20,8 @@ int				main(int argc, char **argv)
 	mlx = ft_create_t_mlx();
 //	ft_printf("FUCK START!\n");
 
-	ft_check_test(argc, argv, mlx);
-//	ft_check_args(argc, argv, mlx);
+	ft_check_args(argc, argv, mlx);
+	ft_read_points_to_struct(argv, mlx);
 	ft_printf("__points %d\n", mlx->map.total_points);
 
 	mlx->mlx_ptr = mlx_init();
