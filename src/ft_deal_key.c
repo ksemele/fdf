@@ -16,6 +16,12 @@ int				ft_deal_key(int key, t_mlx *mlx)
 {
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 	mlx->pressed = key;
+	if (mlx->pressed == ESC)
+	{
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+//		ft_free();//todo
+		exit (0);
+	}
 	if (mlx->pressed == W || mlx->pressed == UP)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -46,12 +52,19 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->slide = -50;
 		ft_slide_y(mlx);
 	}
-
 	if (mlx->pressed == NUM_PLUS)//TODO not work (
 	{
 		mlx->scale += 20;
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		ft_draw_wireframe(*mlx);
+		mlx->angle_x += 0.1;
+		mlx->angle_y -= 0.1;
+	}
+	if (mlx->pressed == NUM_MINUS)//TODO not work (
+	{
+		mlx->scale += 20;
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->angle_x -= 0.1;
+		mlx->angle_y += 0.1;
 	}
 	ft_draw_img_wireframe(*mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
@@ -62,12 +75,6 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 		ft_draw_background(mlx);
 		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
-	}
-	if (mlx->pressed == ESC)
-	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-//		ft_free();//todo
-		exit (0);
 	}
 	return (0);
 }
