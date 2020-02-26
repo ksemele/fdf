@@ -68,6 +68,7 @@
 # include <unistd.h>
 # include "libft.h"
 # include "mlx.h"
+# include <limits.h>
 
 /*
 ** ------------------------- Structures Definition -----------------------------
@@ -136,5 +137,6 @@ void				ft_isometric(t_point *point, t_mlx *mlx);
 void				ft_slide_x(t_mlx *mlx);
 void				ft_slide_y(t_mlx *mlx);
 int					ft_deal_key(int key, t_mlx *mlx);
+void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
 
 #endif

@@ -50,6 +50,7 @@ SRC_LIST = main.c \
 				ft_slide_x.c \
 				ft_slide_y.c \
 				ft_deal_key.c \
+				ft_read_points_to_struct.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
