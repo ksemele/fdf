@@ -40,10 +40,7 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	while ((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{
 		if ((int)start.x_d >= 0)
-		{
 			ft_draw_img_pixel(mlx, &start);
-//			ft_draw_img_pixel(mlx, &end);
-		}
 		start.x_d += x_step;
 		start.y_d += y_step;
 	}
