@@ -4,13 +4,14 @@ project(fdf C)
 set(CMAKE_C_STANDARD 90)
 #set(CMAKEFLAGS "-lmlx -lm -lft -framework OpenGL -framework AppKit")
 
-include_directories(.)
-include_directories(includes)
-include_directories(libft)
-include_directories(libft/includes)
-include_directories(libft/src)
-include_directories(src)
-include_directories(minilibx_o)
+#include_directories(.)
+#include_directories(includes)
+#include_directories(libft)
+#include_directories(libft/includes)
+#include_directories(libft/src)
+#include_directories(src)
+#include_directories(minilibx_o)
+
 
 add_executable(fdf
         includes/fdf.h
@@ -148,3 +149,25 @@ add_executable(fdf
         src/ft_slide_x.c
         src/ft_slide_y.c
         src/ft_deal_key.c src/ft_read_points_to_struct.c)
+
+
+target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
+
+target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/libft/includes)
+find_library(FT libft.a)
+target_link_libraries(fdf LINK_PUBLIC ${FT})
+
+
+
+
+#find_library(FT ft libmlx)
+
+
+target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_o)
+find_library(MLX libmlx.a)
+#find_library(MLX mlx)
+target_link_libraries(fdf LINK_PUBLIC ${MLX} "-framework OpenGL -framework AppKit")
+#target_link_libraries(fdf "-framework OpenGL")
+#target_link_libraries(fdf "-framework AppKit")
+
+

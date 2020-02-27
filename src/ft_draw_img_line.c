@@ -16,13 +16,13 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
 	int			i;
 
-	if ((int)point->x_d <= mlx->win_x && (int)point->y_d >= 0 && \
-			(int)point->y_d <= mlx->win_y)//TODO px->y_d >(>=) 0 ?
+	if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
+			(int)point->y_d < mlx->win_y)//TODO px->y_d >(>=) 0 ?
 	{
 		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
 		mlx->pixels[i] = (char)point->color;
-		mlx->pixels[i + 1] = point->color >> 8;
-		mlx->pixels[i + 2] = point->color >> 16;
+		mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
+		mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
 	}
 }
 
