@@ -48,15 +48,15 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	{
 //		start.color = CYBER ;
 //		end.color = CYBER ;
-//		start.color += (int)(end.color / max);//todo how change colors?
-//		if((int)start.x_d <= mlx->map.total_points)//todo think about it
-//		{
+//		start.color += end.color / (int)fmax(fabs(x_step), fabs(y_step));
+		if((int)start.x_d >= 0)//todo think about it
+		{
 			ft_draw_img_pixel(mlx, &start);
-			ft_draw_img_pixel(mlx, &end);
+//			ft_draw_img_pixel(mlx, &end);
 //			ft_printf("strt x y->\t %.f\t%.f\n", start.x_d, start.y_d);
 //			ft_printf("(int)(end.x_d - start.x_d)_y\t%d\t%d\n",
 //					  (int)(end.x_d - start.x_d), (int)(end.y_d - start.y_d));
-//		}
+		}
 //		if ((int)(end.x_d - start.x_d) ==0 || (int)(end.y_d - start.y_d) == 0)
 //			break ;
 		start.x_d += x_step;
