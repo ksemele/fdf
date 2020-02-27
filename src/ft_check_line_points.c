@@ -12,10 +12,10 @@
 
 #include "fdf.h"
 
-static int	ft_check_long_line(const char *line)
+static int		ft_check_long_line(const char *line)
 {
-	int i;
-	int count;
+	int			i;
+	int			count;
 
 	i = 0;
 	count = 0;
@@ -31,7 +31,7 @@ static int	ft_check_long_line(const char *line)
 	return (count);
 }
 
-void	ft_check_line_points(char *line, t_mlx *mlx_s)
+void			ft_check_line_points(char *line, t_mlx *mlx_s)
 {
 	int count;
 

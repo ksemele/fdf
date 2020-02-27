@@ -12,9 +12,9 @@
 
 #include "fdf.h"
 
-t_memory	*ft_create_mem_struct(void)
+t_memory		*ft_create_mem_struct(void)
 {
-	t_memory *tmp;
+	t_memory	*tmp;
 
 	if (!(tmp = malloc(sizeof(t_memory))))
 		ft_error_print("ft_create_mem_struct", NULL);

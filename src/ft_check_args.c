@@ -25,9 +25,9 @@ static void		ft_usage_argc(int argc, t_mlx *mlx)
 
 static int		ft_count_words(char *str, t_mlx *mlx)
 {
-	int count;
-	int i;
-	int j;
+	int			count;
+	int			i;
+	int			j;
 
 	count = 0;
 	i = 0;
@@ -52,7 +52,7 @@ static int		ft_count_words(char *str, t_mlx *mlx)
 
 static void		ft_check_lines(char *line, t_mlx *mlx)
 {
-	int words;
+	int			words;
 
 	words = ft_count_words(line, mlx);
 	if (mlx->map.len_x == 0)
@@ -65,26 +65,17 @@ static void		ft_check_lines(char *line, t_mlx *mlx)
 	mlx->map.total_points += mlx->map.len_x;
 }
 
-void	ft_check_args(int argc, char **argv, t_mlx *mlx)
+void			ft_check_args(int argc, char **argv, t_mlx *mlx)
 {
-	int		fd;
-	char	*line;
-	int		gnl;
+	int			fd;
+	char		*line;
+	int			gnl;
 
 	errno = 0;
 	line = NULL;
-
-	//---------- check args ----------
-
 	ft_usage_argc(argc, mlx);
-
-	//---------- open file ----------
-
 	if ((fd = open(argv[1], O_RDONLY)) < 0)
 		ft_error_print("Error open file\n", mlx);
-
-	//---------- count lines and words ----------
-
 	gnl = ft_get_next_line(fd, &line);
 	while (gnl > 0)
 	{

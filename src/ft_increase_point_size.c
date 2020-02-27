@@ -12,10 +12,10 @@
 
 #include "fdf.h"
 
-static t_point	*ft_copy_points_arr(t_point *tmp, t_mlx *mlx_s)
+static t_point		*ft_copy_points_arr(t_point *tmp, t_mlx *mlx_s)
 {
-	int size;
-	int i;
+	int				size;
+	int				i;
 
 	i = 0;
 	size = mlx_s->map.len_x * mlx_s->map.len_y;
@@ -28,7 +28,7 @@ static t_point	*ft_copy_points_arr(t_point *tmp, t_mlx *mlx_s)
 	return (tmp);
 }
 
-int		ft_increase_point_size(t_mlx *mlx_s)
+int					ft_increase_point_size(t_mlx *mlx_s)
 {
 	t_point *tmp;
 

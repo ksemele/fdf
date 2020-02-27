@@ -26,9 +26,9 @@ static int		ft_check_base(const char *str)
 
 static void		ft_write_double(int cur_point, t_mlx *mlx)
 {
-	mlx->map.px[cur_point].z_d = (double) mlx->map.px[cur_point].z;
-	mlx->map.px[cur_point].y_d = (double) mlx->map.px[cur_point].y;
-	mlx->map.px[cur_point].x_d = (double) mlx->map.px[cur_point].x;
+	mlx->map.px[cur_point].z_d = (double)mlx->map.px[cur_point].z;
+	mlx->map.px[cur_point].y_d = (double)mlx->map.px[cur_point].y;
+	mlx->map.px[cur_point].x_d = (double)mlx->map.px[cur_point].x;
 }
 
 static void		ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
@@ -39,7 +39,7 @@ static void		ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 
 	cur_point = mlx->map.total_points;
 	cur_x = 0;
-	while(*line && cur_x <= mlx->map.len_x)
+	while (*line && cur_x <= mlx->map.len_x)
 	{
 		if (*line == ' ')
 			line++;
@@ -51,7 +51,7 @@ static void		ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 			mlx->map.px[cur_point].x = cur_x * mlx->scale;
 			mlx->map.px[cur_point].color = CYBER + 80;
 			ft_write_double(cur_point, mlx);
-			while(*line != ' ' && *line != '\0')
+			while (*line != ' ' && *line != '\0')
 				line++;
 			cur_x++;
 			cur_point++;
@@ -68,14 +68,14 @@ void			ft_read_points_to_struct(char **argv, t_mlx *mlx)
 	int			cur_y;
 
 	cur_y = 0;
-	if (!(mlx->map.px = (t_point*)malloc(sizeof(t_point) * mlx->map
-			.total_points)))
+	if (!(mlx->map.px = (t_point*)malloc(sizeof(t_point) * \
+			mlx->map.total_points)))
 		ft_error_print("Error malloc ft_read_points_to_struct\n", mlx);
 	mlx->map.total_points = 0;
 	if ((fd = open(argv[1], O_RDONLY)) < 0)
 		ft_error_print("Error open file\n", mlx);
 	gnl = ft_get_next_line(fd, &line);
-	while(gnl > 0 && cur_y < mlx->map.len_y)
+	while (gnl > 0 && cur_y < mlx->map.len_y)
 	{
 		ft_read_xyz(line, cur_y, mlx);
 		free(line);

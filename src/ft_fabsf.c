@@ -17,5 +17,5 @@ float		ft_fabsf(float i)
 	if (i < 0)
 		return (-i);
 	else
-		return(i);
+		return (i);
 }
