@@ -22,8 +22,8 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 	ft_draw_background(&mlx);
 	while (y < mlx.map.len_y)
 	{
-		ft_printf("total points %d\n", mlx.map.total_points);
-		ft_printf("x %d\tx+max %d\n", x, x + mlx.map.len_x);
+//		ft_printf("total points %d\n", mlx.map.total_points);
+//		ft_printf("x %d\tx+max %d\n", x, x + mlx.map.len_x);
 		while (x <= mlx.map.total_points && x + 1 <= mlx.map.total_points)
 		{
 			if (mlx.map.px[x].y == mlx.map.px[x + 1].y && x >= 0 )
