@@ -34,22 +34,10 @@ int				main(int argc, char **argv)
 	ft_draw_background(mlx);
 
 	//	init start pos
-	mlx->slide = mlx->win_y / 2;
-	ft_slide_x(mlx);
+//	mlx->slide = mlx->win_y / 2;
 //	ft_slide_x(mlx);
-	mlx->slide = -(mlx->win_y / 2);
-	ft_slide_y(mlx);
-//	int i = 0;
-//	while(i < 4)
-//	{		mlx->slide = -50;
-//		ft_slide_x(mlx);
-//		mlx->slide = 50;
-//		ft_slide_y(mlx);
-//	i++;
-//	}
-//	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//	mlx->slide = 50;
-//	ft_slide_x(mlx);
+////	ft_slide_x(mlx);
+//	mlx->slide = -(mlx->win_y / 2);
 //	ft_slide_y(mlx);
 
 
