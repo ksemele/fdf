@@ -32,24 +32,24 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	double		y_step;
 	double		max;
 
-//	ft_isometric(&start, mlx);
-//	ft_isometric(&end, mlx);
-	ft_printf("starx\tx y\t%d %d\t\t%.f %.f\t", start.x, start.y, start.x_d,start.y_d);
-	ft_printf("end\tx y\t%d %d\t\t%.f %.f\n", end.x, end.y, end.x_d, end.y_d);
+	ft_isometric(&start, mlx);
+	ft_isometric(&end, mlx);
+//	ft_printf("starx\tx y\t%d %d\t\t%.f %.f\t", start.x, start.y, start.x_d,start.y_d);
+//	ft_printf("end\tx y\t%d %d\t\t%.f %.f\n", end.x, end.y, end.x_d, end.y_d);
 	x_step = end.x_d - start.x_d;
 	y_step = end.y_d - start.y_d;
-	ft_printf("step x y 1 %.f %.f\n", x_step, y_step);
+//	ft_printf("step x y 1 %.f %.f\n", x_step, y_step);
 	max = fmax(fabs(x_step), fabs(y_step));//TODO to double all
-	ft_printf("max = %.f\n", max);
+//	ft_printf("max = %.f\n", max);
 	x_step /= max;
 	y_step /= max;
-	ft_printf("step x y 2 %.f %.f\n", x_step, y_step);
+//	ft_printf("step x y 2 %.f %.f\n", x_step, y_step);
 	while((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{
 //		start.color = CYBER ;
 //		end.color = CYBER ;
 //		start.color += (int)(end.color / max);//todo how change colors?
-//		if((int)start.x_d >= mlx->map.len_x && (int)start.y_d >= mlx->map.len_y)//todo think about it
+//		if((int)start.x_d <= mlx->map.total_points)//todo think about it
 //		{
 			ft_draw_img_pixel(mlx, &start);
 			ft_draw_img_pixel(mlx, &end);
