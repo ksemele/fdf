@@ -26,7 +26,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
-		ft_slide_x(mlx);
+//		ft_slide_x(mlx);
 		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == A || mlx->pressed == LEFT)
@@ -34,14 +34,14 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
 		ft_slide_x(mlx);
-		mlx->slide = 50;
-		ft_slide_y(mlx);
+//		mlx->slide = 50;
+//		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == S|| mlx->pressed == DOWN)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
-		ft_slide_x(mlx);
+//		ft_slide_x(mlx);
 		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == D || mlx->pressed == RIGHT)
@@ -49,8 +49,8 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
 		ft_slide_x(mlx);
-		mlx->slide = -50;
-		ft_slide_y(mlx);
+//		mlx->slide = -50;
+//		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == NUM_PLUS)//TODO not work (
 	{

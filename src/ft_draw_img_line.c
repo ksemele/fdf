@@ -32,8 +32,6 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	double		y_step;
 	double		max;
 
-	ft_isometric(&start, mlx);
-	ft_isometric(&end, mlx);
 	x_step = end.x_d - start.x_d;
 	y_step = end.y_d - start.y_d;
 	max = fmax(fabs(x_step), fabs(y_step));
