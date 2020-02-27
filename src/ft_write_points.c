@@ -61,14 +61,13 @@ void			ft_write_points(const char *line, t_mlx *mlx)
 	j = mlx->map.len_y * mlx->map.len_x - mlx->map.len_x;
 	while (line[i])
 	{
-//		ft_printf("line[i] %c\n", line[i]);//todo
 		if (line[i] == ' ')
 			i++;
 		else
 		{
 			base = ft_check_base(line + i);
-			mlx->map.px[j].z = ft_atoi_base(line + i, base) * mlx->scale;
-			mlx->map.px[j].y = (mlx->map.len_y - 1) * mlx->scale;//todo WHY - 1?? how this works?
+			mlx->map.px[j].z = ft_atoi_base(line + i, base) * mlx->scale_z;
+			mlx->map.px[j].y = (mlx->map.len_y - 1) * mlx->scale;
 			mlx->map.px[j].x = x * mlx->scale;
 			mlx->map.px[j].z_d = (double)mlx->map.px[j].z;
 			mlx->map.px[j].y_d = (double)mlx->map.px[j].y;

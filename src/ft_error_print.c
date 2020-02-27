@@ -12,9 +12,8 @@
 
 #include "fdf.h"
 
-void	ft_error_print(char *str, t_mlx *mlx_s)
+void		ft_error_print(char *str, t_mlx *mlx_s)
 {
-	//TODO free mem
 	if (mlx_s != NULL)
 	{
 		if (mlx_s->map.px != NULL)

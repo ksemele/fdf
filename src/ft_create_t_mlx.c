@@ -27,6 +27,7 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx->angle_x = 0.8;
 	mlx->angle_y = 0.8;
 	mlx->scale = 20;
+	mlx->scale_z = 10;
 	mlx->win_x = 800;
 	mlx->win_y = 600;
 	return (mlx);

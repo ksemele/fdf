@@ -16,6 +16,7 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 {
 	int		x;
 	int		y;
+	int		next_x_y;
 
 	y = 0;
 	x = 0;
@@ -24,16 +25,15 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 	{
 		while (x + 1 <= mlx.map.total_points && x < mlx.map.total_points)
 		{
-
-			if (mlx.map.px[x].y == mlx.map.px[x + 1].y && x >= 0 )
+			next_x_y = x + mlx.map.len_x;
+			if (mlx.map.px[x].y == mlx.map.px[x + 1].y && x >= 0)
 			{
-					ft_draw_img_line(mlx.map.px[x],
-									 mlx.map.px[x + 1], &mlx);
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[x + 1], &mlx);
 			}
-			if (x + mlx.map.len_x < mlx.map.total_points && mlx.map.px[x].x == mlx.map.px[x + mlx.map.len_x].x)
+			if (x + mlx.map.len_x < mlx.map.total_points && \
+				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
 			{
-					ft_draw_img_line(mlx.map.px[x], \
-						mlx.map.px[x + mlx.map.len_x], &mlx);
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
 			}
 			x++;
 		}

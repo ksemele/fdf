@@ -22,7 +22,8 @@
 void		ft_isometric(t_point *point, t_mlx *mlx_s)
 {
 	point->x = (point->x - point->y) * (int)cos((double)mlx_s->angle_x);
-	point->y = (point->x + point->y) * (int)sin((double)mlx_s->angle_y) - point->z;
+	point->y = (point->x + point->y) * (int)sin((double)mlx_s->angle_y) \
+			- point->z;
 	point->x_d = (point->x_d - point->y_d) * cos(mlx_s->angle_x);
 	point->y_d = (point->x_d + point->y_d) * sin(mlx_s->angle_y) - point->z_d;
 }

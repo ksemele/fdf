@@ -25,8 +25,8 @@ void		ft_draw_wireframe(t_mlx mlx_s)
 		{
 			if (mlx_s.map.px[x].y == mlx_s.map.px[x + 1].y)
 			{
-				ft_draw_line(mlx_s.map.px[x],
-							 mlx_s.map.px[x + 1], &mlx_s);
+				ft_draw_line(mlx_s.map.px[x], \
+							mlx_s.map.px[x + 1], &mlx_s);
 			}
 			if (mlx_s.map.px[x].x == mlx_s.map.px[x + mlx_s.map.len_x].x)
 			{
