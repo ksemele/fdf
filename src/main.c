@@ -23,22 +23,31 @@ int				main(int argc, char **argv)
 	ft_check_args(argc, argv, mlx);
 	ft_read_points_to_struct(argv, mlx);
 	ft_printf("__points %d\n", mlx->map.total_points);
+	//---------- check pars ----------
+	int i = 0;
+	while (i < mlx->map.total_points)
+	{
+		ft_printf("Point x = %d y = %d z = %d\n", mlx->map.px[i].x, mlx->map.px[i].y, mlx->map.px[i].z);
+		i++;
+	}
+	//--------------------------------
 
 	mlx->mlx_ptr = mlx_init();
-	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_x, mlx->win_y, "fdf");
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_x + 100, mlx->win_y
+	+ 100,"fdf");
 	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 	mlx->pixels = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->width, &mlx->endian);
 	ft_printf("x=%d\n", mlx->map.len_x);//todo d
 	ft_printf("y=%d\n", mlx->map.len_y);//TODO d
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
+//	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 10, 10);
 	ft_draw_background(mlx);
 
-	//	init start pos
-//	mlx->slide = mlx->win_y / 2;
-//	ft_slide_x(mlx);
-////	ft_slide_x(mlx);
-//	mlx->slide = -(mlx->win_y / 2);
-//	ft_slide_y(mlx);
+//		init start pos
+	mlx->slide = mlx->win_y / 2;
+	ft_slide_x(mlx);
+	ft_slide_x(mlx);
+	mlx->slide = -(mlx->win_y / 2);
+	ft_slide_y(mlx);
 
 
 	ft_draw_img_wireframe(*mlx);
@@ -47,7 +56,7 @@ int				main(int argc, char **argv)
 //	ft_draw_img_line(mlx->map.px[1], mlx->map.px[3], mlx);
 //	ft_draw_img_line(mlx->map.px[2], mlx->map.px[3], mlx);
 
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 50, 50);
 	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);
 	mlx_loop(mlx->mlx_ptr);
 
