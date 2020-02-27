@@ -22,14 +22,15 @@ int				main(int argc, char **argv)
 
 	ft_check_args(argc, argv, mlx);
 	ft_read_points_to_struct(argv, mlx);
+
 	ft_printf("__points %d\n", mlx->map.total_points);
 	//---------- check pars ----------
-	int i = 0;
-	while (i < mlx->map.total_points)
-	{
-		ft_printf("Point x = %d y = %d z = %d\n", mlx->map.px[i].x, mlx->map.px[i].y, mlx->map.px[i].z);
-		i++;
-	}
+//	int i = 0;
+//	while (i < mlx->map.total_points)
+//	{
+//		ft_printf("Point x = %d y = %d z = %d\n", mlx->map.px[i].x, mlx->map.px[i].y, mlx->map.px[i].z);
+//		i++;
+//	}
 	//--------------------------------
 
 	mlx->mlx_ptr = mlx_init();
@@ -42,13 +43,19 @@ int				main(int argc, char **argv)
 //	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 10, 10);
 	ft_draw_background(mlx);
 
-//		init start pos
-	mlx->slide = mlx->win_y / 2;
-	ft_slide_x(mlx);
-	ft_slide_x(mlx);
-	mlx->slide = -(mlx->win_y / 2);
-	ft_slide_y(mlx);
-
+////		init start pos
+//	mlx->slide = mlx->win_y / 2;
+//	ft_slide_x(mlx);
+//	ft_slide_x(mlx);
+//	mlx->slide = -(mlx->win_y / 2);
+//	ft_slide_y(mlx);
+	int i = 0;//TODO to extern foo()
+	while(i < mlx->map.total_points)
+	{
+		mlx->map.px[i].x_d = (mlx->map.px[i].x_d - mlx->map.px[i].y_d) * cos(mlx->angle_x);
+		mlx->map.px[i].y_d = (mlx->map.px[i].x_d + mlx->map.px[i].y_d) * sin(mlx->angle_x) - mlx->map.px[i].z_d;
+		i++;
+	}
 
 	ft_draw_img_wireframe(*mlx);
 //	ft_draw_img_line(mlx->map.px[0], mlx->map.px[1], mlx);
