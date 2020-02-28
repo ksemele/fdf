@@ -74,6 +74,20 @@
 ** ------------------------- Structures Definition -----------------------------
 */
 
+typedef struct		s_color
+{
+	char			blue : 8;
+	char			green : 8;
+	char			red : 8;
+	char			alpha : 8;
+}					t_color;
+
+typedef union		u_color_point
+{
+	t_color			color;
+	int				int_color;
+}					t_color_point;
+
 typedef struct		s_point
 {
 	int				x;
@@ -83,6 +97,7 @@ typedef struct		s_point
 	double			y_d;
 	double			z_d;
 	int				color;
+	t_color_point	color_u;
 }					t_point;
 
 typedef struct		s_map
