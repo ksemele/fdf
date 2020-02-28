@@ -44,7 +44,6 @@ SRC_LIST = main.c \
 				ft_draw_img_wireframe.c \
 				ft_increase_point_size.c \
 				ft_atoi_base.c \
-				ft_write_points.c \
 				ft_isometric.c \
 				ft_draw_img_background.c \
 				ft_slide_x.c \
