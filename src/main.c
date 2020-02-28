@@ -49,13 +49,8 @@ int				main(int argc, char **argv)
 //	ft_slide_x(mlx);
 //	mlx->slide = -(mlx->win_y / 2);
 //	ft_slide_y(mlx);
-	int i = 0;//TODO to extern foo()
-	while(i < mlx->map.total_points)
-	{
-		mlx->map.px[i].x_d = (mlx->map.px[i].x_d - mlx->map.px[i].y_d) * cos(mlx->angle_x);
-		mlx->map.px[i].y_d = (mlx->map.px[i].x_d + mlx->map.px[i].y_d) * sin(mlx->angle_x) - mlx->map.px[i].z_d;
-		i++;
-	}
+	ft_img_isometric(mlx);
+
 
 	ft_draw_img_wireframe(*mlx);
 //	ft_draw_img_line(mlx->map.px[0], mlx->map.px[1], mlx);
