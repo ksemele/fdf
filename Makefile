@@ -78,7 +78,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(NAME): $(GRN)$(OBJ_DIR) created$(END)"
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS) $(LIBFT_HEADERS)libft.h $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 	@echo "$(GRN).$(END)\c"
 
