@@ -26,7 +26,6 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
-//		ft_slide_x(mlx);
 		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == A || mlx->pressed == LEFT)
@@ -34,14 +33,11 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = -50;
 		ft_slide_x(mlx);
-//		mlx->slide = 50;
-//		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == S|| mlx->pressed == DOWN)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
-//		ft_slide_x(mlx);
 		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == D || mlx->pressed == RIGHT)
@@ -49,8 +45,6 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->slide = 50;
 		ft_slide_x(mlx);
-//		mlx->slide = -50;
-//		ft_slide_y(mlx);
 	}
 	if (mlx->pressed == NUM_PLUS)//TODO not work (
 	{
@@ -66,15 +60,28 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->angle_x -= 0.1;
 		mlx->angle_y += 0.1;
 	}
+	if (mlx->pressed == 83)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+//		mlx->angle_x -= 0.8;
+//		mlx->angle_y += 0.8;
+		ft_img_isometric(mlx);
+	}
+	if (mlx->pressed == 84)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->angle_x -= 0.5;
+		mlx->angle_y += 0.5;
+		ft_img_isometric(mlx);
+	}
 	ft_draw_img_wireframe(*mlx);
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	if (mlx->pressed == SPACE)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx_destroy_image(mlx->mlx_ptr, mlx->img_ptr);
 		mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 		ft_draw_background(mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 50, 50);
 	return (0);
 }
