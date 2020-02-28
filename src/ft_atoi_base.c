@@ -35,9 +35,15 @@ static int						ft_base(char c, int base)
 	while (i < base)
 	{
 		if (c == s_b[i] || c == s_s[i])
+		{
+			free(s_b);
+			free(s_s);
 			return (i);
+		}
 		i++;
 	}
+	free(s_b);
+	free(s_s);
 	return (-1);
 }
 
