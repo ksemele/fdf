@@ -51,6 +51,7 @@ SRC_LIST = main.c \
 				ft_deal_key.c \
 				ft_read_points_to_struct.c \
 				ft_img_isometric.c \
+				ft_controls.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

@@ -59,7 +59,8 @@ int				main(int argc, char **argv)
 //	ft_draw_img_line(mlx->map.px[2], mlx->map.px[3], mlx);
 
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 50, 50);
-	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);
+//	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);//TODO ft_controls
+	ft_controls(mlx);
 	mlx_loop(mlx->mlx_ptr);
 
 //print all points from map
