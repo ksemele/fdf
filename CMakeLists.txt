@@ -117,6 +117,7 @@ add_executable(fdf
         libft/src/ft_x.c
         libft/src/g_ft_choose_func.c
         includes/fdf.h
+        includes/keys.h
         minilibx_o/mlx.h
         libft/includes/ft_printf.h
         libft/includes/libft.h
