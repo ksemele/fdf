@@ -25,7 +25,8 @@ MINILIBX = $(MINILIBX_DIR)libmlx.a
 MINILIBX_DIR = ./minilibx_o/
 MINILIBX_HEADERS = $(MINILIBX_DIR)
 
-HEADERS_LIST = fdf.h\
+HEADERS_LIST = fdf.h \
+				keys.h
 
 HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))

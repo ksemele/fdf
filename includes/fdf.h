@@ -24,23 +24,6 @@
 # define MEM_SIZE 64
 
 /*
-** --------------------------------- KEYS --------------------------------------
-*/
-
-#define ESC 53
-#define SPACE 49
-#define W 13
-#define A 0
-#define S 1
-#define D 2
-#define NUM_PLUS 69
-#define NUM_MINUS 78
-#define UP 126
-#define DOWN 125
-#define LEFT 123
-#define RIGHT 124
-
-/*
 ** -------------------------------- COLORS -------------------------------------
 */
 
@@ -48,7 +31,6 @@
 #define CYBER 0x9B1F6A
 #define BLACK 0x000000
 #define WHITE 0xFFFFFF
-
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -60,6 +42,7 @@
 
 # include <errno.h>
 # include <fcntl.h>
+# include <limits.h>
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -68,7 +51,7 @@
 # include <unistd.h>
 # include "libft.h"
 # include "mlx.h"
-# include <limits.h>
+# include "keys.h"
 
 /*
 ** ------------------------- Structures Definition -----------------------------
