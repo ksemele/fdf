@@ -150,10 +150,16 @@ void				ft_draw_img_wireframe(t_mlx mlx);
 void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
 void				ft_draw_wireframe(t_mlx mlx);
 void				ft_isometric(t_point *point, t_mlx *mlx);
-void				ft_slide_x(t_mlx *mlx);
-void				ft_slide_y(t_mlx *mlx);
-int					ft_deal_key(int key, t_mlx *mlx);
 void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
 void				ft_img_isometric(t_mlx *mlx);
+
+/*
+** -------------------------------- Controls -----------------------------------
+*/
+
+void				ft_controls(t_mlx *mlx);
+int					ft_deal_key(int key, t_mlx *mlx);
+void				ft_slide_x(t_mlx *mlx);
+void				ft_slide_y(t_mlx *mlx);
 
 #endif

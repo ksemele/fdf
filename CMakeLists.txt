@@ -139,7 +139,8 @@ add_executable(fdf
         src/ft_slide_y.c
         src/ft_deal_key.c
         src/ft_read_points_to_struct.c
-        src/ft_img_isometric.c)
+        src/ft_img_isometric.c
+        src/ft_controls.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
