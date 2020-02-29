@@ -20,13 +20,13 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 			(int)point->y_d < mlx->win_y)
 	{
 		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
-//		mlx->pixels[i] = (char)point->color;
-//		mlx->pixels[++i] = (char)((unsigned)point->color >> 8u);
-//		mlx->pixels[++i] = (char)((unsigned)point->color >> 16u);
-		mlx->pixels[i] = 255; //red
-		mlx->pixels[++i] = 255; //grn
-		mlx->pixels[++i] = 255; //blu
-		mlx->pixels[++i] = 255;//Alpha 0 max 255 min
+		mlx->pixels[i] = (char)point->color;
+		mlx->pixels[++i] = (char)((unsigned)point->color >> 8u);
+		mlx->pixels[++i] = (char)((unsigned)point->color >> 16u);
+//		mlx->pixels[i] = 255; //red
+//		mlx->pixels[++i] = 242; //grn
+//		mlx->pixels[++i] = 255; //blu
+//		mlx->pixels[++i] = 0;//Alpha 0 max 255 min
 
 	}
 }
@@ -34,20 +34,20 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 static void		ft_color_shift(t_point *point, int color_step)
 {
 	point->color_u.int_color = point->color;
-	point->color_u.color.red & (char)color_step;
-	point->color_u.color.green & (char)color_step >> 8;
-	point->color_u.color.blue & (char)color_step >> 16;
-	ft_printf("%d\t%b\t%b\t%b\n", point->color_u.int_color,
-			point->color_u.color.red,
-			point->color_u.color.green,
-			point->color_u.color.blue);
-	ft_printf("%d\t%c\t%c\t%c\n", point->color_u.int_color,
-			point->color_u.color.red,
-			point->color_u.color.green,
-			point->color_u.color.blue);
-	ft_printf("color %d\n", point->color);
+//	point->color_u.color.red & (char)color_step;
+//	point->color_u.color.green & (char)color_step >> 8;
+//	point->color_u.color.blue & (char)color_step >> 16;
+//	ft_printf("%d\t%b\t%b\t%b\n", point->color_u.int_color,
+//			point->color_u.color.red,
+//			point->color_u.color.green,
+//			point->color_u.color.blue);
+//	ft_printf("%d\t%c\t%c\t%c\n", point->color_u.int_color,
+//			point->color_u.color.red,
+//			point->color_u.color.green,
+//			point->color_u.color.blue);
+//	ft_printf("color %d\n", point->color);
 	point->color = point->color_u.int_color;
-	ft_printf("new color %d\n", point->color);
+//	ft_printf("new color %d\n", point->color);
 }
 
 void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)

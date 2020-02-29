@@ -4,10 +4,6 @@ project(fdf C)
 set(CMAKE_C_STANDARD 90)
 
 add_executable(fdf
-        includes/fdf.h
-        minilibx_o/mlx.h
-        libft/includes/ft_printf.h
-        libft/includes/libft.h
         libft/src/ft_abs.c
         libft/src/ft_add_dig_to_int.c
         libft/src/ft_add_specials.c
@@ -120,6 +116,10 @@ add_executable(fdf
         libft/src/ft_width_treat.c
         libft/src/ft_x.c
         libft/src/g_ft_choose_func.c
+        includes/fdf.h
+        minilibx_o/mlx.h
+        libft/includes/ft_printf.h
+        libft/includes/libft.h
         src/ft_check_args.c
         src/ft_create_t_mlx.c
         src/ft_draw_line.c
@@ -134,17 +134,133 @@ add_executable(fdf
         src/ft_error_print.c
         src/ft_check_line_points.c
         src/ft_increase_point_size.c
-        src/ft_write_points.c
         src/ft_isometric.c
         src/ft_slide_x.c
         src/ft_slide_y.c
-        src/ft_deal_key.c src/ft_read_points_to_struct.c)
+        src/ft_deal_key.c
+        src/ft_read_points_to_struct.c
+        src/ft_img_isometric.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/libft/includes)
-find_library(FT libft.a)
-target_link_libraries(fdf LINK_PUBLIC ${FT})
+#find_library(FT libft.a)
+add_library(LIBFT
+        libft/src/ft_abs.c
+        libft/src/ft_add_dig_to_int.c
+        libft/src/ft_add_specials.c
+        libft/src/ft_atoi.c
+        libft/src/ft_b.c
+        libft/src/ft_buff_finded_percent.c
+        libft/src/ft_buff_free.c
+        libft/src/ft_buff_no_percent.c
+        libft/src/ft_buff_print_free.c
+        libft/src/ft_buff_print_n_len.c
+        libft/src/ft_buff_treated_percent.c
+        libft/src/ft_bzero.c
+        libft/src/ft_bzero_buf_n_set_pointers.c
+        libft/src/ft_c.c
+        libft/src/ft_count_float.c
+        libft/src/ft_delnode.c
+        libft/src/ft_di.c
+        libft/src/ft_dollar_arg.c
+        libft/src/ft_dollar_treat.c
+        libft/src/ft_error_exit.c
+        libft/src/ft_exeption_treat.c
+        libft/src/ft_f.c
+        libft/src/ft_final_print_n_free_rt_len.c
+        libft/src/ft_find_digit.c
+        libft/src/ft_find_in_def.c
+        libft/src/ft_get_divisional.c
+        libft/src/ft_get_integer.c
+        libft/src/ft_get_next_line.c
+        libft/src/ft_i64toa_base.c
+        libft/src/ft_integer_to_str.c
+        libft/src/ft_isalnum.c
+        libft/src/ft_isalpha.c
+        libft/src/ft_isascii.c
+        libft/src/ft_isbigger.c
+        libft/src/ft_isdigit.c
+        libft/src/ft_islower.c
+        libft/src/ft_isprint.c
+        libft/src/ft_isspace.c
+        libft/src/ft_isupper.c
+        libft/src/ft_itoa.c
+        libft/src/ft_lstadd.c
+        libft/src/ft_lstdel.c
+        libft/src/ft_lstdelone.c
+        libft/src/ft_lstiter.c
+        libft/src/ft_lstlen.c
+        libft/src/ft_lstmap.c
+        libft/src/ft_lstnew.c
+        libft/src/ft_memalloc.c
+        libft/src/ft_memccpy.c
+        libft/src/ft_memchr.c
+        libft/src/ft_memcmp.c
+        libft/src/ft_memcpy.c
+        libft/src/ft_memdel.c
+        libft/src/ft_memmove.c
+        libft/src/ft_memset.c
+        libft/src/ft_num_to_str.c
+        libft/src/ft_o.c
+        libft/src/ft_p.c
+        libft/src/ft_parse_flags.c
+        libft/src/ft_parse_spec.c
+        libft/src/ft_parsing.c
+        libft/src/ft_percent_treat.c
+        libft/src/ft_precision_treat.c
+        libft/src/ft_printf.c
+        libft/src/ft_putchar.c
+        libft/src/ft_putchar_fd.c
+        libft/src/ft_putendl.c
+        libft/src/ft_putendl_fd.c
+        libft/src/ft_putnbr.c
+        libft/src/ft_putnbr_fd.c
+        libft/src/ft_putstr.c
+        libft/src/ft_putstr_fd.c
+        libft/src/ft_round_float.c
+        libft/src/ft_s.c
+        libft/src/ft_strcat.c
+        libft/src/ft_strchr.c
+        libft/src/ft_strclr.c
+        libft/src/ft_strcmp.c
+        libft/src/ft_strcpy.c
+        libft/src/ft_strcpy_dptp.c
+        libft/src/ft_strdel.c
+        libft/src/ft_strdup.c
+        libft/src/ft_strequ.c
+        libft/src/ft_striter.c
+        libft/src/ft_striteri.c
+        libft/src/ft_strjoin.c
+        libft/src/ft_strlcat.c
+        libft/src/ft_strlen.c
+        libft/src/ft_strmap.c
+        libft/src/ft_strmapi.c
+        libft/src/ft_strncat.c
+        libft/src/ft_strncmp.c
+        libft/src/ft_strncpy.c
+        libft/src/ft_strnequ.c
+        libft/src/ft_strnew.c
+        libft/src/ft_strnlen.c
+        libft/src/ft_strnstr.c
+        libft/src/ft_strpcpy.c
+        libft/src/ft_strrchr.c
+        libft/src/ft_strsplit.c
+        libft/src/ft_strstr.c
+        libft/src/ft_strsub.c
+        libft/src/ft_strtrim.c
+        libft/src/ft_to_pow.c
+        libft/src/ft_tolower.c
+        libft/src/ft_toupper.c
+        libft/src/ft_u.c
+        libft/src/ft_u64toa_base.c
+        libft/src/ft_width_n_precision.c
+        libft/src/ft_width_treat.c
+        libft/src/ft_x.c
+        libft/src/g_ft_choose_func.c
+
+        libft/includes)
+target_link_libraries(fdf LINK_PUBLIC ${LIBFT})
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_o)
 find_library(MLX libmlx.a)
