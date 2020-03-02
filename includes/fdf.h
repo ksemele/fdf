@@ -91,6 +91,15 @@ typedef struct		s_map
 	int				total_points;
 }					t_map;
 
+typedef struct			s_mouse
+{
+	char				is_pressed;
+	int					x;
+	int					y;
+	int					previous_x;
+	int					previous_y;
+}						t_mouse;
+
 typedef struct		s_mlx
 {
 	void			*mlx_ptr;
@@ -110,6 +119,7 @@ typedef struct		s_mlx
 	int				width;
 	int				endian;
 	t_map			map;
+	t_mouse			mouse;
 }					t_mlx;
 
 /*
@@ -144,5 +154,14 @@ void				ft_controls(t_mlx *mlx);
 int					ft_deal_key(int key, t_mlx *mlx);
 void				ft_slide_x(t_mlx *mlx);
 void				ft_slide_y(t_mlx *mlx);
+
+/*
+** -------------------------------- Controls -----------------------------------
+*/
+
+int					ft_mouse_move(int x, int y, void *param);
+int					ft_mouse_press(int key, int x, int y, void *param);
+int					ft_mouse_release(int key, int x, int y, void *param);
+
 
 #endif

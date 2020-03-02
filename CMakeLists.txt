@@ -141,7 +141,10 @@ add_executable(fdf
         src/ft_deal_key.c
         src/ft_read_points_to_struct.c
         src/ft_img_isometric.c
-        src/ft_controls.c)
+        src/ft_controls.c
+        src/ft_mouse_move.c
+        src/ft_mouse_press.c
+        src/ft_mouse_release.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
@@ -260,7 +263,6 @@ add_library(LIBFT
         libft/src/ft_width_treat.c
         libft/src/ft_x.c
         libft/src/g_ft_choose_func.c
-
         libft/includes)
 target_link_libraries(fdf LINK_PUBLIC ${LIBFT})
 
