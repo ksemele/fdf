@@ -38,9 +38,10 @@ static void		ft_color_shift(t_point *point, int color_step)
 //			  point->color_u.color.blue);
 //	ft_printf("_3_intc %32b\n", point->color_u.int_color);
 //	ft_printf("___whit %32b\n",WHITE);
-	point->color_u.color.red += color_step;
-	point->color_u.color.green += (color_step >> 8);
-	point->color_u.color.blue += (color_step >> 16);
+//	point->color_u.color.red += color_step;
+	point->color_u.color.red = (point->color) & 0xFF;
+	point->color_u.color.green = (point->color >> 8) & 0xFF;
+	point->color_u.color.blue = (point->color >> 16) & 0xFF;
 //	ft_printf("col %32b\n", color_step);
 //	ft_printf("red %32b\n", point->color_u.color.red);
 //	ft_printf("col %32b\n", color_step >> 8);
