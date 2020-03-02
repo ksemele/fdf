@@ -12,11 +12,11 @@
 
 #include "fdf.h"
 
-void	ft_turn_coords_to_center(t_mlx *mlx)
+void		ft_turn_coords_to_center(t_mlx *mlx)
 {
 	double	delta_x;
 	double	delta_y;
-	int	i;
+	int		i;
 	double	prev_x;
 	double	prev_y;
 
