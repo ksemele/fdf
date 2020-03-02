@@ -59,7 +59,7 @@ int				ft_mouse_move(int x, int y, void *param)
 		ft_mouse_slide_x(x, y, mlx);
 		ft_mouse_slide_y(x, y, mlx);
 		ft_draw_img_wireframe(*mlx);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 50, 50);
+		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	}
 	return (0);
 }
