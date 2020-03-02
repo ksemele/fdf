@@ -24,8 +24,8 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx->img_ptr = NULL;
 	mlx->pixels = NULL;
 	mlx->color = CYBER;
-	mlx->angle_x = 0.8;
-	mlx->angle_y = 0.8;
+	mlx->angle_x = M_PI / 6;
+	mlx->angle_y = M_PI / 3;
 	mlx->scale = 20;
 	mlx->scale_z = 10;
 	mlx->win_x = 800;
