@@ -34,5 +34,3 @@ void			ft_controls(t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, 2, 0, ft_deal_key, mlx);
 	mlx_hook(mlx->win_ptr, 17, 0, ft_close, mlx);
 }
-
-

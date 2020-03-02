@@ -14,14 +14,14 @@
 
 void		ft_write_double(t_mlx *mlx)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < mlx->map.total_points)
 	{
-		mlx->map.px[i].z_d = (double) mlx->map.px[i].z;
-		mlx->map.px[i].y_d = (double) mlx->map.px[i].y;
-		mlx->map.px[i].x_d = (double) mlx->map.px[i].x;
+		mlx->map.px[i].z_d = (double)mlx->map.px[i].z;
+		mlx->map.px[i].y_d = (double)mlx->map.px[i].y;
+		mlx->map.px[i].x_d = (double)mlx->map.px[i].x;
 		i++;
 	}
 }
