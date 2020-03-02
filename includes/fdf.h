@@ -17,20 +17,19 @@
 ** --------------------------- Macros \ Static ---------------------------------
 */
 
-# define USAGE "usage: ./fdf target_file\n"
-# define LEAK "8===3< < < "
-# define MALLOC_ERROR "malloc can't allocate memory"
-# define CODE_ERROR -1
-# define MEM_SIZE 64
+# define USAGE			"usage: ./fdf target_file\n"
+# define MALLOC_ERROR	"malloc can't allocate memory"
+# define CODE_ERROR		-1
+# define MEM_SIZE		64
 
 /*
 ** -------------------------------- COLORS -------------------------------------
 */
 
-#define BACKGROUND 0x222222
-#define CYBER 0x9B1F6A
-#define BLACK 0x000000
-#define WHITE 0xFFFFFF
+#define BACKGROUND		0x222222
+#define CYBER			0x9B1F6A
+#define BLACK			0x000000
+#define WHITE			0xFFFFFF
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -108,6 +107,7 @@ typedef struct		s_mlx
 	void			*img_ptr;
 	char			*pixels;
 	int				color;
+	int				light;
 	int				pressed;
 	double			angle_x;
 	double			angle_y;
@@ -150,7 +150,7 @@ void				ft_img_isometric2(t_mlx *mlx);
 void				ft_coords_to_center(t_mlx *mlx);
 
 /*
-** -------------------------------- Controls -----------------------------------
+** --------------------------- Keyboard Controls -------------------------------
 */
 
 void				ft_controls(t_mlx *mlx);
@@ -159,12 +159,11 @@ void				ft_slide_x(t_mlx *mlx);
 void				ft_slide_y(t_mlx *mlx);
 
 /*
-** -------------------------------- Controls -----------------------------------
+** ----------------------------- Mouse Controls --------------------------------
 */
 
 int					ft_mouse_move(int x, int y, void *param);
 int					ft_mouse_press(int key, int x, int y, void *param);
 int					ft_mouse_release(int key, int x, int y, void *param);
-
 
 #endif

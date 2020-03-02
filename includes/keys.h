@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #ifndef KEYS_H
-
 # define KEYS_H
 
 /*
@@ -26,10 +25,9 @@
 # define MOUSE_SCROLL_LEFT	6
 # define MOUSE_SCROLL_RIGHT	7
 
-# define UP					126
-# define DOWN				125
-# define LEFT				123
-# define RIGHT				124
+/*
+** --------------------------------- NUMPAD ------------------------------------
+*/
 
 # define NUM_0				82
 # define NUM_1				83
@@ -44,6 +42,10 @@
 # define NUM_PLUS			69
 # define NUM_MINUS			78
 
+/*
+** --------------------------------- MAIN --------------------------------------
+*/
+
 # define ESC				53
 # define DIG_0				29
 # define DIG_1				18
@@ -57,6 +59,11 @@
 # define DIG_9				25
 # define DIG_PLUS			24
 # define DIG_MINUS			27
+
+# define UP					126
+# define DOWN				125
+# define LEFT				123
+# define RIGHT				124
 
 # define SPACE				49
 # define W					13

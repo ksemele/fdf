@@ -43,11 +43,6 @@ int				main(int argc, char **argv)
 	ft_draw_background(mlx);
 
 ////		init start pos
-//	mlx->slide = mlx->win_y / 2;
-//	ft_slide_x(mlx);
-//	ft_slide_x(mlx);
-//	mlx->slide = -(mlx->win_y / 2);
-//	ft_slide_y(mlx);
 	//----------angle-----
 	mlx->angle_x = M_PI / 2;
 	mlx->angle_y = 0;
@@ -57,24 +52,10 @@ int				main(int argc, char **argv)
 
 
 	ft_draw_img_wireframe(*mlx);
-//	ft_draw_img_line(mlx->map.px[0], mlx->map.px[1], mlx);
-//	ft_draw_img_line(mlx->map.px[0], mlx->map.px[2], mlx);
-//	ft_draw_img_line(mlx->map.px[1], mlx->map.px[3], mlx);
-//	ft_draw_img_line(mlx->map.px[2], mlx->map.px[3], mlx);
 
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
-//	mlx_key_hook(mlx->win_ptr, ft_deal_key, mlx);//TODO ft_controls
 	ft_controls(mlx);
 	mlx_loop(mlx->mlx_ptr);
-
-//print all points from map
-//	int i = 0;
-//	while(i < mlx->map.total_points)
-//	{
-//		ft_printf("%d ", mlx->map.px[i].z / mlx->scale);
-//		i++;
-//	}
-//	ft_printf("\n");
 
 	return (0);
 }
