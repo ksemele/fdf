@@ -146,7 +146,7 @@ add_executable(fdf
         src/ft_controls.c
         src/ft_mouse_move.c
         src/ft_mouse_press.c
-        src/ft_mouse_release.c)
+        src/ft_mouse_release.c src/ft_center_point.c src/ft_write_double.c src/ft_turn_coords_to_center.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 

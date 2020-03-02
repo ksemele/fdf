@@ -89,6 +89,8 @@ typedef struct		s_map
 	int				len_y;
 	int				total_points;
 	t_point			center;
+	double			angle;
+	double			a_o;
 }					t_map;
 
 typedef struct		s_mouse
@@ -148,6 +150,9 @@ void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
 void				ft_img_isometric(t_mlx *mlx);
 void				ft_img_isometric2(t_mlx *mlx);
 void				ft_coords_to_center(t_mlx *mlx);
+void				ft_center_point(t_mlx *mlx);
+void				ft_write_double(t_mlx *mlx);
+void				ft_turn_coords_to_center(t_mlx *mlx);
 
 /*
 ** --------------------------- Keyboard Controls -------------------------------

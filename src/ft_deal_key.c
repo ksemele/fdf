@@ -74,6 +74,18 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->angle_y = M_PI / 4;
 		ft_img_isometric2(mlx);
 	}
+	if (mlx->pressed == NUM_9)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->map.angle -= M_PI / 6;
+		ft_turn_coords_to_center(mlx);
+	}
+	if (mlx->pressed == NUM_7)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->map.angle += M_PI / 6;
+		ft_turn_coords_to_center(mlx);
+	}
 	if (mlx->pressed == DIG_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -86,6 +98,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->light -= 10;
 	}
 	ft_draw_img_wireframe(*mlx);
+	ft_draw_img_line(mlx->map.center, mlx->map.px[0], mlx); //todo del
 	if (mlx->pressed == SPACE)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);

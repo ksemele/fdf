@@ -58,6 +58,8 @@ SRC_LIST = main.c \
 				ft_mouse_move.c \
 				ft_mouse_press.c \
 				ft_mouse_release.c \
+				ft_write_double.c \
+				ft_turn_coords_to_center.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 

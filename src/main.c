@@ -47,11 +47,18 @@ int				main(int argc, char **argv)
 	mlx->angle_x = M_PI / 2;
 	mlx->angle_y = 0;
 	//--------------------
-	ft_img_isometric(mlx);
+//	ft_img_isometric(mlx);
+	ft_write_double(mlx);
+	ft_center_point(mlx);
 	ft_coords_to_center(mlx);
 
 
 	ft_draw_img_wireframe(*mlx);
+	ft_draw_img_line(mlx->map.center, mlx->map.px[0], mlx);//todo del
+//	ft_draw_img_line(mlx->map.px[0], mlx->map.px[1], mlx);
+//	ft_draw_img_line(mlx->map.px[0], mlx->map.px[2], mlx);
+//	ft_draw_img_line(mlx->map.px[1], mlx->map.px[3], mlx);
+//	ft_draw_img_line(mlx->map.px[2], mlx->map.px[3], mlx);
 
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	ft_controls(mlx);
