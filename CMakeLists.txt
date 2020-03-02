@@ -141,6 +141,8 @@ add_executable(fdf
         src/ft_deal_key.c
         src/ft_read_points_to_struct.c
         src/ft_img_isometric.c
+        src/ft_img_isometric2.c
+        src/ft_controls.c src/ft_coords_to_center.c
         src/ft_controls.c
         src/ft_mouse_move.c
         src/ft_mouse_press.c

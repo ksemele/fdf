@@ -53,6 +53,7 @@ SRC_LIST = main.c \
 				ft_read_points_to_struct.c \
 				ft_img_isometric.c \
 				ft_controls.c \
+				ft_coords_to_center.c \
 				ft_mouse_move.c \
 				ft_mouse_press.c \
 				ft_mouse_release.c \

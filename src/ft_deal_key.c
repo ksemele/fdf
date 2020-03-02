@@ -63,16 +63,16 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == 83)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		mlx->angle_x -= 0.8;
-//		mlx->angle_y += 0.8;
+		mlx->angle_x = M_PI / 3;
+		mlx->angle_y = M_PI / 6;
 		ft_img_isometric(mlx);
 	}
 	if (mlx->pressed == 84)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->angle_x -= 0.5;
-		mlx->angle_y += 0.5;
-		ft_img_isometric(mlx);
+		mlx->angle_x = M_PI / 4;
+		mlx->angle_y = M_PI / 4;
+		ft_img_isometric2(mlx);
 	}
 	ft_draw_img_wireframe(*mlx);
 	if (mlx->pressed == SPACE)
@@ -82,6 +82,6 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 		ft_draw_background(mlx);
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 50, 50);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 	return (0);
 }
