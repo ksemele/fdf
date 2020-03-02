@@ -44,7 +44,12 @@ static void		ft_check_color(char *line, int cur_point, t_mlx *mlx)
 		}
 		if (*line == ',')
 		{
+			line++;
 			base = ft_check_base(line);
+			if (base == 8)
+				line++;
+			else if (base == 16)
+				line += 2;
 			mlx->map.px[cur_point].color = ft_atoi_base(line, base);
 			return ;
 		}
