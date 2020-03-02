@@ -32,26 +32,26 @@ static void		ft_color_shift(t_point *point, int color_step)
 //	ft_printf("_1_intc\t%32b\n", point->color_u.int_color);
 //	ft_printf("_2_intc\t%X\t%32b\n", point->color,point->color);
 	point->color_u.int_color = point->color;
-	ft_printf("start\t%10d\t%032b\t%32b\t%32b\n", point->color_u.int_color,
-			  point->color_u.color.red,
-			  point->color_u.color.green,
-			  point->color_u.color.blue);
+//	ft_printf("start\t%10d\t%032b\t%32b\t%32b\n", point->color_u.int_color,
+//			  point->color_u.color.red,
+//			  point->color_u.color.green,
+//			  point->color_u.color.blue);
 //	ft_printf("_3_intc %32b\n", point->color_u.int_color);
 //	ft_printf("___whit %32b\n",WHITE);
-	point->color_u.color.red |= color_step;
-	point->color_u.color.green |= (color_step >> 8);
-	point->color_u.color.blue |= (color_step >> 16);
+	point->color_u.color.red += color_step;
+	point->color_u.color.green += (color_step >> 8);
+	point->color_u.color.blue += (color_step >> 16);
 //	ft_printf("col %32b\n", color_step);
 //	ft_printf("red %32b\n", point->color_u.color.red);
 //	ft_printf("col %32b\n", color_step >> 8);
 //	ft_printf("col %32b\n", color_step >> 16);
-	ft_printf("\tend\t%10d\t%032b\t%32b\t%32b\n", point->color_u.int_color,
-			point->color_u.color.red,
-			point->color_u.color.green,
-			point->color_u.color.blue);
-	ft_printf("color %d\n", point->color);
+//	ft_printf("\tend\t%10d\t%032b\t%32b\t%32b\n", point->color_u.int_color,
+//			point->color_u.color.red,
+//			point->color_u.color.green,
+//			point->color_u.color.blue);
+//	ft_printf("color %d\n", point->color);
 	point->color = point->color_u.int_color;
-	ft_printf("new color %d\n", point->color);
+//	ft_printf("new color %d\n", point->color);
 }
 
 void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
@@ -81,7 +81,7 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 		{
 			if (start.color != end.color)
 			{
-				ft_printf("end_col\t%1$X\t%1$32b\n", end.color);
+//				ft_printf("end_col\t%1$X\t%1$32b\n", end.color);
 				ft_color_shift(&start, color_step);
 			}
 
