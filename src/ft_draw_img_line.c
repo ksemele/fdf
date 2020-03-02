@@ -39,9 +39,10 @@ static void		ft_color_shift(t_point *point, int color_step)
 //	ft_printf("_3_intc %32b\n", point->color_u.int_color);
 //	ft_printf("___whit %32b\n",WHITE);
 //	point->color_u.color.red += color_step;
-	point->color_u.color.red = (point->color) & 0xFF;
-	point->color_u.color.green = (point->color >> 8) & 0xFF;
-	point->color_u.color.blue = (point->color >> 16) & 0xFF;
+	point->color_u.color.red &= (color_step);// & color_step;
+	point->color_u.color.green = ((color_step >> 8) & color_step);
+	point->color_u.color.blue = ((color_step >> 16) & color_step);
+	point->color_u.color.alpha = 0;
 //	ft_printf("col %32b\n", color_step);
 //	ft_printf("red %32b\n", point->color_u.color.red);
 //	ft_printf("col %32b\n", color_step >> 8);
@@ -72,8 +73,8 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	{
 		color_step = (int)(fabs((double)(start.color - end.color)) /
 						   fabs(fmax(x_step, y_step)));
-		if (start.z < end.z)
-			color_step = -color_step;
+//		if (start.z < end.z)
+//			color_step = -color_step;
 	}
 	while ((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{

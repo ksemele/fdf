@@ -52,6 +52,7 @@ SRC_LIST = main.c \
 				ft_deal_key.c \
 				ft_read_points_to_struct.c \
 				ft_img_isometric.c \
+				ft_img_isometric2.c \
 				ft_controls.c \
 				ft_coords_to_center.c \
 				ft_mouse_move.c \
