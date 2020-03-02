@@ -91,14 +91,14 @@ typedef struct		s_map
 	int				total_points;
 }					t_map;
 
-typedef struct			s_mouse
+typedef struct		s_mouse
 {
-	char				is_pressed;
-	int					x;
-	int					y;
-	int					previous_x;
-	int					previous_y;
-}						t_mouse;
+	char			is_pressed;
+	int				previous_x;
+	int				previous_y;
+	int				x;
+	int				y;
+}					t_mouse;
 
 typedef struct		s_mlx
 {
