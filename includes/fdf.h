@@ -132,27 +132,36 @@ typedef struct		s_mlx
 */
 
 void				ft_check_args(int argc, char **argv, t_mlx *mlx);
-void				ft_error_print(char *str, t_mlx *mlx);
-t_mlx				*ft_create_t_mlx(void);
-float				ft_fisbigger(float a, float b);
-float				ft_fabsf(float i);
 void				ft_check_line_points(char *line, t_mlx *mlx);
 int					ft_increase_point_size(t_mlx *mlx);
+void				ft_error_print(char *str, t_mlx *mlx);
+t_mlx				*ft_create_t_mlx(void);
+void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
+void				ft_write_double(t_mlx *mlx);
+void				ft_turn_coords_to_center(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);
-void				ft_write_points(const char *line, t_mlx *mlx);
+float				ft_fabsf(float i);
+float				ft_fisbigger(float a, float b);
+
+/*
+** ------------------------------ Image funcs ----------------------------------
+*/
+
+void				ft_center_point(t_mlx *mlx);
+void				ft_coords_to_center(t_mlx *mlx);
+void				ft_img_isometric(t_mlx *mlx);
+void				ft_img_isometric2(t_mlx *mlx);
 void				ft_draw_background(t_mlx *mlx);
 void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx);
 void				ft_draw_img_wireframe(t_mlx mlx);
-void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
-void				ft_draw_wireframe(t_mlx mlx);
+
+/*
+** ---------------------------- Pixel_put funcs --------------------------------
+*/
+
 void				ft_isometric(t_point *point, t_mlx *mlx);
-void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
-void				ft_img_isometric(t_mlx *mlx);
-void				ft_img_isometric2(t_mlx *mlx);
-void				ft_coords_to_center(t_mlx *mlx);
-void				ft_center_point(t_mlx *mlx);
-void				ft_write_double(t_mlx *mlx);
-void				ft_turn_coords_to_center(t_mlx *mlx);
+void				ft_draw_wireframe(t_mlx mlx);
+void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
 
 /*
 ** --------------------------- Keyboard Controls -------------------------------
