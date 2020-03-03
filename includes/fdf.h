@@ -59,9 +59,9 @@
 typedef struct		s_color
 {
 	char			alpha : 8;
-	char			blue : 8;
-	char			green : 8;
 	char			red : 8;
+	char			green : 8;
+	char			blue : 8;
 }					t_color;
 
 typedef union		u_color_point
