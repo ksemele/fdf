@@ -58,10 +58,10 @@
 
 typedef struct		s_color
 {
+	char			alpha : 8;
 	char			blue : 8;
 	char			green : 8;
 	char			red : 8;
-	char			alpha : 8;
 }					t_color;
 
 typedef union		u_color_point
@@ -142,6 +142,7 @@ void				ft_turn_coords_to_center(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);
 float				ft_fabsf(float i);
 float				ft_fisbigger(float a, float b);
+void				ft_scale_points(t_mlx *mlx);
 
 /*
 ** ------------------------------ Image funcs ----------------------------------
