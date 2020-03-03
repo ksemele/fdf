@@ -59,6 +59,7 @@ SRC_LIST = main.c \
 				ft_mouse_press.c \
 				ft_mouse_release.c \
 				ft_write_double.c \
+				ft_turn_coords.c \
 				ft_turn_coords_to_center.c \
 				ft_center_point.c \
 				ft_scale_points.c \

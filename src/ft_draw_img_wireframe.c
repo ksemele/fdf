@@ -21,6 +21,7 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 	y = 0;
 	x = 0;
 	ft_draw_background(&mlx);
+	ft_coords_to_center(&mlx);
 	while (y < mlx.map.len_y)
 	{
 		while (x + 1 <= mlx.map.total_points && x < mlx.map.total_points)

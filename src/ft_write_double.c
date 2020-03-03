@@ -20,8 +20,11 @@ void		ft_write_double(t_mlx *mlx)
 	while (i < mlx->map.total_points)
 	{
 		mlx->map.px[i].z_d = (double)mlx->map.px[i].z;
+		mlx->map.px[i].z_w = mlx->map.px[i].z_d;
 		mlx->map.px[i].y_d = (double)mlx->map.px[i].y;
+		mlx->map.px[i].y_w = mlx->map.px[i].y_d;
 		mlx->map.px[i].x_d = (double)mlx->map.px[i].x;
+		mlx->map.px[i].x_w = mlx->map.px[i].x_d;
 		i++;
 	}
 }

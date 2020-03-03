@@ -75,9 +75,14 @@ typedef struct		s_point
 	int				x;
 	int				y;
 	int				z;
+	double			x_w;
+	double			y_w;
+	double			z_w;
 	double			x_d;
 	double			y_d;
 	double			z_d;
+	double			radius;
+	double			angle;
 	int				color;
 	t_color_point	color_u;
 }					t_point;
@@ -90,7 +95,7 @@ typedef struct		s_map
 	int				total_points;
 	t_point			center;
 	double			angle;
-	double			a_o;
+	int				sign;
 }					t_map;
 
 typedef struct		s_mouse
@@ -138,7 +143,9 @@ void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
 void				ft_write_double(t_mlx *mlx);
-void				ft_turn_coords_to_center(t_mlx *mlx);
+void
+ft_turn_coords(
+		t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);
 float				ft_fabsf(float i);
 float				ft_fisbigger(float a, float b);

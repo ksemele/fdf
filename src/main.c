@@ -48,9 +48,9 @@ int				main(int argc, char **argv)
 	mlx->angle_y = 0;
 	//--------------------
 //	ft_img_isometric(mlx);
-	ft_write_double(mlx);
 	ft_center_point(mlx);
-	ft_coords_to_center(mlx);
+	ft_write_double(mlx);
+//	ft_coords_to_center(mlx);
 
 
 	ft_draw_img_wireframe(*mlx);
