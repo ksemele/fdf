@@ -75,14 +75,16 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == NUM_9)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle -= M_PI / 6;
-		ft_turn_coords_to_center(mlx);
+		mlx->map.angle -= M_PI / 16;
+		mlx->map.sign = -1;
+		ft_turn_coords(mlx);
 	}
 	if (mlx->pressed == NUM_7)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle += M_PI / 6;
-		ft_turn_coords_to_center(mlx);
+		mlx->map.angle += M_PI / 16;
+		mlx->map.sign = -1;
+		ft_turn_coords(mlx);
 	}
 	if (mlx->pressed == DIG_PLUS)
 	{

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turn_coords_to_center.c                         :+:      :+:    :+:   */
+/*   ft_turn_coords.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,27 +12,27 @@
 
 #include "fdf.h"
 
-void		ft_turn_coords_to_center(t_mlx *mlx)
+void		ft_turn_coords(t_mlx *mlx)
 {
-	double	delta_x;
-	double	delta_y;
 	int		i;
-	double	prev_x;
-	double	prev_y;
 
-	i = 1;
-	delta_x = sin(mlx->map.angle) * mlx->map.a_o;
-	prev_x = mlx->map.px[0].x_d;
-	mlx->map.px[0].x_d = round(mlx->map.center.x_d + delta_x);
-	prev_x = mlx->map.px[0].x_d - prev_x;
-	delta_y = cos(mlx->map.angle) * mlx->map.a_o;
-	prev_y = mlx->map.px[0].y_d;
-	mlx->map.px[0].y_d = round(mlx->map.center.y_d + delta_y);
-	prev_y = mlx->map.px[0].y_d - prev_y;
+	i = 0;
 	while (i < mlx->map.total_points)
 	{
-		mlx->map.px[i].x_d += prev_x;
-		mlx->map.px[i].y_d += prev_y;
+		if (mlx->map.sign > 0)
+		{
+			mlx->map.px[i].x_w = round((double)mlx->map.px[i].x * cos(mlx->map.angle) + \
+					(double)mlx->map.px[i].y * sin(mlx->map.angle));
+			mlx->map.px[i].y_w = round(-(double)(mlx->map.px[i].x) * sin(mlx->map.angle) + \
+					(double)mlx->map.px[i].y * cos(mlx->map.angle));
+		}
+		else
+		{
+			mlx->map.px[i].x_w = round((double)mlx->map.px[i].x * cos(mlx->map.angle) - \
+					(double)mlx->map.px[i].y * sin(mlx->map.angle));
+			mlx->map.px[i].y_w = round((double)(mlx->map.px[i].x) * sin(mlx->map.angle) + \
+					(double)mlx->map.px[i].y * cos(mlx->map.angle));
+		}
 		i++;
 	}
 }

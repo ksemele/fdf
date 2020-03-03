@@ -21,7 +21,7 @@ void				ft_slide_y(t_mlx *mlx_s)
 	count = mlx_s->map.len_x * mlx_s->map.len_y;
 	while (count > 0)
 	{
-		ptr->y_d += (double)mlx_s->slide;
+		ptr->y_w += (double)mlx_s->slide;
 		if (count - 1 > 0)
 			ptr++;
 		count--;
