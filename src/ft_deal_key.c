@@ -46,19 +46,17 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx->slide = 50;
 		ft_slide_x(mlx);
 	}
-	if (mlx->pressed == NUM_PLUS)//TODO not work (
+	if (mlx->pressed == NUM_PLUS)
 	{
-		mlx->scale += 20;
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->angle_x += 0.1;
-		mlx->angle_y -= 0.1;
+		mlx->scale = 2;
+		ft_scale_points(mlx);
 	}
-	if (mlx->pressed == NUM_MINUS)//TODO not work (
+	if (mlx->pressed == NUM_MINUS)
 	{
-		mlx->scale += 20;
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->angle_x -= 0.1;
-		mlx->angle_y += 0.1;
+		mlx->scale = -2;
+		ft_scale_points(mlx);
 	}
 	if (mlx->pressed == NUM_1)
 	{
