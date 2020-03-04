@@ -34,34 +34,12 @@ static void		ft_color_shift(t_point *point, int color_step, t_mlx *mlx)
 	point->color_u.color.green = ((color_step >> 8));
 	point->color_u.color.blue = ((color_step >> 16));
 	point->color = point->color_u.int_color;
-//	point->color =  mlx_get_color_value(mlx->win_ptr, point->color_u.int_color);
 }
 
 static int		ft_get_color_step(t_point *start, t_point *end, \
 					double x_step, double y_step)
 {
 	int			color_step;
-//	int			max;
-//	int			tmp;
-//	int			tmp2;
-//
-//	max = (int)fmax(fabs(x_step), fabs(y_step));
-//	end->color_u.int_color = end->color;
-//	start->color_u.int_color = start->color;
-//
-//	tmp = end->color_u.int_color >> 16;
-//	tmp2 = start->color_u.int_color >> 16;
-//	end->color_u.color.red = ((tmp - tmp2) / max) << 16;
-//
-//	tmp = end->color_u.int_color >> 8;
-//	tmp2 = start->color_u.int_color >> 8;
-//	end->color_u.color.green = ((tmp - tmp2) / max) << 8;
-//
-//	tmp = end->color_u.int_color;
-//	tmp2 = start->color_u.int_color;
-//	end->color_u.color.blue = (tmp - tmp2) / max;
-//
-//	color_step = end->color_u.int_color / max;
 	color_step = (int)(fabs((double)(end->color - start->color)) /
 					   (int)fabs(fmax(x_step, y_step)));
 	return (color_step);
@@ -81,20 +59,13 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	y_step /= max;
 	color_step = 0;
 	if(start.color != end.color)
-	{
 		color_step = ft_get_color_step(&start, &end, x_step, y_step);
-	}
 	while ((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{
-
 		if ((int)start.x_d >= 0)
 		{
 			if (start.color != end.color)
-			{
-//				ft_printf("end_col\t%1$X\t%1$32b\n", end.color);
 				ft_color_shift(&start, color_step, mlx);
-			}
-
 			ft_draw_img_pixel(mlx, &start);
 		}
 		start.x_d += x_step;
