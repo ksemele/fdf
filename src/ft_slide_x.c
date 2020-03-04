@@ -12,18 +12,19 @@
 
 #include "fdf.h"
 
-void				ft_slide_x(t_mlx *mlx_s)
+void				ft_slide_x(t_mlx *mlx)
 {
-	int				count;
-	t_point			*ptr;
-
-	ptr = mlx_s->map.px;
-	count = mlx_s->map.len_x * mlx_s->map.len_y;
-	while (count > 0)
-	{
-		ptr->x_w += (double)mlx_s->slide;
-		if (count - 1 > 0)
-			ptr++;
-		count--;
-	}
+//	int				count;
+//	t_point			*ptr;
+//
+//	ptr = mlx_s->map.px;
+//	count = mlx_s->map.len_x * mlx_s->map.len_y;
+//	while (count > 0)
+//	{
+//		ptr->x_w += (double)mlx_s->slide;
+//		if (count - 1 > 0)
+//			ptr++;
+//		count--;
+//	}
+	mlx->map.center.x_d +=  (double)mlx->slide;
 }

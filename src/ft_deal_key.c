@@ -16,6 +16,20 @@ int				ft_deal_key(int key, t_mlx *mlx)
 {
 	ft_printf("key is: int [%1$d]\n", key);//нажали кнопку - зажгли пиксель
 	mlx->pressed = key;
+	if (mlx->pressed == NUM_9)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->map.angle += M_PI / 16;
+	}
+	if (mlx->pressed == NUM_7)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->map.angle -= M_PI / 16;
+	}
+	ft_turn_coords(mlx);
+
+
+
 	if (mlx->pressed == ESC)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -25,26 +39,22 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == W || mlx->pressed == UP)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = -50;
-		ft_slide_y(mlx);
+		mlx->map.center.y_d -= 50;
 	}
 	if (mlx->pressed == A || mlx->pressed == LEFT)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = -50;
-		ft_slide_x(mlx);
+		mlx->map.center.x_d -= 50;
 	}
 	if (mlx->pressed == S|| mlx->pressed == DOWN)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = 50;
-		ft_slide_y(mlx);
+		mlx->map.center.y_d += 50;
 	}
 	if (mlx->pressed == D || mlx->pressed == RIGHT)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = 50;
-		ft_slide_x(mlx);
+		mlx->map.center.x_d += 50;
 	}
 	if (mlx->pressed == NUM_PLUS)
 	{
@@ -62,30 +72,16 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->angle_x = M_PI / 6;
-		mlx->angle_y = M_PI / 6;
-		ft_img_isometric(mlx);
+		mlx->map.iso = 1;
 	}
 	if (mlx->pressed == NUM_2)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->angle_x = M_PI / 4;
-		mlx->angle_y = M_PI / 4;
-		ft_img_isometric2(mlx);
+		mlx->map.iso = 2;
 	}
-	if (mlx->pressed == NUM_9)
-	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle += M_PI / 16;
-		mlx->map.sign = -1;
-		ft_turn_coords(mlx);
-	}
-	if (mlx->pressed == NUM_7)
-	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle -= M_PI / 16;
-		mlx->map.sign = -1;
-		ft_turn_coords(mlx);
-	}
+
+
 	if (mlx->pressed == DIG_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -97,6 +93,14 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->light -= 10;
 	}
+
+
+
+
+	if (mlx->map.iso == 1)
+		ft_img_isometric(mlx);
+	else if (mlx->map.iso == 2)
+		ft_img_isometric2(mlx);
 	ft_draw_img_wireframe(*mlx);
 	ft_draw_img_line(mlx->map.center, mlx->map.px[0], mlx); //todo del
 	if (mlx->pressed == SPACE)

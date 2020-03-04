@@ -95,7 +95,7 @@ typedef struct		s_map
 	int				total_points;
 	t_point			center;
 	double			angle;
-	int				sign;
+	int				iso;
 }					t_map;
 
 typedef struct		s_mouse
