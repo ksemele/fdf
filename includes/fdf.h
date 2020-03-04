@@ -163,6 +163,7 @@ void				ft_center_point(t_mlx *mlx);
 void				ft_coords_to_center(t_mlx *mlx);
 void				ft_img_isometric(t_mlx *mlx);
 void				ft_img_isometric2(t_mlx *mlx);
+void				ft_img_isometric3(t_mlx *mlx);
 void				ft_draw_background(t_mlx *mlx);
 void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx);
 void				ft_draw_img_wireframe(t_mlx mlx);
