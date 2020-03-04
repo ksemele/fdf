@@ -31,7 +31,7 @@ void		ft_scale_points(t_mlx *mlx)
 	{
 		while (i < mlx->map.total_points)
 		{
-//			mlx->map.px[i].z /= mlx->scale_z;
+			mlx->map.px[i].z /= mlx->scale_z;
 			mlx->map.px[i].y /= mlx->scale;
 			mlx->map.px[i].x /= mlx->scale;
 			i++;
