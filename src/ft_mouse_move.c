@@ -18,13 +18,13 @@ static void		ft_mouse_slide_x(t_mlx *mlx)
 	if (mlx->mouse.x > mlx->mouse.previous_x)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = SLIDE;
+//		mlx->slide = SLIDE;
 		ft_slide_x(mlx);
 	}
 	if (mlx->mouse.x < mlx->mouse.previous_x)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = -SLIDE;
+//		mlx->slide = -SLIDE;
 		ft_slide_x(mlx);
 	}
 }
@@ -34,13 +34,13 @@ static void		ft_mouse_slide_y(t_mlx *mlx)
 	if (mlx->mouse.y > mlx->mouse.previous_y)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = SLIDE;
+//		mlx->slide = SLIDE;
 		ft_slide_y(mlx);
 	}
 	if (mlx->mouse.y < mlx->mouse.previous_y)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->slide = -SLIDE;
+//		mlx->slide = -SLIDE;
 		ft_slide_y(mlx);
 	}
 }

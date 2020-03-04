@@ -14,13 +14,19 @@
 
 void				ft_img_isometric(t_mlx *mlx)
 {
-	int i;
+	int		i;
+	double	tmp;
 
 	i = 0;
 	while (i < mlx->map.total_points)
 	{
-		mlx->map.px[i].x_w = (double)mlx->map.px[i].x * cos(mlx->angle_x) - (double)mlx->map.px[i].y * cos(mlx->angle_x);
-		mlx->map.px[i].y_w = (double)mlx->map.px[i].y * sin(mlx->angle_x) + (double)mlx->map.px[i].x * sin(mlx->angle_x) - mlx->map.px[i].z;
+		tmp = mlx->map.px[i].x_w;
+		mlx->map.px[i].x_w = \
+				(double)mlx->map.px[i].x_w * cos(mlx->angle_x) \
+				- (double)mlx->map.px[i].y_w * cos(mlx->angle_x);
+		mlx->map.px[i].y_w = \
+				(double)mlx->map.px[i].y_w * sin(mlx->angle_x) \
+				+ tmp * sin(mlx->angle_x) - mlx->map.px[i].z_w;
 		i++;
 	}
 }
