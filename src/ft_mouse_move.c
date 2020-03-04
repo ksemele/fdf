@@ -18,14 +18,12 @@ static void		ft_mouse_slide_x(t_mlx *mlx)
 	if (mlx->mouse.x > mlx->mouse.previous_x)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		mlx->slide = SLIDE;
-		ft_slide_x(mlx);
+		mlx->map.center.x_d += SLIDE;
 	}
 	if (mlx->mouse.x < mlx->mouse.previous_x)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		mlx->slide = -SLIDE;
-		ft_slide_x(mlx);
+		mlx->map.center.x_d -= SLIDE;
 	}
 }
 
@@ -34,14 +32,12 @@ static void		ft_mouse_slide_y(t_mlx *mlx)
 	if (mlx->mouse.y > mlx->mouse.previous_y)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		mlx->slide = SLIDE;
-		ft_slide_y(mlx);
+		mlx->map.center.y_d += SLIDE;
 	}
 	if (mlx->mouse.y < mlx->mouse.previous_y)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-//		mlx->slide = -SLIDE;
-		ft_slide_y(mlx);
+		mlx->map.center.y_d -= SLIDE;
 	}
 }
 

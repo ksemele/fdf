@@ -36,6 +36,8 @@ int				ft_deal_key(int key, t_mlx *mlx)
 //		ft_free();//todo
 		exit (0);
 	}
+
+
 	if (mlx->pressed == W || mlx->pressed == UP)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -56,6 +58,8 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.center.x_d += 50;
 	}
+
+
 	if (mlx->pressed == NUM_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
