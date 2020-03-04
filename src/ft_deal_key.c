@@ -61,7 +61,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == NUM_1)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->angle_x = M_PI / 3;
+		mlx->angle_x = M_PI / 6;
 		mlx->angle_y = M_PI / 6;
 		ft_img_isometric(mlx);
 	}
@@ -75,14 +75,14 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == NUM_9)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle -= M_PI / 16;
+		mlx->map.angle += M_PI / 16;
 		mlx->map.sign = -1;
 		ft_turn_coords(mlx);
 	}
 	if (mlx->pressed == NUM_7)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->map.angle += M_PI / 16;
+		mlx->map.angle -= M_PI / 16;
 		mlx->map.sign = -1;
 		ft_turn_coords(mlx);
 	}
