@@ -91,7 +91,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 //		mlx->angle_x = M_PI / 4;
-//		mlx->map.iso = 3;
+		mlx->map.iso = 3;
 	}
 
 
@@ -114,8 +114,8 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		ft_img_isometric(mlx);
 	else if (mlx->map.iso == 2)
 		ft_img_isometric2(mlx);
-//	else if (mlx->map.iso == 3)
-//		ft_img_isometric3(mlx);
+	else if (mlx->map.iso == 3)
+		ft_img_isometric3(mlx);
 	ft_draw_img_wireframe(*mlx);
 	ft_draw_img_line(mlx->map.center, mlx->map.px[0], mlx); //todo del
 	if (mlx->pressed == SPACE)
