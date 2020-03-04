@@ -26,10 +26,11 @@
 ** -------------------------------- COLORS -------------------------------------
 */
 
-#define BACKGROUND		0x222222
-#define CYBER			0x9B1F6A
-#define BLACK			0x000000
-#define WHITE			0xFFFFFF
+# define BACKGROUND		0x222222
+# define CYBER			0x9B1F6A
+# define BLACK			0x000000
+# define WHITE			0xFFFFFF
+# define TEXT_COLOR		0x9B2F6A
 
 /*
 ** -------------------------- External Headers ---------------------------------
@@ -112,7 +113,9 @@ typedef struct		s_mlx
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
+	void			*img_menu_ptr;
 	char			*pixels;
+	char			*pixels_menu;
 	int				color;
 	int				light;
 	int				pressed;
@@ -123,9 +126,12 @@ typedef struct		s_mlx
 	int				slide;
 	int				win_x;
 	int				win_y;
+	int				win_menu_x;
+	int				win_menu_y;
 	int				bpp;
 	int				width;
 	int				endian;
+	int				width_menu;
 	t_map			map;
 	t_mouse			mouse;
 }					t_mlx;
@@ -143,9 +149,7 @@ void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
 void				ft_write_double(t_mlx *mlx);
-void
-ft_turn_coords(
-		t_mlx *mlx);
+void				ft_turn_coords(t_mlx *mlx);
 int					ft_atoi_base(const char *str, int base);
 float				ft_fabsf(float i);
 float				ft_fisbigger(float a, float b);
@@ -162,6 +166,8 @@ void				ft_img_isometric2(t_mlx *mlx);
 void				ft_draw_background(t_mlx *mlx);
 void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx);
 void				ft_draw_img_wireframe(t_mlx mlx);
+void				ft_draw_img_menu(t_mlx *mlx);
+void				ft_draw_img_menu_strings(t_mlx *mlx);
 
 /*
 ** ---------------------------- Pixel_put funcs --------------------------------
