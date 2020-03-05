@@ -63,13 +63,15 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	if (mlx->pressed == NUM_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->scale = 2;
+		mlx->scale += 1;
+//		mlx->scale_z = mlx->scale / 2;
 		ft_scale_points(mlx);
 	}
 	if (mlx->pressed == NUM_MINUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->scale = -2;
+		mlx->scale -= 1;
+//		mlx->scale_z = mlx->scale / 2;
 		ft_scale_points(mlx);
 	}
 
@@ -106,7 +108,6 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->light -= 10;
 	}
-
 
 
 

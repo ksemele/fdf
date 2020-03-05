@@ -69,9 +69,9 @@ static void		ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 			mlx->map.px[cur_point].z = ft_atoi_base(line, base);
 			mlx->map.px[cur_point].y = cur_y;
 			mlx->map.px[cur_point].x = cur_x;
-//			mlx->map.px[cur_point].z *= mlx->scale;//TODO >> ft_scale_points()
-//			mlx->map.px[cur_point].y *= mlx->scale;
-//			mlx->map.px[cur_point].x *= mlx->scale;
+			mlx->map.px[cur_point].z *= mlx->scale_z;//TODO >> ft_scale_points()
+			mlx->map.px[cur_point].y *= mlx->scale;
+			mlx->map.px[cur_point].x *= mlx->scale;
 			ft_check_color(line, cur_point, mlx);
 			while (*line != ' ' && *line != '\0')
 				line++;
@@ -104,6 +104,8 @@ void			ft_read_points_to_struct(char **argv, t_mlx *mlx)
 		gnl = ft_get_next_line(fd, &line);
 		cur_y++;
 	}
-	ft_scale_points(mlx);
+//	ft_scale_points(mlx);
+	mlx->scale = 1;
+	mlx->scale_z = mlx->scale / 2;
 	close(fd);
 }
