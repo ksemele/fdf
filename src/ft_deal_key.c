@@ -41,14 +41,14 @@ static void		ft_move_scale(t_mlx *mlx)
 	if (mlx->pressed == NUM_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->scale < 50)
-			mlx->scale += 1;
+		if (mlx->scale < 3)
+			mlx->scale *= 1.1;
 	}
 	if (mlx->pressed == NUM_MINUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->scale >= -50)
-			mlx->scale -= 1;
+		if (mlx->scale > 0.1)
+			mlx->scale /= 1.1;
 	}
 }
 
@@ -110,6 +110,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		exit (0);
 	}
 	ft_move_xy_keys(mlx);
+//	ft_scale_points(mlx);
 	ft_turning(mlx);
 	ft_move_z_keys(mlx);
 	ft_move_scale(mlx);
@@ -138,7 +139,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	else if (mlx->map.iso == 3)
 		ft_img_isometric3(mlx);
 	ft_light_control(mlx);
-	ft_scale_points(mlx);
+//	ft_scale_points(mlx);
 	ft_draw_img_all(mlx);
 	return (0);
 }
