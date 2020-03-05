@@ -22,11 +22,11 @@ void				ft_img_isometric(t_mlx *mlx)
 	{
 		tmp = mlx->map.px[i].x_w;
 		mlx->map.px[i].x_w = \
-				(double)mlx->map.px[i].x_w * cos(mlx->angle_x) \
-				- (double)mlx->map.px[i].y_w * cos(mlx->angle_x);
+				round(mlx->map.px[i].x_w * cos(mlx->angle_x) \
+				- (double)mlx->map.px[i].y_w * cos(mlx->angle_x));
 		mlx->map.px[i].y_w = \
-				(double)mlx->map.px[i].y_w * sin(mlx->angle_x) \
-				+ tmp * sin(mlx->angle_x) - mlx->map.px[i].z_w;
+				round(mlx->map.px[i].y_w * sin(mlx->angle_x) \
+				+ tmp * sin(mlx->angle_x) - mlx->map.px[i].z_w);
 		i++;
 	}
 }

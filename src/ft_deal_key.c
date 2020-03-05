@@ -36,29 +36,37 @@ static void		ft_move_xy_keys(t_mlx *mlx)
 	}
 }
 
-static void		ft_move_z_keys(t_mlx *mlx)
+static void		ft_move_scale(t_mlx *mlx)
 {
 	if (mlx->pressed == NUM_PLUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if ((mlx->scale < 50) && (mlx->scale >= 1))
-		{
+		if (mlx->scale < 50)
 			mlx->scale += 1;
-//			mlx->scale_z = mlx->scale / 2;
-		}
-//		ft_scale_points(mlx);
 	}
 	if (mlx->pressed == NUM_MINUS)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->scale >= 2)
-		{
+		if (mlx->scale >= -50)
 			mlx->scale -= 1;
-//			mlx->scale_z = mlx->scale / 2;
-		}
-//		ft_scale_points(mlx);
 	}
-	ft_scale_points(mlx);
+}
+
+static void		ft_move_z_keys(t_mlx *mlx)
+{
+	if (mlx->pressed == 116)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		if (mlx->scale_z < 50)
+			mlx->scale_z += 1;
+	}
+	if (mlx->pressed == 121)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		if (mlx->scale_z >= -50)
+			mlx->scale_z -= 1;
+	}
+	ft_scale_z(mlx);
 }
 
 static void		ft_light_control(t_mlx *mlx)
@@ -83,7 +91,7 @@ static void		ft_turning(t_mlx *mlx)
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.angle += M_PI / 16;
 	}
-	if (mlx->pressed == NUM_7)
+	else if (mlx->pressed == NUM_7)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.angle -= M_PI / 16;
@@ -102,8 +110,9 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		exit (0);
 	}
 	ft_move_xy_keys(mlx);
-	ft_move_z_keys(mlx);
 	ft_turning(mlx);
+	ft_move_z_keys(mlx);
+	ft_move_scale(mlx);
 	if (mlx->pressed == NUM_1)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
@@ -129,6 +138,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 	else if (mlx->map.iso == 3)
 		ft_img_isometric3(mlx);
 	ft_light_control(mlx);
+	ft_scale_points(mlx);
 	ft_draw_img_all(mlx);
 	return (0);
 }

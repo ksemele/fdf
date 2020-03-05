@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scale_points.c                                  :+:      :+:    :+:   */
+/*   ft_scale_z.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 11:58:52 by ksemele           #+#    #+#             */
-/*   Updated: 2020/03/03 11:58:52 by ksemele          ###   ########.fr       */
+/*   Created: 2020/03/05 14:55:33 by cghael            #+#    #+#             */
+/*   Updated: 2020/03/05 14:55:35 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_scale_points(t_mlx *mlx)
+void		ft_scale_z(t_mlx *mlx)
 {
 	int		i;
 
 	i = 0;
 	while (i < mlx->map.total_points)
 	{
-		mlx->map.px[i].y_w = round(mlx->map.px[i].y_w * mlx->scale);
-		mlx->map.px[i].x_w = round(mlx->map.px[i].x_w * mlx->scale);
+		if (mlx->map.px[i].z != 0)
+			mlx->map.px[i].z_w = (double) mlx->map.px[i].z * mlx->scale_z;
 		i++;
 	}
 }

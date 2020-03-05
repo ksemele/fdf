@@ -161,6 +161,7 @@ void				ft_scale_points(t_mlx *mlx);
 
 void				ft_center_point(t_mlx *mlx);
 void				ft_coords_to_center(t_mlx *mlx);
+void				ft_scale_z(t_mlx *mlx);
 void				ft_img_isometric(t_mlx *mlx);
 void				ft_img_isometric2(t_mlx *mlx);
 void				ft_img_isometric3(t_mlx *mlx);

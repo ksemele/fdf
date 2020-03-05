@@ -54,7 +54,7 @@ int				main(int argc, char **argv)
 	mlx->map.angle = 0;
 	ft_turn_coords(mlx);
 
-
+//	mlx->scale = 10;
 	ft_draw_img_wireframe(*mlx);
 	ft_draw_img_line(mlx->map.center, mlx->map.px[0], mlx);//todo del
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);

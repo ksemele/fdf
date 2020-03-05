@@ -158,7 +158,7 @@ add_executable(fdf
         src/ft_write_double.c
         src/ft_turn_coords.c
         src/ft_img_isometric3.c
-        src/ft_draw_img_all.c)
+        src/ft_draw_img_all.c src/ft_scale_z.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
