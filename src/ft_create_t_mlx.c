@@ -26,7 +26,7 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx->color = CYBER;
 	mlx->angle_x = M_PI / 6;
 	mlx->angle_y = M_PI / 3;
-	mlx->scale = 2;
+	mlx->scale = 1;
 	mlx->scale_z = mlx->scale / 2;
 	mlx->win_x = 800;
 	mlx->win_y = 600;

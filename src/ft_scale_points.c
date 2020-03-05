@@ -15,36 +15,34 @@
 void		ft_scale_points(t_mlx *mlx)
 {
 	int		i;
-	double	tmp;
+	double		div;
 
 	i = 0;
-	if (mlx->scale > 0)
-	{
-		while (i < mlx->map.total_points)
-		{
-//			mlx->map.px[i].z_w *= mlx->scale;
-//			if (round(mlx->map.px[i].z_w) == 0)
-//				mlx->map.px[i].z_w = mlx->map.px[i].z_w * mlx->scale + mlx->map.px[i].z;
-			mlx->map.px[i].z_w = (double)mlx->map.px[i].z * mlx->scale;
-			mlx->map.px[i].y_w = (double)mlx->map.px[i].y * mlx->scale;
-			mlx->map.px[i].x_w = (double)mlx->map.px[i].x * mlx->scale;
-			i++;
-		}
-	}
-//	else if (mlx->scale < 0)
+//	div = 1;
+//	if (mlx->scale > 0)
 //	{
-//		while (i < mlx->map.total_points)
-//		{
-////			tmp = mlx->map.px[i].y_w;
-////			mlx->map.px[i].z_w /= mlx->scale;
-////			if (round(mlx->map.px[i].z_w) == 0)
-////				mlx->map.px[i].z_w = (mlx->map.px[i].z_w / mlx->scale) + mlx->map.px[i].z;
-//			mlx->map.px[i].z_w = mlx->map.px[i].z / mlx->scale;
-//			mlx->map.px[i].y_w = mlx->map.px[i].y / mlx->scale;
-//			mlx->map.px[i].x_w = mlx->map.px[i].x / mlx->scale;
-////			mlx->map.px[i].z_w = mlx->map.px[i].y_w;
-//			i++;
-//		}
+//		div *= 1.1;
+////		while (i < mlx->map.total_points)
+////		{
+////			mlx->map.px[i].y_d = round(mlx->map.px[i].y_d * 2);
+////			mlx->map.px[i].x_d = round(mlx->map.px[i].x_d * 2);
+////			i++;
+////		}
 //	}
-//	ft_write_double(mlx);
+//	if (mlx->scale < 0)
+//	{
+//		div /= 1.1;
+////		while (i < mlx->map.total_points)
+////		{
+////			mlx->map.px[i].y_d = round(mlx->map.px[i].y_d / 2);
+////			mlx->map.px[i].x_d = round(mlx->map.px[i].x_d / 2);
+////			i++;
+////		}
+//	}
+	while (i < mlx->map.total_points)
+	{
+		mlx->map.px[i].y_w = round(mlx->map.px[i].y_w * mlx->scale);
+		mlx->map.px[i].x_w = round(mlx->map.px[i].x_w * mlx->scale);
+		i++;
+	}
 }
