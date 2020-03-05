@@ -121,8 +121,8 @@ typedef struct		s_mlx
 	int				pressed;
 	double			angle_x;
 	double			angle_y;
-	int				scale_z;
-	int				scale;
+	double			scale_z;
+	double			scale;
 	int				slide;
 	int				win_x;
 	int				win_y;
