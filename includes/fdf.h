@@ -169,6 +169,7 @@ void				ft_draw_img_line(t_point start, t_point end, t_mlx *mlx);
 void				ft_draw_img_wireframe(t_mlx mlx);
 void				ft_draw_img_menu(t_mlx *mlx);
 void				ft_draw_img_menu_strings(t_mlx *mlx);
+void				ft_draw_img_all(t_mlx *mlx);
 
 /*
 ** ---------------------------- Pixel_put funcs --------------------------------

@@ -153,7 +153,12 @@ add_executable(fdf
         src/ft_turn_coords.c
         src/ft_draw_img_menu.c
         src/ft_draw_img_menu_strings.c
-        src/ft_mouse_release.c src/ft_center_point.c src/ft_write_double.c src/ft_turn_coords.c src/ft_img_isometric3.c)
+        src/ft_mouse_release.c
+        src/ft_center_point.c
+        src/ft_write_double.c
+        src/ft_turn_coords.c
+        src/ft_img_isometric3.c
+        src/ft_draw_img_all.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
