@@ -20,7 +20,7 @@ void		ft_scale_z(t_mlx *mlx)
 	while (i < mlx->map.total_points)
 	{
 		if (mlx->map.px[i].z != 0)
-			mlx->map.px[i].z_w = (double) mlx->map.px[i].z * mlx->scale_z;
+			mlx->map.px[i].z_w = (double)mlx->map.px[i].z * mlx->scale_z;
 		i++;
 	}
 }

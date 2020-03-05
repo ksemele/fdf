@@ -64,6 +64,8 @@
 # define DOWN				125
 # define LEFT				123
 # define RIGHT				124
+# define UP_NUM				116
+# define DOWN_NUM			121
 
 # define SPACE				49
 # define W					13
