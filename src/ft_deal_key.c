@@ -35,22 +35,22 @@ static void		ft_move_xy_keys(t_mlx *mlx)
 		mlx->map.center.x_d += 10;
 	}
 }
-
-static void		ft_move_scale(t_mlx *mlx)
-{
-	if (mlx->pressed == NUM_PLUS)
-	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->scale < 3)
-			mlx->scale *= 1.1;
-	}
-	if (mlx->pressed == NUM_MINUS)
-	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->scale > 0.1)
-			mlx->scale /= 1.1;
-	}
-}
+//
+//static void		ft_move_scale(t_mlx *mlx)
+//{
+//	if (mlx->pressed == NUM_PLUS)
+//	{
+//		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+//		if (mlx->scale < 3)
+//			mlx->scale *= 1.1;
+//	}
+//	if (mlx->pressed == NUM_MINUS)
+//	{
+//		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+//		if (mlx->scale > 0.1)
+//			mlx->scale /= 1.1;
+//	}
+//}
 
 static void		ft_move_z_keys(t_mlx *mlx)
 {

@@ -119,6 +119,7 @@ typedef struct		s_mlx
 	int				color;
 	int				light;
 	int				pressed;
+	int				mouse_pressed;
 	double			angle_x;
 	double			angle_y;
 	double			scale_z;
@@ -188,6 +189,7 @@ void				ft_controls(t_mlx *mlx);
 int					ft_deal_key(int key, t_mlx *mlx);
 void				ft_slide_x(t_mlx *mlx);
 void				ft_slide_y(t_mlx *mlx);
+void				ft_move_scale(t_mlx *mlx);
 
 /*
 ** ----------------------------- Mouse Controls --------------------------------

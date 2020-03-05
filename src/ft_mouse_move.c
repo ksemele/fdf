@@ -59,8 +59,9 @@ int				ft_mouse_move(int x, int y, void *param)
 //		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
 //		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_menu_ptr, 0, 0);
 //		ft_draw_img_menu_strings(mlx);
+		ft_draw_img_all(mlx);
 	}
+//	ft_draw_img_all(mlx);
 
-	ft_draw_img_all(mlx);
 	return (0);
 }
