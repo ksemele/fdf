@@ -79,9 +79,9 @@ static void		ft_read_xyz(char *line, int cur_y, t_mlx *mlx)
 	mlx->map.total_points = cur_point;
 }
 
-static void ft_start_scale(t_mlx *mlx)
+static void		ft_start_scale(t_mlx *mlx)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	mlx->scale = 20;
