@@ -41,7 +41,7 @@ static void		ft_mouse_slide_y(t_mlx *mlx)
 	}
 }
 
-int				ft_mouse_move(int x, int y, void *param)
+int				ft_mouse_move(int x, int y, void *param)//TODO MOVE CENTER POINT
 {
 	t_mlx		*mlx;
 
