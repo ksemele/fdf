@@ -136,8 +136,6 @@ add_executable(fdf
         src/ft_check_line_points.c
         src/ft_increase_point_size.c
         src/ft_isometric.c
-        src/ft_slide_x.c
-        src/ft_slide_y.c
         src/ft_deal_key.c
         src/ft_read_points_to_struct.c
         src/ft_img_isometric.c
@@ -158,7 +156,14 @@ add_executable(fdf
         src/ft_write_double.c
         src/ft_turn_coords.c
         src/ft_img_isometric3.c
-        src/ft_draw_img_all.c src/ft_scale_z.c src/ft_move_scale.c)
+        src/ft_draw_img_all.c
+        src/ft_scale_z.c
+        src/ft_move_scale.c
+        src/ft_move_xy_keys.c
+        src/ft_move_z_keys.c
+        src/ft_do_isometric.c
+        src/ft_light_control.c
+        src/ft_turning.c)
 
 target_include_directories(fdf PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 

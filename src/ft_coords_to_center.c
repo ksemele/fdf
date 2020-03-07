@@ -12,9 +12,9 @@
 
 #include <fdf.h>
 
-void	ft_coords_to_center(t_mlx *mlx)
+void		ft_coords_to_center(t_mlx *mlx)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < mlx->map.total_points)

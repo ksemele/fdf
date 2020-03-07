@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void				ft_img_isometric3(t_mlx *mlx)
+void		ft_img_isometric3(t_mlx *mlx)
 {
 	int		i;
 

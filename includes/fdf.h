@@ -144,8 +144,8 @@ typedef struct		s_mlx
 */
 
 void				ft_check_args(int argc, char **argv, t_mlx *mlx);
-void				ft_check_line_points(char *line, t_mlx *mlx);
-int					ft_increase_point_size(t_mlx *mlx);
+//void				ft_check_line_points(char *line, t_mlx *mlx);
+//int					ft_increase_point_size(t_mlx *mlx);
 void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
@@ -178,8 +178,8 @@ void				ft_draw_img_all(t_mlx *mlx);
 */
 
 void				ft_isometric(t_point *point, t_mlx *mlx);
-void				ft_draw_wireframe(t_mlx mlx);
 void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
+void				ft_draw_wireframe(t_mlx mlx);
 
 /*
 ** --------------------------- Keyboard Controls -------------------------------
@@ -187,9 +187,12 @@ void				ft_draw_line(t_point start, t_point end, t_mlx *mlx);
 
 void				ft_controls(t_mlx *mlx);
 int					ft_deal_key(int key, t_mlx *mlx);
-void				ft_slide_x(t_mlx *mlx);
-void				ft_slide_y(t_mlx *mlx);
 void				ft_move_scale(t_mlx *mlx);
+void				ft_move_xy_keys(t_mlx *mlx);
+void				ft_move_z_keys(t_mlx *mlx);
+void				ft_do_isometric(t_mlx *mlx);
+void				ft_light_control(t_mlx *mlx);
+void				ft_turning(t_mlx *mlx);
 
 /*
 ** ----------------------------- Mouse Controls --------------------------------

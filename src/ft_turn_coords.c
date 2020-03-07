@@ -19,24 +19,12 @@ void		ft_turn_coords(t_mlx *mlx)
 	i = 0;
 	while (i < mlx->map.total_points)
 	{
-//		if (mlx->map.iso > 0)
-//		{
-//			mlx->map.px[i].x_w = \
-//					round((double)mlx->map.px[i].x * cos(mlx->map.angle) + \
-//					(double)mlx->map.px[i].y * sin(mlx->map.angle));
-//			mlx->map.px[i].y_w = \
-//					round(-(double)(mlx->map.px[i].x) * sin(mlx->map.angle) + \
-//					(double)mlx->map.px[i].y * cos(mlx->map.angle));
-//		}
-//		else
-//		{
-			mlx->map.px[i].x_w = \
-					round((double)mlx->map.px[i].x * cos(mlx->map.angle) - \
-					(double)mlx->map.px[i].y * sin(mlx->map.angle));
-			mlx->map.px[i].y_w = \
-					round((double)(mlx->map.px[i].x) * sin(mlx->map.angle) + \
-					(double)mlx->map.px[i].y * cos(mlx->map.angle));
-//		}
+		mlx->map.px[i].x_w = \
+			round((double)mlx->map.px[i].x * cos(mlx->map.angle) - \
+			(double)mlx->map.px[i].y * sin(mlx->map.angle));
+		mlx->map.px[i].y_w = \
+			round((double)(mlx->map.px[i].x) * sin(mlx->map.angle) + \
+			(double)mlx->map.px[i].y * cos(mlx->map.angle));
 		i++;
 	}
 }

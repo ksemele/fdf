@@ -27,23 +27,13 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 	}
 }
 
-static void		ft_color_shift(t_point *point, int color_step, t_mlx *mlx)
+static void		ft_color_shift(t_point *point, int color_step)
 {
 	point->color_u.int_color = point->color;
 	point->color_u.color.red = (color_step);
 	point->color_u.color.green = ((color_step >> 8));
 	point->color_u.color.blue = ((color_step >> 16));
 	point->color = point->color_u.int_color;
-//	point->color =  mlx_get_color_value(mlx->win_ptr, point->color_u.int_color);
-}
-
-static int		ft_get_color_step(t_point *start, t_point *end, \
-					double x_step, double y_step)
-{
-	int			color_step;
-	color_step = (int)(fabs((double)(end->color - start->color)) /
-					   (int)fabs(fmax(x_step, y_step)));
-	return (color_step);
 }
 
 void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
@@ -58,25 +48,16 @@ void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
 	max = fmax(fabs(x_step), fabs(y_step));
 	x_step /= max;
 	y_step /= max;
-	color_step = 0;
-	if(start.color != end.color)
-	{
-		color_step = ft_get_color_step(&start, &end, x_step, y_step);
-	}
+	color_step = start.color ^ end.color;
 	while ((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{
 		if ((int)start.x_d >= 0)
 		{
 			if (start.color != end.color)
-				ft_color_shift(&start, color_step, mlx);
+				ft_color_shift(&start, color_step);
 			ft_draw_img_pixel(mlx, &start);
 		}
 		start.x_d += x_step;
 		start.y_d += y_step;
-	}
-	if ((int)start.x_d >= 0)
-	{
-		ft_draw_img_pixel(mlx, &start);
-		ft_draw_img_pixel(mlx, &end);
 	}
 }

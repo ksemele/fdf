@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_img_all.c                                  :+:      :+:    :+:   */
+/*   ft_move_xy_keys.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 13:14:03 by ksemele           #+#    #+#             */
-/*   Updated: 2020/03/05 13:14:03 by ksemele          ###   ########.fr       */
+/*   Created: 2020/03/07 15:08:50 by ksemele           #+#    #+#             */
+/*   Updated: 2020/03/07 15:08:53 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_draw_img_all(t_mlx *mlx)
+void		ft_move_xy_keys(t_mlx *mlx)
 {
-	ft_scale_points(mlx);
-	ft_draw_img_wireframe(*mlx);
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \
-			mlx->img_menu_ptr, 0, 0);
-	ft_draw_img_menu_strings(mlx);
+	if (mlx->pressed == W || mlx->pressed == UP)
+	{
+		mlx->map.center.y_d -= 10;
+	}
+	if (mlx->pressed == A || mlx->pressed == LEFT)
+	{
+		mlx->map.center.x_d -= 10;
+	}
+	if (mlx->pressed == S || mlx->pressed == DOWN)
+	{
+		mlx->map.center.y_d += 10;
+	}
+	if (mlx->pressed == D || mlx->pressed == RIGHT)
+	{
+		mlx->map.center.x_d += 10;
+	}
 }

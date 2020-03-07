@@ -17,10 +17,13 @@ void		ft_center_point(t_mlx *mlx)
 	int		i;
 
 	i = 0;
-	mlx->map.center.x_d = round((double)fabs((double)(mlx->map.px[mlx->map.total_points - 1].x - mlx->map.px[0].x) / 2));
-	mlx->map.center.y_d = round((double)fabs((double)(mlx->map.px[mlx->map.total_points - 1].y - mlx->map.px[0].y) / 2));
+	mlx->map.center.x_d = \
+			round((double)fabs((double)(mlx->map.px[mlx->map.total_points - \
+			1].x - mlx->map.px[0].x) / 2));
+	mlx->map.center.y_d = \
+			round((double)fabs((double)(mlx->map.px[mlx->map.total_points - \
+			1].y - mlx->map.px[0].y) / 2));
 	mlx->map.center.color = WHITE;
-//	mlx->map.center.z_d =
 	while (i < mlx->map.total_points)
 	{
 		mlx->map.px[i].x -= (int)(mlx->map.center.x_d);

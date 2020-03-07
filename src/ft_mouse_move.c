@@ -17,12 +17,10 @@ static void		ft_mouse_slide_x(t_mlx *mlx)
 {
 	if (mlx->mouse.x > mlx->mouse.previous_x)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.center.x_d += SLIDE;
 	}
 	if (mlx->mouse.x < mlx->mouse.previous_x)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.center.x_d -= SLIDE;
 	}
 }
@@ -31,17 +29,15 @@ static void		ft_mouse_slide_y(t_mlx *mlx)
 {
 	if (mlx->mouse.y > mlx->mouse.previous_y)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.center.y_d += SLIDE;
 	}
 	if (mlx->mouse.y < mlx->mouse.previous_y)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		mlx->map.center.y_d -= SLIDE;
 	}
 }
 
-int				ft_mouse_move(int x, int y, void *param)//TODO MOVE CENTER POINT
+int				ft_mouse_move(int x, int y, void *param)
 {
 	t_mlx		*mlx;
 
@@ -54,14 +50,6 @@ int				ft_mouse_move(int x, int y, void *param)//TODO MOVE CENTER POINT
 	{
 		ft_mouse_slide_x(mlx);
 		ft_mouse_slide_y(mlx);
-
-//		ft_draw_img_wireframe(*mlx);
-//		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
-//		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_menu_ptr, 0, 0);
-//		ft_draw_img_menu_strings(mlx);
-		ft_draw_img_all(mlx);
 	}
-//	ft_draw_img_all(mlx);
-
 	return (0);
 }

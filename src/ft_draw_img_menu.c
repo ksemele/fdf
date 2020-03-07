@@ -31,12 +31,11 @@ static void			ft_draw_menu_bg(t_mlx *mlx)
 void				ft_draw_img_menu(t_mlx *mlx)
 {
 	mlx->win_menu_x = mlx->win_x;
-	mlx->win_menu_y = mlx->win_y / 9;
+	mlx->win_menu_y = mlx->win_y / 7;
 	mlx->img_menu_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_menu_x, \
-			mlx->win_menu_y );
+			mlx->win_menu_y);
 	mlx->pixels_menu = mlx_get_data_addr(mlx->img_menu_ptr, &mlx->bpp, \
 			&mlx->width_menu, &mlx->endian);
-
 	ft_draw_menu_bg(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_menu_ptr, \
 			0, 0);

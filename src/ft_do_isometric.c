@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_slide_y.c                                       :+:      :+:    :+:   */
+/*   ft_do_isometric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/21 13:52:47 by ksemele           #+#    #+#             */
-/*   Updated: 2020/02/21 13:52:48 by ksemele          ###   ########.fr       */
+/*   Created: 2020/03/07 15:42:57 by ksemele           #+#    #+#             */
+/*   Updated: 2020/03/07 15:42:58 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void				ft_slide_y(t_mlx *mlx)
+void		ft_do_isometric(t_mlx *mlx)
 {
-//	int				count;
-//	t_point			*ptr;
-//
-//	ptr = mlx_s->map.px;
-//	count = mlx_s->map.len_x * mlx_s->map.len_y;
-//	while (count > 0)
-//	{
-//		ptr->y_w += (double)mlx_s->slide;
-//		if (count - 1 > 0)
-//			ptr++;
-//		count--;
-//	}
-	mlx->map.center.y_d +=  (double)mlx->slide;
+	if (mlx->pressed == NUM_1)
+	{
+		mlx->angle_x = M_PI / 6;
+		mlx->map.iso = 1;
+	}
+	else if (mlx->pressed == NUM_2)
+	{
+		mlx->angle_x = M_PI / 4;
+		mlx->map.iso = 2;
+	}
+	else if (mlx->pressed == NUM_3)
+		mlx->map.iso = 3;
+	if (mlx->map.iso == 1)
+		ft_img_isometric(mlx);
+	else if (mlx->map.iso == 2)
+		ft_img_isometric2(mlx);
+	else if (mlx->map.iso == 3)
+		ft_img_isometric3(mlx);
 }

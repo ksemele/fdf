@@ -33,9 +33,7 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 			}
 			if (x + mlx.map.len_x < mlx.map.total_points && \
 				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
-			{
 				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
-			}
 			x++;
 		}
 		y++;

@@ -67,6 +67,11 @@ SRC_LIST = main.c \
 				ft_draw_img_menu_strings.c \
 				ft_draw_img_all.c \
 				ft_move_scale.c \
+				ft_move_xy_keys.c \
+				ft_move_z_keys.c \
+				ft_do_isometric.c \
+				ft_light_control.c \
+				ft_turning.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
