@@ -28,9 +28,6 @@ static int		ft_close(void *param)
 
 void			ft_controls(t_mlx *mlx)
 {
-	mlx_hook(mlx->win_ptr, 4, 0, ft_mouse_press, mlx);
-	mlx_hook(mlx->win_ptr, 5, 0, ft_mouse_release, mlx);
-	mlx_hook(mlx->win_ptr, 6, 0, ft_mouse_move, mlx);
 	mlx_hook(mlx->win_ptr, 2, 0, ft_deal_key, mlx);
 	mlx_hook(mlx->win_ptr, 17, 0, ft_close, mlx);
 }

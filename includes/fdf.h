@@ -194,12 +194,4 @@ void				ft_do_isometric(t_mlx *mlx);
 void				ft_light_control(t_mlx *mlx);
 void				ft_turning(t_mlx *mlx);
 
-/*
-** ----------------------------- Mouse Controls --------------------------------
-*/
-
-int					ft_mouse_move(int x, int y, void *param);
-int					ft_mouse_press(int key, int x, int y, void *param);
-int					ft_mouse_release(int key, int x, int y, void *param);
-
 #endif

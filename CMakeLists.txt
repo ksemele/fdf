@@ -142,25 +142,21 @@ add_executable(fdf
         src/ft_img_isometric2.c
         src/ft_controls.c src/ft_coords_to_center.c
         src/ft_controls.c
-        src/ft_mouse_move.c
-        src/ft_mouse_press.c
         src/ft_scale_points.c
-        src/ft_mouse_release.c
         src/ft_center_point.c
         src/ft_write_double.c
         src/ft_turn_coords.c
         src/ft_draw_img_menu.c
         src/ft_draw_img_menu_strings.c
-        src/ft_mouse_release.c
         src/ft_center_point.c
         src/ft_write_double.c
         src/ft_turn_coords.c
         src/ft_img_isometric3.c
         src/ft_draw_img_all.c
         src/ft_scale_z.c
-        src/ft_move_scale.c
         src/ft_move_xy_keys.c
         src/ft_move_z_keys.c
+        src/ft_move_scale.c
         src/ft_do_isometric.c
         src/ft_light_control.c
         src/ft_turning.c)

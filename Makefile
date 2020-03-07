@@ -47,23 +47,18 @@ SRC_LIST = main.c \
 				ft_atoi_base.c \
 				ft_isometric.c \
 				ft_draw_img_background.c \
-				ft_slide_x.c \
-				ft_slide_y.c \
 				ft_deal_key.c \
 				ft_read_points_to_struct.c \
 				ft_img_isometric.c \
 				ft_img_isometric2.c \
+				ft_img_isometric3.c \
 				ft_controls.c \
 				ft_coords_to_center.c \
-				ft_mouse_move.c \
-				ft_mouse_press.c \
-				ft_mouse_release.c \
 				ft_write_double.c \
 				ft_turn_coords.c \
-				ft_turn_coords_to_center.c \
 				ft_center_point.c \
 				ft_scale_points.c \
-				ft_draw_menu.c \
+				ft_draw_img_menu.c \
 				ft_draw_img_menu_strings.c \
 				ft_draw_img_all.c \
 				ft_move_scale.c \
@@ -72,6 +67,7 @@ SRC_LIST = main.c \
 				ft_do_isometric.c \
 				ft_light_control.c \
 				ft_turning.c \
+				ft_scale_z.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
