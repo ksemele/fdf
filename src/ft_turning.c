@@ -44,21 +44,23 @@ static void	ft_turn_iso1(t_mlx *mlx, double	angle_slide)
 	if (mlx->pressed == NUM_9)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		if (mlx->map.angle >= M_PI / 4)
-			mlx->map.angle = 3 * -(M_PI / 4);
-		mlx->map.angle += angle_slide;
+//		if (mlx->map.angle >= M_PI / 4)
+//			mlx->map.angle = 3 * -(M_PI / 4);
+		if (mlx->map.angle < M_PI / 4)
+			mlx->map.angle += angle_slide;
 	}
 	else if (mlx->pressed == NUM_7)
 	{
 		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-		i = 0;
-		while (i < 15)
-		{
-			if (mlx->map.angle >= M_PI / 4)
-				mlx->map.angle = 3 * -(M_PI / 4);
-			mlx->map.angle += angle_slide;
-			i++;
-		}
+//		i = 0;
+//		while (i < 15)
+//		{
+//			if (mlx->map.angle >= M_PI / 4)
+//				mlx->map.angle = 3 * -(M_PI / 4);
+			if (mlx->map.angle > -M_PI / 2)
+				mlx->map.angle -= angle_slide;
+//			i++;
+//		}
 	}
 }
 
