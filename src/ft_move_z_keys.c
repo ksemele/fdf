@@ -16,15 +16,14 @@ void		ft_move_z_keys(t_mlx *mlx)
 {
 	if (mlx->pressed == UP_NUM)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		if (mlx->scale_z < 10)
 			mlx->scale_z += 1;
 	}
 	if (mlx->pressed == DOWN_NUM)
 	{
-		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 		if (mlx->scale_z >= -10)
 			mlx->scale_z -= 1;
 	}
+	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 	ft_scale_z(mlx);
 }
