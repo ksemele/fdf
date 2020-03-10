@@ -28,8 +28,8 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx->angle_y = M_PI / 3;
 	mlx->scale = 1;
 	mlx->scale_z = 1;
-	mlx->win_x = 800;
-	mlx->win_y = 600;
+	mlx->win_x = 1600;
+	mlx->win_y = 1200;
 	mlx->light = 0;
 	return (mlx);
 }

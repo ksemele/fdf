@@ -16,30 +16,27 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
 	int			i;
 
-	if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
-			(int)point->y_d < mlx->win_y) //&& mlx->scale_z >= 0)
+//	if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
+//			(int)point->y_d < mlx->win_y && mlx->scale_z >= 0)
+//	{
+//		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
+////		mlx->pixels[i] = CYBER;
+////		mlx->pixels[i + 1] = CYBER >> 8;
+////		mlx->pixels[i + 2] = CYBER >> 16;
+//		mlx->pixels[i + 0] |= (char)point->color;
+//		mlx->pixels[i + 1] |= (char)((unsigned)point->color >> 8u);
+//		mlx->pixels[i + 2] |= (char)((unsigned)point->color >> 16u);
+//		mlx->pixels[i + 3] = (char)mlx->light;
+//	}
+//	else
+		if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
+			(int)point->y_d < mlx->win_y)// && mlx->scale_z < 0)
 	{
 		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
-		mlx->pixels[i + 0] |= (char)point->color;
-		mlx->pixels[i + 1] |= (char)((unsigned)point->color >> 8u);
-		mlx->pixels[i + 2] |= (char)((unsigned)point->color >> 16u);
+		mlx->pixels[i + 0] = (char)point->color;
+		mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
+		mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
 		mlx->pixels[i + 3] = (char)mlx->light;
-	}
-	else if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
-			(int)point->y_d < mlx->win_y && mlx->scale_z < 0)
-	{
-		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
-//		mlx->pixels[i + 0] = (char)point->color;
-//		mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
-//		mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
-//		mlx->pixels[i + 3] |= (char)mlx->light;
-		if((int)mlx->pixels[i] == BACKGROUND)
-		{
-			mlx->pixels[i + 0] |= (char)point->color;
-			mlx->pixels[i + 1] |= (char)((unsigned)point->color >> 8u);
-			mlx->pixels[i + 2] |= (char)((unsigned)point->color >> 16u);
-			mlx->pixels[i + 3] = (char)mlx->light;
-		}
 	}
 }
 

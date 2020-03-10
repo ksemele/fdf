@@ -96,6 +96,7 @@ typedef struct		s_map
 	int				total_points;
 	t_point			center;
 	double			angle;
+	int				angle_count;
 	int				iso;
 }					t_map;
 

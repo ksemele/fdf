@@ -31,7 +31,7 @@ static void			ft_draw_menu_bg(t_mlx *mlx)
 void				ft_draw_img_menu(t_mlx *mlx)
 {
 	mlx->win_menu_x = mlx->win_x;
-	mlx->win_menu_y = mlx->win_y / 7;
+	mlx->win_menu_y = mlx->win_y / 10;
 	mlx->img_menu_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_menu_x, \
 			mlx->win_menu_y);
 	mlx->pixels_menu = mlx_get_data_addr(mlx->img_menu_ptr, &mlx->bpp, \
