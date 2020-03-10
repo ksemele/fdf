@@ -21,7 +21,7 @@ static void			ft_draw_menu_bg(t_mlx *mlx)
 			* (mlx->bpp / 8));
 	pixel = (int *)(mlx->pixels_menu);
 	i = 0;
-	while (i <= mlx->win_menu_x * mlx->win_menu_y)
+	while (i < mlx->win_menu_x * mlx->win_menu_y)
 	{
 		pixel[i] = BACKGROUND << 1;
 		i++;

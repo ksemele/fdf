@@ -33,12 +33,12 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 //		mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
 //		mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
 //		mlx->pixels[i + 3] |= (char)mlx->light;
-		if((int)mlx->pixels[i] != BACKGROUND)
+		if((int)mlx->pixels[i] == BACKGROUND)
 		{
-			mlx->pixels[i + 0] = (char)point->color;
-			mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
-			mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
-			mlx->pixels[i + 3] |= (char)mlx->light;
+			mlx->pixels[i + 0] |= (char)point->color;
+			mlx->pixels[i + 1] |= (char)((unsigned)point->color >> 8u);
+			mlx->pixels[i + 2] |= (char)((unsigned)point->color >> 16u);
+			mlx->pixels[i + 3] = (char)mlx->light;
 		}
 	}
 }
