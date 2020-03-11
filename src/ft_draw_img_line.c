@@ -29,6 +29,7 @@ static void		ft_gradient_step(t_point *start, t_point *end, t_mlx *mlx)
 	int b;
 	int step;
 
+
 	end_p.int_color = end->color;
 	start_p.int_color = start->color;
 	r = end_p.color.red - start_p.color.red;
