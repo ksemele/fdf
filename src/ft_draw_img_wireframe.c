@@ -12,6 +12,38 @@
 
 #include <fdf.h>
 
+
+void		ft_draw_img_wireframe_rev(t_mlx mlx)
+{
+	int		x;
+	int		y;
+	int		next_x_y;
+	int		tmp;
+
+	y = mlx.map.len_y;
+	x = mlx.map.total_points - 1;
+	tmp = 0;
+	ft_draw_background(&mlx);
+	ft_coords_to_center(&mlx);
+	while (y > 0)
+	{
+		while (tmp <= mlx.map.total_points)
+		{
+			next_x_y = x - mlx.map.len_x;
+			if (mlx.map.px[x].y == mlx.map.px[x - 1].y && x >= 0)
+			{
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[x - 1], &mlx);
+			}
+			if (x - mlx.map.len_x < mlx.map.total_points && \
+				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
+			x--;
+			tmp++;
+		}
+		y--;
+	}
+}
+
 void		ft_draw_img_wireframe(t_mlx mlx)
 {
 	int		x;
