@@ -13,29 +13,28 @@
 #include <fdf.h>
 
 
-void		ft_draw_img_wireframe_rev(t_mlx mlx)
+static void		ft_draw_img_wireframe_rev(t_mlx mlx)
 {
 	int		x;
 	int		y;
 	int		next_x_y;
 	int		tmp;
 
-	y = mlx.map.len_y;
+	y = mlx.map.len_y - 1;
 	x = mlx.map.total_points - 1;
 	tmp = 0;
-	ft_draw_background(&mlx);
-	ft_coords_to_center(&mlx);
-	while (y > 0)
+//	ft_draw_background(&mlx);
+//	ft_coords_to_center(&mlx);
+	while (y >= 0)
 	{
-		while (tmp <= mlx.map.total_points)
+		while (tmp <= mlx.map.total_points)// && x - mlx.map.len_x >= 0)
 		{
 			next_x_y = x - mlx.map.len_x;
-			if (mlx.map.px[x].y == mlx.map.px[x - 1].y && x >= 0)
+			if (x > 0 && mlx.map.px[x].y == mlx.map.px[x - 1].y)
 			{
 				ft_draw_img_line(mlx.map.px[x], mlx.map.px[x - 1], &mlx);
 			}
-			if (x - mlx.map.len_x < mlx.map.total_points && \
-				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
+			if (x - mlx.map.len_x >= 0 && mlx.map.px[x].x == mlx.map.px[next_x_y].x)
 				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
 			x--;
 			tmp++;
@@ -44,7 +43,7 @@ void		ft_draw_img_wireframe_rev(t_mlx mlx)
 	}
 }
 
-void		ft_draw_img_wireframe(t_mlx mlx)
+static void		ft_draw_img_wireframe_direct(t_mlx mlx)
 {
 	int		x;
 	int		y;
@@ -52,8 +51,8 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 
 	y = 0;
 	x = 0;
-	ft_draw_background(&mlx);
-	ft_coords_to_center(&mlx);
+//	ft_draw_background(&mlx);
+//	ft_coords_to_center(&mlx);
 	while (y < mlx.map.len_y)
 	{
 		while (x + 1 <= mlx.map.total_points && x < mlx.map.total_points)
@@ -70,4 +69,15 @@ void		ft_draw_img_wireframe(t_mlx mlx)
 		}
 		y++;
 	}
+}
+
+void		ft_draw_img_wireframe(t_mlx mlx)
+{
+	ft_draw_background(&mlx);
+	ft_coords_to_center(&mlx);
+	if (mlx.map.revers_draw)
+		ft_draw_img_wireframe_rev(mlx);
+	else
+		ft_draw_img_wireframe_direct(mlx);
+
 }

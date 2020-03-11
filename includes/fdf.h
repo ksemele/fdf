@@ -21,6 +21,7 @@
 # define MALLOC_ERROR	"malloc can't allocate memory"
 # define CODE_ERROR		-1
 # define MEM_SIZE		64
+# define STEP_TURN		16
 
 /*
 ** -------------------------------- COLORS -------------------------------------
@@ -98,6 +99,7 @@ typedef struct		s_map
 	double			angle;
 	int				angle_count;
 	int				iso;
+	int				revers_draw;
 }					t_map;
 
 typedef struct		s_mouse
