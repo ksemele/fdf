@@ -31,5 +31,5 @@ void		ft_center_point(t_mlx *mlx)
 		i++;
 	}
 	mlx->map.center.x_d = round((double)mlx->win_x / 2);
-	mlx->map.center.y_d = round((double)mlx->win_y / 2);
+	mlx->map.center.y_d = round((double)(mlx->win_y - mlx->win_menu_y) / 2);
 }

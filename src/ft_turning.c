@@ -49,11 +49,11 @@ void		ft_turning(t_mlx *mlx)
 		else
 			mlx->map.revers_draw = 0;
 	}
-	if (mlx->map.angle_count >= 2 * STEP_TURN || mlx->map.angle_count <= 2 * -STEP_TURN)
+	if (mlx->map.angle_count >= 2 * STEP_TURN || \
+		mlx->map.angle_count <= 2 * -STEP_TURN)
 	{
 		mlx->map.angle = 0;
 		mlx->map.angle_count = 0;
 	}
-	ft_printf("ISO_ %d\tcount %d\tangle [%f]\trevers [%d]\n", mlx->map.iso,mlx->map.angle_count, mlx->map.angle, mlx->map.revers_draw);//TODO
 	ft_turn_coords(mlx);
 }

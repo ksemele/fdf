@@ -20,7 +20,7 @@ void		ft_coords_to_center(t_mlx *mlx)
 	while (i < mlx->map.total_points)
 	{
 		mlx->map.px[i].x_d = (mlx->map.px[i].x_w + mlx->map.center.x_d);
-		mlx->map.px[i].y_d = (mlx->map.px[i].y_w + mlx->map.center.y_d) + mlx->win_menu_y / 2;
+		mlx->map.px[i].y_d = (mlx->map.px[i].y_w + mlx->map.center.y_d);
 		i++;
 	}
 }

@@ -19,11 +19,10 @@ int				main(int argc, char **argv)
 	mlx = ft_create_t_mlx();
 	ft_check_args(argc, argv, mlx);
 	ft_read_points_to_struct(argv, mlx);
-	ft_printf("map x=%d\tmap y=%d\n", mlx->map.len_x, mlx->map.len_y);
-	ft_printf("total points %d\n", mlx->map.total_points);
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_x, mlx->win_y, "fdf");
-	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, mlx->win_x, \
+			mlx->win_y - mlx->win_menu_y);
 	mlx->pixels = mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, \
 			&mlx->width, &mlx->endian);
 	ft_draw_background(mlx);
@@ -31,7 +30,8 @@ int				main(int argc, char **argv)
 	ft_write_double(mlx);
 	ft_turn_coords(mlx);
 	ft_draw_img_wireframe(*mlx);
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img_ptr, 0, \
+			mlx->win_menu_y);
 	ft_draw_img_menu(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, \
 			mlx->img_menu_ptr, 0, 0);

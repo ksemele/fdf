@@ -30,6 +30,8 @@ t_mlx		*ft_create_t_mlx(void)
 	mlx->scale_z = 1;
 	mlx->win_x = 1600;
 	mlx->win_y = 1200;
+	mlx->win_menu_x = 1600;
+	mlx->win_menu_y = 120;
 	mlx->light = 0;
 	return (mlx);
 }

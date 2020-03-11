@@ -16,8 +16,8 @@ static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
 	int			i;
 
-		if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
-			(int)point->y_d < mlx->win_y)
+	if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
+		(int)point->y_d < (mlx->win_y - mlx->win_menu_y))
 	{
 		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
 		mlx->pixels[i + 0] = (char)point->color;
