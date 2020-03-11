@@ -16,6 +16,16 @@
 ** ft_printf("key is: int [%1$d]\n", key); for debug
 */
 
+static void		ft_iso_check(t_mlx *mlx)
+{
+	if (mlx->pressed == NUM_2)
+		mlx->map.iso = 2;
+	else if (mlx->pressed == NUM_1)
+		mlx->map.iso = 1;
+	else if (mlx->pressed == NUM_0)
+		mlx->map.iso = 0;
+}
+
 int				ft_deal_key(int key, t_mlx *mlx)
 {
 	mlx->pressed = key;
@@ -25,6 +35,7 @@ int				ft_deal_key(int key, t_mlx *mlx)
 		free(mlx->map.px);
 		exit(0);
 	}
+	ft_iso_check(mlx);
 	ft_light_control(mlx);
 	ft_move_xy_keys(mlx);
 	ft_turning(mlx);
