@@ -58,6 +58,14 @@
 ** ------------------------- Structures Definition -----------------------------
 */
 
+typedef struct		s_color_step
+{
+	int				step;
+	int				red_step;
+	int				green_step;
+	int				blue_step;
+}					t_color_step;
+
 typedef struct		s_color
 {
 	char			alpha : 8;
@@ -86,7 +94,7 @@ typedef struct		s_point
 	double			radius;
 	double			angle;
 	int				color;
-	t_color_point	color_u;
+	t_color_step	color_step;
 }					t_point;
 
 typedef struct		s_map
