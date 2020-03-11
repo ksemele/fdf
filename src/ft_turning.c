@@ -129,8 +129,6 @@ void		ft_turning(t_mlx *mlx)
 //		}
 //	}
 
-
-
 	if (mlx->map.angle_count >= 2 * STEP_TURN || mlx->map.angle_count <= 2 * -STEP_TURN)
 	{
 		mlx->map.angle = 0;
