@@ -156,8 +156,6 @@ typedef struct		s_mlx
 */
 
 void				ft_check_args(int argc, char **argv, t_mlx *mlx);
-//void				ft_check_line_points(char *line, t_mlx *mlx);
-//int					ft_increase_point_size(t_mlx *mlx);
 void				ft_error_print(char *str, t_mlx *mlx);
 t_mlx				*ft_create_t_mlx(void);
 void				ft_read_points_to_struct(char **argv, t_mlx *mlx);
