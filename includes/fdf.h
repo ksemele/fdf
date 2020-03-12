@@ -61,9 +61,9 @@
 typedef struct		s_color_step
 {
 	int				step;
-	double			red_step;
-	double			green_step;
-	double			blue_step;
+	int				red_step;
+	int				green_step;
+	int				blue_step;
 }					t_color_step;
 
 typedef struct		s_color
@@ -94,7 +94,6 @@ typedef struct		s_point
 	double			radius;
 	double			angle;
 	int				color;
-	t_color_point	buff;
 	t_color_step	color_step;
 }					t_point;
 
