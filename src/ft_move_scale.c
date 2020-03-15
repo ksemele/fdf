@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_mem_struct.c                             :+:      :+:    :+:   */
+/*   ft_move_scale.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 14:10:48 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/19 14:10:50 by cghael           ###   ########.fr       */
+/*   Created: 2020/03/07 16:13:37 by ksemele           #+#    #+#             */
+/*   Updated: 2020/03/07 16:13:38 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_memory		*ft_create_mem_struct(void)
+void		ft_move_scale(t_mlx *mlx)
 {
-	t_memory	*tmp;
-
-	if (!(tmp = malloc(sizeof(t_memory))))
-		ft_error_print("ft_create_mem_struct", NULL);
-	ft_bzero(tmp, sizeof(t_memory));
-	return (tmp);
+	if (mlx->pressed == NUM_PLUS)
+	{
+		if (mlx->scale < 3)
+			mlx->scale *= 1.1;
+	}
+	if (mlx->pressed == NUM_MINUS)
+	{
+		if (mlx->scale > 0.1)
+			mlx->scale /= 1.1;
+	}
 }

@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fmod.c                                          :+:      :+:    :+:   */
+/*   ft_img_isometric.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 12:29:06 by ksemele           #+#    #+#             */
-/*   Updated: 2020/02/19 12:29:08 by ksemele          ###   ########.fr       */
+/*   Created: 2020/02/28 11:51:55 by ksemele           #+#    #+#             */
+/*   Updated: 2020/02/28 11:51:57 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-float		ft_fmod(float i)
+void				ft_img_isometric(t_mlx *mlx)
 {
-	if (i < 0)
-		return (-i);
-	else
-		return(i);
+	int		i;
+	double	tmp;
+
+	i = 0;
+	while (i < mlx->map.total_points)
+	{
+		tmp = mlx->map.px[i].x_w;
+		mlx->map.px[i].x_w = \
+				round(mlx->map.px[i].x_w * cos(mlx->angle_x) \
+				- (double)mlx->map.px[i].y_w * cos(mlx->angle_x));
+		mlx->map.px[i].y_w = \
+				round(mlx->map.px[i].y_w * sin(mlx->angle_x) \
+				+ tmp * sin(mlx->angle_x) - mlx->map.px[i].z_w);
+		i++;
+	}
 }

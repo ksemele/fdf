@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_mem_struct.c                             :+:      :+:    :+:   */
+/*   ft_coords_to_center.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 14:10:48 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/19 14:10:50 by cghael           ###   ########.fr       */
+/*   Created: 2020/03/02 11:54:34 by cghael            #+#    #+#             */
+/*   Updated: 2020/03/02 11:54:36 by cghael           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include <fdf.h>
 
-t_memory		*ft_create_mem_struct(void)
+void		ft_coords_to_center(t_mlx *mlx)
 {
-	t_memory	*tmp;
+	int		i;
 
-	if (!(tmp = malloc(sizeof(t_memory))))
-		ft_error_print("ft_create_mem_struct", NULL);
-	ft_bzero(tmp, sizeof(t_memory));
-	return (tmp);
+	i = 0;
+	while (i < mlx->map.total_points)
+	{
+		mlx->map.px[i].x_d = (mlx->map.px[i].x_w + mlx->map.center.x_d);
+		mlx->map.px[i].y_d = (mlx->map.px[i].y_w + mlx->map.center.y_d);
+		i++;
+	}
 }

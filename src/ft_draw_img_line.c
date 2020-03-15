@@ -12,51 +12,41 @@
 
 #include "fdf.h"
 
-//static void		ft_draw_img_pixel(t_mlx *mlx_s, t_point point)
-//{
-//	int		i;
-//
-//	if (point.x < mlx_s->window_x && point.y >= 0 && point.y < mlx_s->window_y)
-//	{
-//		i = (point.x * mlx_s->bits_per_pixel / 8) + (point.y * mlx_s->size_line);
-//		mlx_s->data_addr[i] = (char)point.color;
-//		ft_printf("color=%d\n", point.color);
-////		mlx_s->data_addr[++i] = point.color >> 8;
-////		mlx_s->data_addr[++i] = point.color >> 16;
-//	}
-//}
-
-
-
-void		ft_draw_img_line(t_point start, t_point end, t_mlx *mlx_s)
+static void		ft_draw_img_pixel(t_mlx *mlx, t_point *point)
 {
-	float	x_step;
-	float	y_step;
-	float	max;
+	int			i;
 
-	ft_isometric(&start, mlx_s);
-	ft_isometric(&end, mlx_s);
-	x_step = end.x_f - start.x_f;
-	y_step = end.y_f - start.y_f;
-	max = ft_fisbigger(ft_fmod(x_step), ft_fmod(y_step));
+	if ((int)point->x_d < mlx->win_x && (int)point->y_d >= 0 && \
+		(int)point->y_d < (mlx->win_y - mlx->win_menu_y))
+	{
+		i = ((int)point->x_d * mlx->bpp / 8) + ((int)point->y_d * mlx->width);
+		mlx->pixels[i + 0] = (char)point->color;
+		mlx->pixels[i + 1] = (char)((unsigned)point->color >> 8u);
+		mlx->pixels[i + 2] = (char)((unsigned)point->color >> 16u);
+		mlx->pixels[i + 3] = (char)mlx->light;
+	}
+}
+
+void			ft_draw_img_line(t_point start, t_point end, t_mlx *mlx)
+{
+	double		x_step;
+	double		y_step;
+	double		max;
+
+	x_step = end.x_d - start.x_d;
+	y_step = end.y_d - start.y_d;
+	max = fmax(fabs(x_step), fabs(y_step));
 	x_step /= max;
 	y_step /= max;
-
-	int	*image;
-	int	i;
-
-	image = (int *)(mlx_s->data_addr);
-	i = 0;
-	while((int)(end.x_f - start.x_f) || (int)(end.y_f - start.y_f))
+	if (start.color != end.color)
+		start.color += end.color;
+	while ((int)(end.x_d - start.x_d) || (int)(end.y_d - start.y_d))
 	{
-		start.color += (int)(end.color / ft_isbigger(ft_fmod(x_step), ft_fmod(y_step)));//todo how change colors?
-//		mlx_pixel_put(mlx_s->mlx_ptr, mlx_s->win_ptr, (int)start.x_f, \
-//				(int)start.y_f, start.color);
-//		ft_draw_img_pixel(mlx_s, start);
-		image[(int)start.x_f] = CYBER;
-		start.x_f += x_step;
-		start.y_f += y_step;
-		i++;
+		if ((int)start.x_d >= 0)
+		{
+			ft_draw_img_pixel(mlx, &start);
+		}
+		start.x_d += x_step;
+		start.y_d += y_step;
 	}
-//	mlx_put_image_to_window(mlx_s->mlx_ptr, mlx_s->win_ptr, mlx_s->img_ptr, 0, 0);
 }

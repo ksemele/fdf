@@ -14,18 +14,24 @@
 
 t_mlx		*ft_create_t_mlx(void)
 {
-	t_mlx	*mlx_s;
+	t_mlx	*mlx;
 
-	if (!(mlx_s = malloc(sizeof(t_mlx))))
+	if (!(mlx = malloc(sizeof(t_mlx))))
 		ft_error_print(MALLOC_ERROR, NULL);
-	ft_bzero(mlx_s, sizeof(t_mlx));
-	mlx_s->mlx_ptr = NULL;
-	mlx_s->win_ptr = NULL;
-	mlx_s->img_ptr = NULL;
-//	mlx_s->data_addr = NULL;
-	mlx_s->map.point = NULL;
-	mlx_s->window_x = 800;
-	mlx_s->window_y = 600;
-	mlx_s->angle = 0.8;
-	return (mlx_s);
+	ft_bzero(mlx, sizeof(t_mlx));
+	mlx->mlx_ptr = NULL;
+	mlx->win_ptr = NULL;
+	mlx->img_ptr = NULL;
+	mlx->pixels = NULL;
+	mlx->color = CYBER;
+	mlx->angle_x = M_PI / 6;
+	mlx->angle_y = M_PI / 3;
+	mlx->scale = 1;
+	mlx->scale_z = 1;
+	mlx->win_x = 1600;
+	mlx->win_y = 1200;
+	mlx->win_menu_x = 1600;
+	mlx->win_menu_y = 120;
+	mlx->light = 0;
+	return (mlx);
 }

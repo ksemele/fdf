@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_mem_struct.c                             :+:      :+:    :+:   */
+/*   ft_light_control.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cghael <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ksemele <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 14:10:48 by cghael            #+#    #+#             */
-/*   Updated: 2020/02/19 14:10:50 by cghael           ###   ########.fr       */
+/*   Created: 2020/03/07 15:47:46 by ksemele           #+#    #+#             */
+/*   Updated: 2020/03/07 15:47:47 by ksemele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_memory		*ft_create_mem_struct(void)
+void		ft_light_control(t_mlx *mlx)
 {
-	t_memory	*tmp;
-
-	if (!(tmp = malloc(sizeof(t_memory))))
-		ft_error_print("ft_create_mem_struct", NULL);
-	ft_bzero(tmp, sizeof(t_memory));
-	return (tmp);
+	if (mlx->pressed == DIG_PLUS)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->light += 10;
+	}
+	if (mlx->pressed == DIG_MINUS)
+	{
+		mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+		mlx->light -= 10;
+	}
 }

@@ -14,7 +14,7 @@
 
 #define MAX_LONG 2147483648
 
-static char						f_znaki(unsigned char str)
+static char						ft_znaki(unsigned char str)
 {
 	if (str == ' ' || str == '\t' || str == '\n'
 		|| str == '\v' || str == '\f' || str == '\r')
@@ -35,9 +35,15 @@ static int						ft_base(char c, int base)
 	while (i < base)
 	{
 		if (c == s_b[i] || c == s_s[i])
+		{
+			free(s_b);
+			free(s_s);
 			return (i);
+		}
 		i++;
 	}
+	free(s_b);
+	free(s_s);
 	return (-1);
 }
 
@@ -47,7 +53,7 @@ int								ft_atoi_base(const char *str, int base)
 	int							znak;
 
 	res = 0;
-	while (f_znaki(*str))
+	while (ft_znaki(*str))
 		str++;
 	znak = (*str == '-') ? -1 : 1;
 	if ((*str == '+') || (*str == '-'))

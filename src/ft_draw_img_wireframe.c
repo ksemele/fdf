@@ -12,31 +12,63 @@
 
 #include <fdf.h>
 
-void		ft_draw_img_wireframe(t_mlx mlx_s)
+static void		ft_draw_img_wireframe_rev(t_mlx mlx)
 {
-	int		x;
-	int		y;
+	int			x;
+	int			y;
+	int			next_x_y;
+	int			tmp;
+
+	y = mlx.map.len_y - 1;
+	x = mlx.map.total_points - 1;
+	tmp = 0;
+	while (y >= 0)
+	{
+		while (tmp <= mlx.map.total_points)
+		{
+			next_x_y = x - mlx.map.len_x;
+			if (x > 0 && mlx.map.px[x].y == mlx.map.px[x - 1].y)
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[x - 1], &mlx);
+			if (x - mlx.map.len_x >= 0 && \
+				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
+			x--;
+			tmp++;
+		}
+		y--;
+	}
+}
+
+static void		ft_draw_img_wireframe_direct(t_mlx mlx)
+{
+	int			x;
+	int			y;
+	int			next_x_y;
 
 	y = 0;
 	x = 0;
-	ft_draw_background(&mlx_s);//TODO  WORKING! %)
-	while (y <= mlx_s.map.len_y)
+	while (y < mlx.map.len_y)
 	{
-		while (x <= (mlx_s.map.len_x * mlx_s.map.len_y))
+		while (x + 1 <= mlx.map.total_points && x < mlx.map.total_points)
 		{
-			if (mlx_s.map.point[x].y == mlx_s.map.point[x + 1].y)
-			{
-				ft_draw_img_line(mlx_s.map.point[x],
-							 mlx_s.map.point[x + 1], &mlx_s);
-			}
-			if (mlx_s.map.point[x].x == mlx_s.map.point[x + mlx_s.map.len_x].x)
-			{
-				ft_draw_img_line(mlx_s.map.point[x], \
-						mlx_s.map.point[x + mlx_s.map.len_x], &mlx_s);
-			}
+			next_x_y = x + mlx.map.len_x;
+			if (mlx.map.px[x].y == mlx.map.px[x + 1].y && x >= 0)
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[x + 1], &mlx);
+			if (x + mlx.map.len_x < mlx.map.total_points && \
+				mlx.map.px[x].x == mlx.map.px[next_x_y].x)
+				ft_draw_img_line(mlx.map.px[x], mlx.map.px[next_x_y], &mlx);
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(mlx_s.mlx_ptr, mlx_s.win_ptr, mlx_s.img_ptr, 0, 0);
+}
+
+void			ft_draw_img_wireframe(t_mlx mlx)
+{
+	ft_draw_background(&mlx);
+	ft_coords_to_center(&mlx);
+	if (mlx.map.revers_draw)
+		ft_draw_img_wireframe_rev(mlx);
+	else
+		ft_draw_img_wireframe_direct(mlx);
 }

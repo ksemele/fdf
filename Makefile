@@ -25,7 +25,8 @@ MINILIBX = $(MINILIBX_DIR)libmlx.a
 MINILIBX_DIR = ./minilibx_o/
 MINILIBX_HEADERS = $(MINILIBX_DIR)
 
-HEADERS_LIST = fdf.h\
+HEADERS_LIST = fdf.h \
+				keys.h
 
 HEADERS_DIR = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIR), $(HEADERS_LIST))
@@ -38,19 +39,39 @@ SRC_LIST = main.c \
 				ft_draw_line.c \
 				ft_draw_img_line.c \
 				ft_fisbigger.c \
-				ft_fmod.c \
+				ft_fabsf.c \
 				ft_check_line_points.c \
 				ft_draw_wireframe.c \
 				ft_draw_img_wireframe.c \
 				ft_increase_point_size.c \
 				ft_atoi_base.c \
-				ft_write_points.c \
 				ft_isometric.c \
 				ft_draw_img_background.c \
+				ft_deal_key.c \
+				ft_read_points_to_struct.c \
+				ft_img_isometric.c \
+				ft_img_isometric2.c \
+				ft_img_isometric3.c \
+				ft_controls.c \
+				ft_coords_to_center.c \
+				ft_write_double.c \
+				ft_turn_coords.c \
+				ft_center_point.c \
+				ft_scale_points.c \
+				ft_draw_img_menu.c \
+				ft_draw_img_menu_strings.c \
+				ft_draw_img_all.c \
+				ft_move_scale.c \
+				ft_move_xy_keys.c \
+				ft_move_z_keys.c \
+				ft_do_isometric.c \
+				ft_light_control.c \
+				ft_turning.c \
+				ft_scale_z.c \
 
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
-OBJ_DIR= objects/
+OBJ_DIR = objects/
 OBJ_LIST = $(patsubst %.c, %.o, $(SRC_LIST))
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 
@@ -74,7 +95,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(NAME): $(GRN)$(OBJ_DIR) created$(END)"
 
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS)
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADERS) $(LIBFT_HEADERS)libft.h $(HEADERS)
 	@$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 	@echo "$(GRN).$(END)\c"
 
